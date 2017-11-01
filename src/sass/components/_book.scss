@@ -2,7 +2,7 @@
 .book{
     width: 295px;
     //min-height: 340px;
-    background-color: rgb(126, 124, 245);
+    box-shadow: 0 0 5px #888;
     float: left;
     margin-right: 2%;
     margin-bottom: 2%;
@@ -11,7 +11,7 @@
     font-family: Josefin Slab;
     word-wrap:break-word;
     padding-bottom: 0.7rem;
-    box-shadow: 3px 3px 3px #777;
+    background-color: white;
     //position: relative;
     
 }
