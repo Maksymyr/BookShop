@@ -3,6 +3,8 @@ import Header from '../components/Header'
 
 import { Route, Switch, Link } from 'react-router-dom';
 
+import BookList from '../components/BookList';
+
 export default class MainLayout extends React.Component {
     render() {
         return (
