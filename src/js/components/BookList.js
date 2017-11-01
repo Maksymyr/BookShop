@@ -2,6 +2,8 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
+import Book from './Book';
+
 const mapStateToProps = (state, ownProps) => {
     return {books: state.books}
 }
@@ -9,11 +11,11 @@ const mapStateToProps = (state, ownProps) => {
 @connect (mapStateToProps)
 export default class BookList extends React.Component {
     render() {
-        console.log(this.props.books);
+        // console.log(this.props.books);
             return (
             <div className="book-list-main">
                 <div className="book-list">
-                    test
+                    {this.props.books.map((item, index) => <Book item={item} key={index} index={index} />)}
                 </div>
             </div>
         )

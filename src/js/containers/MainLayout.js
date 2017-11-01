@@ -10,6 +10,7 @@ export default class MainLayout extends React.Component {
     render() {
         return (
             <div className="wrapper">
+                <Header />
                 {/*<Header />     
                 1. Search;
                 2. Slider;

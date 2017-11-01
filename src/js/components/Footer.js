@@ -29,9 +29,9 @@ export default class Footer extends React.Component{
                     </div>
                     <div className='socials-wrapper'>
                         <ul>
-                            <li><a className='contacts-item fb' href='https://www.facebook.com/'><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            <li><a className='contacts-item tw' href='https://twitter.com/'><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                            <li><a className='contacts-item goog' href='https://google.com/'><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                            <li><a className='contacts-item fb' href='https://www.facebook.com/'><i className="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a className='contacts-item tw' href='https://twitter.com/'><i className="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a className='contacts-item goog' href='https://google.com/'><i className="fa fa-google-plus" aria-hidden="true"></i></a></li>
                         </ul>
                     </div>
                     <div className='subscribe-wrapper'>
