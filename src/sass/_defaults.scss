@@ -1,6 +1,6 @@
 $blue: #006ec5;
 $grey: #585858;
-$accent: rgb(243, 239, 24);
+$accent: rgb(255, 255, 255);
 $darkAccent: #191b17;
 * {
     margin: 0;
@@ -35,18 +35,10 @@ body {
     margin: auto;
     width: 80%;
     display: table;
+    background-color: rgb(229, 229, 233),
     // padding-top: 30px;
 }
-.slider {
-    width: 80%;
-    height: 250px;
-    font-size: 50px;
-    text-align: center;
-    margin: auto;
-    padding: 80px 0;
-    box-sizing: border-box;
-    color: white;
-}
+
 .notify {
     position: fixed;
     font-size: 24px;

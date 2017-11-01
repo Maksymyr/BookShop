@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-
+import Category from '../components/Category'
 import { Route, Switch, Link } from 'react-router-dom';
 
 import BookList from '../components/BookList';
@@ -24,13 +24,14 @@ export default class MainLayout extends React.Component {
                 1. Filter;
                 2. Books;
                 =====> Maks*/}
+                <Category />
                 <Switch>
                     <Route exact path="/" component={BookList}/>
                     { /*<Route path="/post-:postId" component={PostView}/>
                     <Route path="/add" component={AddPost}/> */}
                     <Route path="*" component={() => <div>Page Not Found</div>}/>
                 </Switch>
-                <Footer />
+                {/* <Footer /> */}
                 {/*<Footer />        
                 1. Copyrights;
                 2. Contacts;
