@@ -1,6 +1,6 @@
 const middleware = store => next => action => {
     next(action);
-    localStorage.setItem("Store", JSON.stringify(store.getState().posts));
+    localStorage.setItem("Store", JSON.stringify(store.getState()));
     return;
 
 }
