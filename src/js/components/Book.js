@@ -9,7 +9,7 @@ const mapStateToProps = (state, ownProps) => {
 @connect (mapStateToProps)
 export default class Book extends React.Component {
     render() {
-        console.log(this.props.item);
+        // console.log(this.props.item);
             return (
             <div className="book">
                 <div className="book-inner">

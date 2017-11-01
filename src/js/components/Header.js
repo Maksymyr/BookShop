@@ -13,13 +13,18 @@ export default class MainLayout extends React.Component {
         }
     }
 
+
     render(){
         return(
             <header className="header">
                 <Link to='/'><h1 className="page-title">Book Shop</h1></Link>
-                <input type='text' onKeyPress={this.search} className='search' ref='search'/>
-                <Link to='/basket'><div className='basket'></div></Link>
-                <Link to='/room'><div className='room'></div></Link>
+                <div className='head-nav'>
+                    <input type='text' onKeyPress={this.search} className='search' ref='search'/>
+                    <Link to='/basket'><div style={{backgroundImage: 'url('+ require("../../icon/bascket.png")+')'}} className='basket'></div></Link>
+                    <Link to='/room'><div className='room'></div></Link>
+                </div>
+                <div className='head-slider'>
+                </div>
             </header>
         );
     }
