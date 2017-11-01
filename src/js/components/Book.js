@@ -13,7 +13,13 @@ export default class Book extends React.Component {
             return (
             <div className="book">
                 <div className="book-inner">
-                    <p>{this.props.item.name}</p>
+                    {/* <div className="future"></div> */}
+                    <img src={this.props.item.img}/>
+                    <p className="book_text">{this.props.item.name}</p>
+                    <p className="book_author">{this.props.item.author}</p>
+                    {this.props.item.seria? <p className="book_seria">{"Серия: " +this.props.item.seria}</p>: null}
+                    <p className="book_price">{this.props.item.price + " грн."}</p>
+                    
                     
                 </div>
             </div>
