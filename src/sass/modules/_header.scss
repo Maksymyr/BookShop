@@ -1,17 +1,53 @@
 header.header {
+  width: 100%;
+  height: 168px;
+  background: white;
+  a{
+    text-decoration: none;
+  }
+  h1{
+    font-family: 'Josefin Slab', serif;
+    color: #2c2525;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom:20px; 
+  }
   
-  h3 {
-    margin-bottom: 10px;
-  }
+.head-nav{
+  margin: 0 auto;
+  width: 100%;
+  height: 92px;
+  padding: 20px;
+  background: #2c2525;
 
-  ul.tasks {
-    margin: 0 20px 20px;
-    li {
-      padding-top: 8px;
-      padding-bottom: 8px;
-      &:not(:last-child) {
-        border-bottom: solid 1px #444;
-      }
-    }
+  input{
+    width: 60%;
+    height: 50px;
+    font-size: 20px;
+    float: left;
+    border-radius: 20px; 
+    border:none;
+    padding-left: 10px;
+
   }
+  a{
+    float: right;
+  }
+  .basket{
+    width: 50px;
+    height: 50px;
+    // background-image: url(../../icon/bascket.png);
+    background-size:100% 100%; 
+    padding-right: 10px; 
+  }
+  
+  .room{
+    width: 50px;
+    height: 50px;
+    background-image: url('../icon/room.png');
+    background-size:100% 100%; 
+    margin-right: 10px; 
+  }
+}
+
 }
