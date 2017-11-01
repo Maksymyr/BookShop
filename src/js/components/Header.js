@@ -10,7 +10,6 @@ export default class MainLayout extends React.Component {
             let t= this.refs.search.value
             this.refs.search.value='';
             return (this.props.history.push(`/search/${t}`))
-            
         }
     }
 
