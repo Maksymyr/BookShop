@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 import { Route, Switch, Link } from 'react-router-dom';
 
@@ -28,6 +29,7 @@ export default class MainLayout extends React.Component {
                     <Route path="/add" component={AddPost}/> */}
                     <Route path="*" component={() => <div>Page Not Found</div>}/>
                 </Switch>
+                <Footer />
                 {/*<Footer />        
                 1. Copyrights;
                 2. Contacts;
