@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Category from '../components/Category'
+import Basket from '../components/Basket'
 import { Route, Switch, Link } from 'react-router-dom';
 
 import BookList from '../components/BookList';
@@ -40,6 +41,7 @@ export default class MainLayout extends React.Component {
                     <Route exact path="/" component={BookList}/>
                     <Route path="/category-:id" component= {() =><CategoryList arrayTypes={this.state.types} />}/>
                     {/* <Route path="/add" component={AddPost}/> */}
+                    <Route path="/basket" component={Basket}/>
                     <Route path="*" component={() => <div>Page Not Found</div>}/>
                 </Switch>
                 <Footer />
