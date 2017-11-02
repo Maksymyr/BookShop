@@ -31,6 +31,7 @@ export default class MainLayout extends React.Component {
                     <Route path="*" component={() => <div>Page Not Found</div>}/>
                 </Switch>
                 <Footer />
+
             </div>
         ); 
     }
