@@ -1,5 +1,5 @@
 export default {
-inbasket: [],
+    inbasket: [],
 
     books: [
         { futured: false, name:  "Depeche Mode: Обнаженные до костей", author: "Джонатан Миллер", price: 507, type: "Искусство/Фотография", seria: "Дискография", img: require('../../image/artbook1.jpg'),

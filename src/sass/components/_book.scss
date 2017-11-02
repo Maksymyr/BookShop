@@ -71,7 +71,7 @@
 
 }
 
-  #fgh{
+  #book_buy{
     display: inline-block;
     border-radius: 5px;
     padding: 7px 12px;
@@ -80,7 +80,7 @@
     // margin: 20px;
     color: white;
     background: #46a48c ;
-    box-shadow: 0 5px 0 #37806c;
+    box-shadow: 2px 4px 0 #37806c;
     position: absolute;
     bottom: 12px;
     //right: 105px;
@@ -88,7 +88,8 @@
     text-decoration: none;
     &:active{
         box-shadow: none;
-        bottom: 7px;
+        bottom: 8px;
+        right: 10px;
     }
     
   }

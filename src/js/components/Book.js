@@ -2,9 +2,9 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import { bindActionCreators} from 'redux';
-import {futureBook} from '../actions';
+import {futureBook, addBasket} from '../actions';
 
-const mapDispatchToProps = dispatch => ( bindActionCreators({ futureBook }, dispatch) );
+const mapDispatchToProps = dispatch => ( bindActionCreators({ futureBook, addBasket }, dispatch) );
 
 const mapStateToProps = (state, ownProps) => {
     return {books: state.books, futured: state.futured}
@@ -18,7 +18,11 @@ export default class Book extends React.Component {
 
     }
     
-
+    handleBasket =(e) => {
+        e.preventDefault();
+        console.log(this.props.item);
+        this.props.addBasket(this.props.item)
+    }
     handleClick = () => {
         console.log(this.props.item.futured)
         console.log(this.props.index)
@@ -31,7 +35,7 @@ export default class Book extends React.Component {
             return (
             <div className="book">
                 <p className="book_price">{this.props.item.price + " грн."}</p>
-                <a id="fgh" href="#btn">Купить</a>
+                <a id="book_buy" onClick={this.handleBasket} href="#btn">Купить</a>
                 <div className="book-inner">
 
                      <div className="future" ref="futures" style={this.props.item.futured?{backgroundImage: 'url('+ require("../../icon/heart-fill.png")+')'}:{backgroundImage: 'url('+ require("../../icon/heart-empty1.png")+')'} } onClick={this.handleClick}></div> 
