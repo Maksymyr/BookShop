@@ -10,12 +10,19 @@ const mapStateToProps = (state, ownProps) => {
 
 @connect (mapStateToProps)
 export default class BookList extends React.Component {
+    state = {
+
+    }
     render() {
         // console.log(this.props.books);
             return (
+
             <div className="book-list-main">
                 <div className="book-list">
-                    {this.props.books.map((item, index) => <Book item={item} key={index} index={index} />)}
+                    {this.props.books.map((item, index) =><Book item={item} key={index} index={index} />
+                        
+                    
+                    )}
                 </div>
             </div>
         )
