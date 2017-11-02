@@ -1,4 +1,7 @@
-export default {
+
+
+export default { 
+    search: "",
     category: ["Искусство/Фотография", "Хобби", "Фэнтези", "История", "ЛитРПГ", "Детектив", "Триллер"],
     inbasket: [],
     books: [

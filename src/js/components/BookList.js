@@ -18,8 +18,13 @@ export default class BookList extends React.Component {
                         {!!this.props.match.params.id ? 
                             this.props.books.map((item, index) => {
                                 if (this.props.category[this.props.match.params.id] == item.type) {
-                                    console.log(item);
+                                    
                                    return <Book item={item} key={index} index={index}/>
+                                }
+                                if (item.name.toLowerCase().includes(this.props.match.params.id.toLowerCase())
+                                ||item.author.toLowerCase().includes(this.props.match.params.id.toLowerCase())
+                                ||item.seria.toLowerCase().includes(this.props.match.params.id.toLowerCase())) {
+                                    return <Book item={item} key={index} index={index}/>
                                 }
                             }) :
                             this.props.books.map((item, index) =><Book item={item} key={index} index={index}/>)}
