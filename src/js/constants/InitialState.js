@@ -1,5 +1,4 @@
-
-export default { 
+export default {
     category: ["Искусство/Фотография", "Хобби", "Фэнтези", "История", "ЛитРПГ", "Детектив", "Триллер"],
     inbasket: [],
     books: [
