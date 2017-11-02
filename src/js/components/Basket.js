@@ -7,7 +7,6 @@ const mapStateToProps = (state) => {
     }else{
         return {books: JSON.parse(localStorage.getItem('basket'))}
     }
-{/*dfsdf*/}
 }
 @connect(mapStateToProps)
 export default class Basket extends React.Component {
