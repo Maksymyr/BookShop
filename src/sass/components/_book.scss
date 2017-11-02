@@ -4,7 +4,7 @@
     min-height: 465px;
     box-shadow: 0 0 5px #888;
     float: left;
-    margin-right: 3.5%;
+   // margin-right: 3.3%;
     margin-bottom: 2%;
     padding-left: 1%;
     padding-top: 1%;
@@ -19,6 +19,7 @@
 .book_text{
     font-weight: bold;
     font-size: 1.6rem;
+    width: 78%;
 }
 .book_link{
     text-decoration: none;
@@ -36,6 +37,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-around;
     margin-right: 0;
 
    // min-height: 600px;
@@ -70,7 +72,9 @@
     z-index: 10;
     background-size: 100%, 100%;
     position: absolute;
+    // float: right;
     right: 18px;
     bottom: 58px;
+    //background-color: red;
 
 }

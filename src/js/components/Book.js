@@ -2,8 +2,10 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
+
+
 const mapStateToProps = (state, ownProps) => {
-    return {books: state.books}
+    return {books: state.books, futured: state.futured}
 }
 
 @connect (mapStateToProps)
@@ -20,10 +22,16 @@ export default class Book extends React.Component {
     }
 
     handleFill = () => {
-        console.log(this.refs.futures);
+       // console.log(this.refs.futures);
     
         this.refs.futures.style.background = 'url('+ require("../../icon/heart-fill.png")+')';
         this.refs.futures.style.backgroundSize= "100% 100%"
+        
+    }
+
+    handleClick = () => {
+        console.log(this.props.item.futured)
+        console.log(this.props.index)
         
     }
 
@@ -33,7 +41,7 @@ export default class Book extends React.Component {
             <div className="book">
                 <p className="book_price">{this.props.item.price + " грн."}</p>
                 <div className="book-inner">
-                     <div className="future" ref="futures" style={{backgroundImage: 'url('+ require("../../icon/heart-empty1.png")+')'}} onMouseEnter ={this.handleFill} onMouseLeave={this.handleEmpty}></div> 
+                     <div className="future" ref="futures" style={{backgroundImage: 'url('+ require("../../icon/heart-empty1.png")+')'}} onClick={this.handleClick} onMouseEnter ={this.handleFill} onMouseLeave={this.handleEmpty}></div> 
                     <Link to="/"><img src={this.props.item.img}/></Link>
                     <p className="book_text"><Link className="book_link" to="/">{this.props.item.name}</Link></p>
                     <p className="book_author">{this.props.item.author}</p>
