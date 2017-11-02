@@ -1,0 +1,31 @@
+.category_wrap{
+width: 20%;
+min-height: 100vh;
+background-color: white;
+box-shadow: 0 0 5px #888;
+float: left;
+margin-right: 3%;
+}
+.category_wrap h3{
+    margin-bottom: 5px;
+    margin-left: 3px;;
+    font-size: 18px;
+}
+.category_body{
+    
+}
+
+.category__link{
+    word-wrap: break-word;
+    display: block;
+    min-height: 30px;
+    text-align: center;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: black;
+    &:hover{
+        background-color: rgb(245, 237, 237);
+    }
+
+}
+
