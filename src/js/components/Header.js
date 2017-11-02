@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import { withRouter } from 'react-router';
 
 @withRouter
-export default class MainLayout extends React.Component {
+export default class Header extends React.Component {
 
     search=(event)=>{
         if (event.key === "Enter") {
