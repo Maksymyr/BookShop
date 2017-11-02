@@ -46,7 +46,6 @@ export default class MainLayout extends React.Component {
                 {/*<Footer />        
                 1. Copyrights;
                 2.t's links;
-                4. Recently looked goods;
                 =====> Maya*/}
 
             </div>
