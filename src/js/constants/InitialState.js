@@ -1,10 +1,6 @@
 export default {
-    inbasket: [ 
-        { futured: false, name:  "Depeche Mode: Обнаженные до костей", author: "Джонатан Миллер", price: 507, type: "Искусство/Фотография", seria: "Дискография", img: require('../../image/artbook1.jpg'),
-        description: "Книга рассказывает о становлении поистине культовой британской группы, повлиявшей на всю мировую поп-музыку последних десятилетий. ", rating: 3, inStock: true},
-        { futured: false, name:  "Depeche Mode: Обнаженные до костей", author: "Джонатан Миллер", price: 507, type: "Искусство/Фотография", seria: "Дискография", img: require('../../image/artbook1.jpg'),
-        description: "Книга рассказывает о становлении поистине культовой британской группы, повлиявшей на всю мировую поп-музыку последних десятилетий. ", rating: 3, inStock: true}],
-
+    category: ["Искусство/Фотография", "Хобби", "Фэнтези", "История", "ЛитРПГ", "Детектив", "Триллер"],
+    inbasket: JSON.parse(localStorage.getItem('Basket')) !== null ? JSON.parse(localStorage.getItem('Basket')) : false || [],
     books: [
         { futured: false, name:  "Depeche Mode: Обнаженные до костей", author: "Джонатан Миллер", price: 507, type: "Искусство/Фотография", seria: "Дискография", img: require('../../image/artbook1.jpg'),
         description: "Книга рассказывает о становлении поистине культовой британской группы, повлиявшей на всю мировую поп-музыку последних десятилетий. ", rating: 3, inStock: true},
