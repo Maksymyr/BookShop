@@ -20,6 +20,10 @@ export default class BookList extends React.Component {
                                 if (this.props.category[this.props.match.params.id] == item.type) {
                                     console.log(item);
                                    return <Book item={item} key={index} index={index}/>
+                                } else if(this.props.match.params.id == "love"){
+                                    if(item.futured == true){
+                                        return <Book item={item} key={index} index={index}/>
+                                    }
                                 }
                             }) :
                             this.props.books.map((item, index) =><Book item={item} key={index} index={index}/>)}

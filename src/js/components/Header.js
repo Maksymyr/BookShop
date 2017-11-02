@@ -26,7 +26,7 @@ export default class MainLayout extends React.Component {
                             <div className='room'></div>
                             <div className='room-down'>
                                 <Link to='/buy'><div className='buy'></div></Link>
-                                <Link to='/love'><div className='love'></div></Link>
+                                <Link to='/categorylove'><div className='love'></div></Link>
                             </div>
                         </div>
                     </div>

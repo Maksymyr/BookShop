@@ -33,7 +33,7 @@ export default class Category extends React.Component{
         
         return(
             <div className="category_wrap">
-                <h3>Categories:</h3>
+                <h3>Категории:</h3>
                 <div className="category_body">
                      {this.props.category.map((item,index) =>
                      <Link key={index} className="category__link" to={"/category"+index}>{item}</Link>)}
