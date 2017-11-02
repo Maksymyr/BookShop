@@ -31,7 +31,7 @@ export default class Book extends React.Component {
     }
 
     render() {
-        // console.log(this.props.item);
+
             return (
             <div className="book">
                 <p className="book_price">{this.props.item.price + " грн."}</p>
