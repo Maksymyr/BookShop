@@ -1,6 +1,6 @@
 header.header {
   width: 100%;
-  height: 168px;
+  height: 154px;
   background: white;
   a{
     text-decoration: none;
@@ -13,41 +13,82 @@ header.header {
     padding-bottom:20px; 
   }
   
-.head-nav{
-  margin: 0 auto;
-  width: 100%;
-  height: 92px;
-  padding: 20px;
-  background: #2c2525;
-
-  input{
-    width: 60%;
-    height: 50px;
-    font-size: 20px;
-    float: left;
-    border-radius: 20px; 
-    border:none;
-    padding-left: 10px;
-
-  }
-  a{
-    float: right;
-  }
-  .basket{
-    width: 50px;
-    height: 50px;
-    // background-image: url(../../icon/bascket.png);
-    background-size:100% 100%; 
-    padding-right: 10px; 
-  }
   
-  .room{
-    width: 50px;
-    height: 50px;
-    background-image: url('../icon/room.png');
-    background-size:100% 100%; 
-    margin-right: 10px; 
-  }
-}
+  .head-nav{
+    margin: 0 auto;
+    width: 100%;
+    height: 92px;
+    padding: 20px;
+    background: #2c2525;
 
+    .head-center{  
+      width: 80%;
+      margin: 0 auto;
+      input{
+        width: 60%;
+        height: 50px;
+        font-size: 20px;
+        float: left;
+        border-radius: 20px; 
+        border:none;
+        padding-left: 10px;
+
+      }
+      a{
+        float: right;
+      }
+      .basket{
+        width: 50px;
+        height: 50px;
+        // background-image: url(../../icon/bascket.png);
+        background-size:100% 100%; 
+        padding-right: 10px; 
+      }
+      
+      .room-main{
+        overflow: hidden;
+        float: right;
+        width: 50px;
+        height: 50px;
+        margin-right: 10px; 
+        &:hover{
+          height: 150px;
+        }
+        &:hover .room-down{
+          top:50px;
+          height: 100px;
+          transition: 1s;
+        }
+
+        .room{
+          width: 50px;
+          height: 50px;
+          background-image: url('../icon/room.png');
+          background-size:100% 100%; 
+          margin-right: 10px; 
+          z-index: 10;
+          position: absolute;
+        }
+        .room-down{
+          width: 50px;
+          height: 0px;
+          position: relative;
+          top: -100px;
+          transition: 1s;
+        }
+        .buy{
+          width: 50px;
+          height: 50px;
+          background-image: url('../icon/bascket.png');
+          background-size:100% 100%; 
+        }
+        .love{
+          width: 50px;
+          height: 50px;
+          background-image: url('../icon/love.png');
+          background-size:100% 100%; 
+        }
+      }
+    }
+  }
 }
