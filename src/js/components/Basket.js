@@ -1,13 +1,16 @@
 import React from 'react';
+import BookBasket from './BookBasket'
 import {connect} from 'react-redux';
 
 const mapStateToProps = (state) => {
-    if(state.inbasket){
+    // if(state.inbasket[0] !=""){
         return {books: state.inbasket}
-    }else{
-        return {books: JSON.parse(localStorage.getItem('basket'))}
-    }
+    // }else{
+    //     return {books: [JSON.parse(localStorage.getItem('Basket'))]}
+    // }
+
 }
+
 @connect(mapStateToProps)
 export default class Basket extends React.Component {
     constructor(props){
@@ -15,23 +18,15 @@ export default class Basket extends React.Component {
     }
 
     add = () =>{
-        console.log(this.props.books);
         if(this.props.books !=""){
-            return this.props.books.map((item, index)=>{
-                return(
-                    <div key='index' className='book'>
-                        <div className='name-book'>
-                        <h3>{item.name}</h3>
-                        </div>
-                        <div className='cost'>
-                            <p>{item.price}</p>
-                        </div>
-                        <div>
-                            <input type='number' ref='number' defaultValue='1'/>
-                        </div>
-                    </div>
-                )
-            })
+            return (
+            <div>
+                {console.log(this.props.books)}
+                {this.props.books.map((item, index)=>{
+                return <BookBasket books={item} index={index} key={index}/>
+                })}
+                <button>buy</button>
+            </div>)
         }else{
             return(
                 <div>
@@ -46,7 +41,6 @@ export default class Basket extends React.Component {
             <div className='basket-list'>
                 <h2>basket</h2>
                 {this.add()}
-                <button>buy</button>
             </div>
         );
     }
