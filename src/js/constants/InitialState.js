@@ -1,5 +1,6 @@
 export default {
-    books: [
+inbasket: [],
+books: [
         {name: "Depeche Mode: Обнаженные до костей", author: "Джонатан Миллер", price: 507, type: "Искусство/Фотография", seria: "Дискография", img: require('../../image/artbook1.jpg'),
         description: "Книга рассказывает о становлении поистине культовой британской группы, повлиявшей на всю мировую поп-музыку последних десятилетий. ", rating: 3, inStock: true},
         {name: "Об искусстве", author: "	Леонардо да Винчи", price: 382, type: "Детектив", seria: "Искусство/Фотография", img: require('../../image/artbook2.jpg'),
