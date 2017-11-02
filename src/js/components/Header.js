@@ -32,6 +32,7 @@ export default class MainLayout extends React.Component {
                     </div>
                 </div>
                 <div className='head-slider'>
+                    
                 </div>
             </header>
         );
