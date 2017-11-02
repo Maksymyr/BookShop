@@ -1,4 +1,5 @@
-export default {
+export default { 
+    search: "",
     category: ["Искусство/Фотография", "Хобби", "Фэнтези", "История", "ЛитРПГ", "Детектив", "Триллер"],
     inbasket: JSON.parse(localStorage.getItem('Basket')) !== null ? JSON.parse(localStorage.getItem('Basket')) : false || [],
     books: [
