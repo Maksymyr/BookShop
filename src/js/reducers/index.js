@@ -1,13 +1,14 @@
 import { combineReducers } from 'redux';
 import books from './books';
-
 import watchedBooks from './watchedBooks';
+
 
 import category from './category';
 import inbasket from './inbasket';
 import search from './search';
 import filter from './filter';
 import sidebar from './sidebar';
+
 
 const reducers = combineReducers({
     books,
@@ -16,7 +17,7 @@ const reducers = combineReducers({
     search,
     filter,
     sidebar,
-  watchedBooks,
+    watchedBooks,
 });
 
 export default reducers;
