@@ -3,6 +3,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Category from '../components/Category'
 import Basket from '../components/Basket'
+import BookPage from '../components/BookPage'
 import { Route, Switch, Link } from 'react-router-dom';
 
 import BookList from '../components/BookList';
@@ -21,7 +22,6 @@ export default class MainLayout extends React.Component {
         return (
             <div className="wrapper">
                 <Header />
-                <Category />
                 <Switch>
                     <Route exact path="/" component={BookList}/>
                     <Route path="/category:id" component= {BookList}/>
@@ -29,6 +29,7 @@ export default class MainLayout extends React.Component {
                     <Route path="/basket:id" component= {BookList}/>
                     
                     {/* <Route path="/add" component={AddPost}/> */}
+                    <Route path="/page:id" component = {BookPage} />
                     <Route path="/basket" component={Basket}/>
                     <Route path="*" component={() => <div>Page Not Found</div>}/>
                 </Switch>

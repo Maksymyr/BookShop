@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
+import Category from '../components/Category'
 
 import Book from './Book';
 
@@ -14,6 +15,10 @@ export default class BookList extends React.Component {
 
     render() {
             return (
+
+                <div>
+                    <Category />                
+                    
                     <div className="book-list-main">
                         <div id={this.props.sidebar? "w77" : "w96"} className="book-list" ref="book_list">
                         {!!this.props.match.params.id ? 
@@ -42,7 +47,7 @@ export default class BookList extends React.Component {
                             this.props.books.map((item, index) =><Book item={item} key={index} index={index}/>)}
                         </div>
                     </div>
-        
+        </div>
         )
     }
 }
