@@ -15,6 +15,7 @@ const mapStateToProps = (state, ownProps) => {
 
 @connect(mapStateToProps, mapDispatchToProps)
 export default class Category extends React.Component{
+
     constructor(props){
         super(props)
     }

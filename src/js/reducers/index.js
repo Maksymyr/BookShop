@@ -6,6 +6,7 @@ import watchedBooks from './watchedBooks';
 import category from './category';
 import inbasket from './inbasket';
 import search from './search';
+import filter from './filter';
 import sidebar from './sidebar';
 
 const reducers = combineReducers({
@@ -13,9 +14,9 @@ const reducers = combineReducers({
     inbasket,
     category,
     search,
+    filter,
     sidebar,
   watchedBooks,
-
 });
 
 export default reducers;
