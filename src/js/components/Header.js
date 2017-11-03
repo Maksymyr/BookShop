@@ -32,8 +32,8 @@ export default class Header extends React.Component {
                         <input type='text' onKeyPress={this.search} className='search' ref='search'/>
                         <Link to='/basket'><div style={{backgroundImage: 'url('+ require("../../icon/bascket.png")+')'}} className='basket'></div></Link>
                         <div className='room-main'>
-                            <div className='room'></div>
                             <div className='room-down'>
+                                <div className='room'></div>
                                 <Link to='/buy'><div className='buy'></div></Link>
                                 <Link to={'/basket'+"l_d"}><div className='love'></div></Link>
                             </div>
