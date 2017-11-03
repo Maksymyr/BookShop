@@ -8,12 +8,12 @@
     margin-bottom: 2%;
     padding-left: 1%;
     padding-top: 1%;
-    font-family: Josefin Slab;
+    //font-family: Josefin Slab;
     word-wrap:break-word;
     padding-bottom: 0.7rem;
     background-color: white;
     position: relative;
-   // font-family: Arial, Helvetica, sans-serif
+    font-family: Arial, Helvetica, sans-serif
     
 }
 .book_text{
@@ -32,6 +32,15 @@
     font-size: 1.6rem;
     width: 74%;
     padding-bottom: 40px;
+}
+#w77{
+    width: 77%;
+    transition: 0.4s;
+
+}
+#w96{
+    transition: 0.9s;
+    width: 96%;    
 }
 .book-list{
     display: flex;
@@ -70,7 +79,6 @@
    // align-self: flex-end;
 
 }
-
   #book_buy{
     display: inline-block;
     border-radius: 5px;
@@ -80,17 +88,23 @@
     // margin: 20px;
     color: white;
     background: #46a48c ;
-    box-shadow: 2px 4px 0 #37806c;
+    //box-shadow: 2px 4px 0 #37806c;
     position: absolute;
     bottom: 12px;
     //right: 105px;
     right: 12px;
     text-decoration: none;
-    &:active{
-        box-shadow: none;
-        bottom: 8px;
-        right: 10px;
+    transition: .2s linear;
+    
+    &:hover{
+        box-shadow: 0 0 0 2px white, 0 0 0 4px #3c8b75;
+        filter: brightness(105%)
     }
+    // &:active{
+    //     box-shadow: none;
+    //     bottom: 8px;
+    //     right: 10px;
+    // }
     
   }
  
@@ -106,11 +120,7 @@
     z-index: 10;
     background-size: 100%, 100%;
     position: absolute;
-    // float: right;
     right: 18px;
     bottom: 58px;
     cursor: pointer;
-
-    //background-color: red;
-
 }

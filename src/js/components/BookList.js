@@ -36,6 +36,7 @@ const mapStateToProps = (state, ownProps) => {
     : { books: state.books, filter: state.filter}
 };
 
+
 @connect (mapStateToProps, mapDispatchToProps)
 export default class BookList extends React.Component {
     constructor(props){
@@ -78,27 +79,12 @@ export default class BookList extends React.Component {
         }
      
     }
-    // componentWillMount(){
-    //     console.log(this.props.filter);
-    //     switch(this.props.filter) {
-    //         case("name_a"):
-    //             this.props.books.sort((item, nextItem) => console.log(item.name))
-    //         case("name_z"):
-    //         case("raiting"):            
-    //         case("author_a"):
-    //         case("author_z"):
-    //         case("price_a"):
-    //         case("price_z"):
-    //         default:
-    //             return 
-    //     }
-    // }    
-    render() {
-        
+  
+    render() 
             return (
                     <div className="book-list-main">
                         <Filter />
-                        <div className="book-list">
+                         <div id={this.props.sidebar? "w77" : "w96"} className="book-list" ref="book_list">
                             {this.state.books.map((item, index) => <Book item={item} key={index} index={index}/>)}
                         </div>
                     </div>
