@@ -26,7 +26,7 @@ export default class Filter extends React.Component {
         
         return (         
             <div className="filter-style">
-                <p>В наличии 30 книг</p>
+                <p>В наличии 31 книг</p>
                 <form onChange= {this.filtring}>
                     <div>
                         <label>Сортировка: </label>
