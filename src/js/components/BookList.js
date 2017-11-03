@@ -12,7 +12,6 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    // console.log(ownProps.match.params.search);
     if(ownProps.match.params.id) {
         return {
             books: state.books.filter((item, index) => {
@@ -29,7 +28,6 @@ const mapStateToProps = (state, ownProps) => {
     }    
     else if(ownProps.match.params.search) { 
         return {books: state.books.filter((item, index) => {
-        // console.log(ownProps.match.params.search);
             if (item.name.toLowerCase().includes(ownProps.match.params.search.toLowerCase())
             ||item.author.toLowerCase().includes(ownProps.match.params.search.toLowerCase())
             ||item.seria.toLowerCase().includes(ownProps.match.params.search.toLowerCase()))
@@ -40,28 +38,6 @@ const mapStateToProps = (state, ownProps) => {
     else {
         return { books: state.books, filter: state.filter}
     }
-    // return !!ownProps.match.params.id
-    //     ? { books: state.books.filter((item, index) => {
-    //         if (state.category[ownProps.match.params.id] == item.type) {
-    //             return item;
-    //         }
-    //         else if(ownProps.match.params.id == "l_d"){
-    //             if(item.futured == true){
-    //                 return item;
-    //             }
-    //         }
-    //         if (ownProps.match.params.id) {
-    //             console.log(ownProps.match.params.id);
-    //             if (item.name.toLowerCase().includes(ownProps.match.params.id.toLowerCase())
-    //             ||item.author.toLowerCase().includes(ownProps.match.params.id.toLowerCase())
-    //             ||item.seria.toLowerCase().includes(ownProps.match.params.id.toLowerCase())) {
-    //                 return item;
-    //             }
-                         
-    //         }
-            
-    //     }), filter: state.filter, search: state.search }
-    // : { books: state.books, filter: state.filter}
 };
 
 @connect (mapStateToProps, mapDispatchToProps)
@@ -117,7 +93,6 @@ export default class BookList extends React.Component {
         }    
     }
     render() {
-        
             return (
                     <div className="book-list-main">
                         <Filter />
