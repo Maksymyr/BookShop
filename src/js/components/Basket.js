@@ -20,16 +20,37 @@ export default class Basket extends React.Component {
     add = () =>{
         if(this.props.books !=""){
             return (
-            <div>
-                {console.log(this.props.books)}
+            <div className='basket-book'>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td className='t1'>
+                                img
+                            </td>
+                            <td className='t2'>
+                                name
+                            </td>
+                            <td className='t3'>
+                                cost
+                            </td>
+                            <td className='t4'>
+                                number
+                            </td>
+                            <td className='t5'>
+                                del
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
                 {this.props.books.map((item, index)=>{
                 return <BookBasket books={item} index={index} key={index}/>
                 })}
-                <button>buy</button>
+                <p>Buy book now </p>
+                <button className='basket-buy'>buy</button>
             </div>)
         }else{
             return(
-                <div>
+                <div className='nobasket'>
                     <p>basket null</p>
                 </div>
         )
@@ -38,10 +59,11 @@ export default class Basket extends React.Component {
 
     render(){
         return(
-            <div className='basket-list'>
+            <basket className='basket-list'>
                 <h2>basket</h2>
+                <br/>
                 {this.add()}
-            </div>
+            </basket>
         );
     }
 }
