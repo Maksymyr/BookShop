@@ -34,8 +34,8 @@ const mapStateToProps = (state, ownProps) => {
                          
             }
             
-        }), filter: state.filter, search: state.search }
-    : { books: state.books, filter: state.filter}
+        }), filter: state.filter, search: state.search, sidebar: state.sidebar }
+    : { books: state.books, filter: state.filter, sidebar: state.sidebar }
 };
 
 
@@ -82,19 +82,19 @@ export default class BookList extends React.Component {
      
     }
   
-    render() 
+    render() {
             return (
-
+            <div>    
+                <Filter />
                 <div>
                     <Category />                
-                    
                     <div className="book-list-main">
-                        <Filter />
                          <div id={this.props.sidebar? "w77" : "w96"} className="book-list" ref="book_list">
                             {this.state.books.map((item, index) => <Book item={item} key={index} index={index}/>)}
                         </div>
                     </div>
-        </div>
+                 </div>
+            </div>
         )
     }
 }
