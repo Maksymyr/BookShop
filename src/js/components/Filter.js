@@ -16,7 +16,7 @@ const mapStateToProps = (state, ownProps) => {
 export default class Filter extends React.Component {
 
     componentDidMount() {
-        this.refs.selected.value = this.props.filter;
+        this.refs.selected.value = "";
     }
     filtring = () => {
         // console.log(this.refs.selected.value);
