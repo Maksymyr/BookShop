@@ -34,7 +34,7 @@ export default class FooterSlider extends React.Component{
     
     return (
     <div className="footer-slider-wrapper">
-      <h2>Недавно просмотренные</h2>
+      <h2>Недавно просмотренные товары</h2>
       <span className='btn btn-left' onClick={this.handleClickLeft}>&#60;</span>
       <div className='slider-block'>
         <div className='slider-inline' style={{left: this.state.left+'px'}}>
