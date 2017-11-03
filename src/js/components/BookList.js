@@ -20,13 +20,12 @@ const mapStateToProps = (state, ownProps) => {
                 if (state.category[ownProps.match.params.id] == item.type) {
                     return item;
                 }
-<<<<<<< HEAD
                 else if(ownProps.match.params.id == "l_d"){
                     if(item.futured == true){
                         return item;
                     }
                 }     
-            })
+            }), sidebar: state.sidebar, filter: state.filter,
         }
     }    
     else if(ownProps.match.params.search) { 
@@ -35,29 +34,14 @@ const mapStateToProps = (state, ownProps) => {
             ||item.author.toLowerCase().includes(ownProps.match.params.search.toLowerCase())
             ||item.seria.toLowerCase().includes(ownProps.match.params.search.toLowerCase()))
                 return item;
-            })
+            }), sidebar: state.sidebar, filter: state.filter,
         }
     }
     else {
-        return { books: state.books, filter: state.filter}
+        return { books: state.books, filter: state.filter, sidebar: state.sidebar}
     }
 };
-=======
-            }
-            if (state.search != "") {
-                if (item.name.toLowerCase().includes(ownProps.match.params.id.toLowerCase())
-                ||item.author.toLowerCase().includes(ownProps.match.params.id.toLowerCase())
-                ||item.seria.toLowerCase().includes(ownProps.match.params.id.toLowerCase())) {
-                    return item;
-                }
-                         
-            }
-            
-        }), filter: state.filter, search: state.search, sidebar: state.sidebar }
-    : { books: state.books, filter: state.filter, sidebar: state.sidebar }
-};
 
->>>>>>> 704155bf127d6034f5b9a125ebad4c2293f577f7
 
 @connect (mapStateToProps, mapDispatchToProps)
 export default class BookList extends React.Component {
@@ -69,20 +53,17 @@ export default class BookList extends React.Component {
         }
     }
     componentWillReceiveProps(nextProps) {
-        console.log("componentWillReceiveProps: >>> ", nextProps);
         if(nextProps.books !== this.state.books) {
-            console.log("a")
             this.setState({books: nextProps.books}); 
         }
         
         if (nextProps.filter !== this.props.filter) {
-            console.log("b")
             this.setState({check: nextProps.filter})
         }     
     }
 
     componentDidUpdate(){
-        console.log("Did Update: state.check >>> ", this.state.check)
+        
         if(this.state.check == this.props.filter) {
             switch(this.state.check) {
                 case("name_a"):
@@ -92,7 +73,7 @@ export default class BookList extends React.Component {
                     this.setState({ books: this.state.books.sort((item, nextItem) => (item.name.trim() < nextItem.name.trim()) ? 1 : (item.name.trim() > nextItem.name.trim()) ? -1 : 0), check: null });
                     break;
                 case("raiting"):  
-                    this.setState({ books: this.state.books.sort((item, nextItem) => (item.rating.trim() < nextItem.rating.trim()) ? -1 : (item.rating.trim() > nextItem.rating.trim()) ? 1 : 0), check: null });
+                    this.setState({ books: this.state.books.sort((item, nextItem) => (item.rating < nextItem.rating) ? -1 : (item.rating > nextItem.rating) ? 1 : 0), check: null });
                     break;          
                 case("author_a"):
                     this.setState({ books: this.state.books.sort((item, nextItem) => (item.author.trim() < nextItem.author.trim()) ? -1 : (item.author.trim() > nextItem.author.trim()) ? 1 : 0), check: null });
@@ -101,10 +82,10 @@ export default class BookList extends React.Component {
                     this.setState({ books: this.state.books.sort((item, nextItem) => (item.author.trim() < nextItem.author.trim()) ? 1 : (item.author.trim() > nextItem.author.trim()) ? -1 : 0), check: null });
                     break; 
                 case("price_a"):
-                    this.setState({ books: this.state.books.sort((item, nextItem) => (item.price.trim() < nextItem.price.trim()) ? -1 : (item.price.trim() > nextItem.price.trim()) ? 1 : 0), check: null });
+                    this.setState({ books: this.state.books.sort((item, nextItem) => (item.price < nextItem.price) ? -1 : (item.price > nextItem.price) ? 1 : 0), check: null });
                     break; 
                 case("price_z"):
-                    this.setState({ books: this.state.books.sort((item, nextItem) => (item.price.trim() < nextItem.price.trim()) ? 1 : (item.price.trim() > nextItem.price.trim()) ? -1 : 0), check: null });
+                    this.setState({ books: this.state.books.sort((item, nextItem) => (item.price < nextItem.price) ? 1 : (item.price > nextItem.price) ? -1 : 0), check: null });
                     break; 
                 default:
                     return ;
@@ -119,10 +100,7 @@ export default class BookList extends React.Component {
                 <div>
                     <Category />                
                     <div className="book-list-main">
-
-                        <Filter />
                         <div id={this.props.sidebar? "w77" : "w96"}  className="book-list"  ref="book_list">
-
                             {this.state.books.map((item, index) => <Book item={item} key={index} index={index}/>)}
                         </div>
                     </div>
