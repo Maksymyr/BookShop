@@ -1,3 +1,22 @@
+.category_hide{
+    height: 100px;
+    width: 30px;
+    writing-mode: vertical-rl;
+    text-align: center;
+    line-height: 30px;
+    cursor: default;
+    font-size: 1.6rem;
+    background-color: steelblue;
+    position: absolute;
+    right: -30px;
+    top: 0px;
+    z-index: 10;
+
+}
+.desd{
+    position: relative;
+    width: 100%;
+}
 .category_wrap{
 width: 20%;
 //min-height: 100vh;
@@ -9,6 +28,8 @@ font-family: Arial, Helvetica, sans-serif;
 padding-bottom: 1.8rem;
 padding-top: 1.8rem;
 margin-top: 3rem;
+position: relative;
+transition: .5s linear;
 
 }
 
@@ -19,11 +40,10 @@ margin-top: 3rem;
     
 }
 .category_body{
-    
+    overflow: hidden;
 }
 
 .category__link{
-    word-wrap: break-word;
     display: block;
     min-height: 30px;
     text-align: center;
