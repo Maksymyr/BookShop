@@ -21,7 +21,7 @@ export default class MainLayout extends React.Component {
         return (
             <div className="wrapper">
                 <Header />
-                <Category/>
+                <Category />
                 <Switch>
                     <Route exact path="/" component={BookList}/>
                     <Route path="/category:id" component= {BookList}/>
