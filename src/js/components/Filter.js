@@ -9,14 +9,23 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    return {filter: state.filter}
+    return {filter: state.filter, books: state.books}
 }
 
 @connect(mapStateToProps, mapDispatchToProps)
 export default class Filter extends React.Component {
+    constructor (props) {
+        super(props);
+        this.state = {
+            count: 0
+        }
+    }
 
     componentDidMount() {
-        this.refs.selected.value = this.props.filter;
+        let count = 0;
+        this.refs.selected.value = "";
+        this.props.books.map(item => { count++ })
+        this.setState({count: count})
     }
     filtring = () => {
         // console.log(this.refs.selected.value);
@@ -26,7 +35,7 @@ export default class Filter extends React.Component {
         
         return (         
             <div className="filter-style">
-                <p>В наличии 30 книг</p>
+                <p>В наличии {this.state.count} книг</p>
                 <form onChange= {this.filtring}>
                     <div>
                         <label>Сортировка: </label>

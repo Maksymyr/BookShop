@@ -6,7 +6,7 @@ export default function books(state = InitialState.books, action) {
 
     switch(type) {
         case types.FEATURUDE_BOOK:
-            state.filter((item, index) => payload == item.name ? 
+            state.filter((item, index) => payload == item.code ? 
             item.futured = !item.futured
             : false)
             return [...state];
