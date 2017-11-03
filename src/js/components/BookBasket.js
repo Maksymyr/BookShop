@@ -14,17 +14,18 @@ export default class BookBasket extends React.Component {
 
     bookbuy = () =>{
         return(
-            <div key={this.props.index} className='book'>
+            <div key={this.props.index} className='basket-book-one'>
+                <img className='basket-img' src={this.props.books.img}/>
                 <div className='name-book'>
                 <h3>{this.props.books.name}</h3>
                 </div>
                 <div className='cost'>
                     <p>{this.props.books.price}</p>
                 </div>
-                <div>
-                    <input type='number' ref='number' defaultValue='1'/>
+                <div className='basket-input'>
+                    <input className='basket-number' type='number' ref='number' defaultValue='1'/>
                   </div>
-                <button onClick={this.del}>del</button>
+                <button className='basket-button' onClick={this.del}>del</button>
             </div>
         )
     }

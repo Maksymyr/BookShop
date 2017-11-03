@@ -1,9 +1,15 @@
+//font-family: 'Poiret One', cursive;
+
 footer{
+    li{
+        list-style: none;
+    }
     padding-top: 20px;
     width: 100%;
     background: #514847;
     min-height: 300px;
     .footer-wrapper{
+        padding: 20px 0;
         margin: 50px 0;
         display: inline-block;
         display: flex;
@@ -12,14 +18,19 @@ footer{
         margin: 0 auto;
         .footer-block{
             width: 25%;
+
+            li{
+                margin-left: 80px;
+                width: 60px;
+            }
             
             
             h2 {
                 letter-spacing: 1px;
-                margin: 5px;
+                margin: 5px 5px 10px 0px;
                 color: #fff;
                 font-size: 33px;
-                font-family: 'Josefin Slab', serif;
+                font-family: 'Poiret One', cursive;
                 font-weight: 100;
                
             }
@@ -29,7 +40,7 @@ footer{
                 font-size: 27px;
                 color: white;
                 font-weight: 100;
-                font-family: 'Josefin Slab', serif;
+                font-family: 'Poiret One', cursive;
                 font-weight: lighter;
             }
             p, span, a{
@@ -66,7 +77,7 @@ footer{
                 padding-left: 5px;
             }
             .subscribeBtn{
-                width: 80px;
+                width: 85px;
                 height: 30px;
                 border-radius: 7px;
                 border: none;
@@ -74,6 +85,8 @@ footer{
                 outline: none;
                 cursor: pointer;
                 color: white;
+                font-family: 'Poiret One', cursive;
+                text-transform: uppercase;
 
                 &:hover{
                     opacity: 0.6;
@@ -82,7 +95,7 @@ footer{
             }
         }
         .subscribe-wrapper p{
-            margin-top: 9px;
+            margin: 9px 0;
         }
         
     }
@@ -102,5 +115,4 @@ footer{
         }
     }
 }
-
 
