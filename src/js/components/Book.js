@@ -20,12 +20,9 @@ export default class Book extends React.Component {
     
     handleBasket =(e) => {
         e.preventDefault();
-        console.log(this.props.item);
         this.props.addBasket(this.props.item)
     }
     handleClick = () => {
-        console.log(this.props.item.futured)
-        console.log(this.props.index)
         this.props.futureBook(this.props.index)
         
     }
