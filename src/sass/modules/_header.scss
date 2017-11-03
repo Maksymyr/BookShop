@@ -2,6 +2,8 @@ header.header {
   width: 100%;
   height: 154px;
   background: white;
+  position: static;
+  z-index: 100;
   a{
     text-decoration: none;
   }
@@ -25,7 +27,8 @@ header.header {
       width: 80%;
       margin: 0 auto;
       input{
-        width: 60%;
+        margin: 0 auto;
+        width: 30%;
         height: 50px;
         font-size: 20px;
         float: left;
@@ -51,42 +54,43 @@ header.header {
         width: 50px;
         height: 50px;
         margin-right: 10px; 
-        &:hover{
-          height: 150px;
-        }
-        &:hover .room-down{
-          top:50px;
-          height: 100px;
-          transition: 1s;
-        }
 
-        .room{
-          width: 50px;
-          height: 50px;
-          background-image: url('../icon/room.png');
-          background-size:100% 100%; 
-          margin-right: 10px; 
-          z-index: 10;
-          position: absolute;
-        }
         .room-down{
-          width: 50px;
-          height: 0px;
-          position: relative;
-          top: -100px;
-          transition: 1s;
-        }
-        .buy{
-          width: 50px;
+          position: absolute;
+          width: 170px;
           height: 50px;
-          background-image: url('../icon/bascket.png');
-          background-size:100% 100%; 
-        }
-        .love{
-          width: 50px;
-          height: 50px;
-          background-image: url('../icon/love.png');
-          background-size:100% 100%; 
+          top: 82px;
+          margin-left: -120px;
+
+          .room{
+            width: 50px;
+            height: 50px;
+            background-image: url('../icon/room.png');
+            background-repeat: no-repeat;
+            background-size:100% 100%; 
+            margin-right: 10px; 
+            float: left;
+          }
+
+          a{
+            float: left;
+          }
+
+          a .buy{
+            width: 50px;
+            height: 50px;
+            background-image: url('../icon/bascket.png');
+            background-size:100% 100%; 
+            float: left;
+            margin-right: 10px; 
+          }
+          a .love{
+            width: 50px;
+            height: 50px;
+            background-image: url('../icon/love.png');
+            background-size:100% 100%; 
+            float: left;
+          }
         }
       }
     }
