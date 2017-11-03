@@ -16,10 +16,11 @@ export default  class BookPage extends React.Component{
         console.log(this.props.item)
         return(
             <div className="book_page">
-                <img src={this.props.item.img} />
-                <div>
+              
+                    <img src={this.props.item.img} />
+                
 
-                </div>
+            
             </div>
         )
     }
