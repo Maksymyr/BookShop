@@ -1,6 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
+import Category from '../components/Category'
+
 import {searchBook} from '../actions';
 import {bindActionCreators} from 'redux';
 
@@ -18,6 +20,7 @@ const mapStateToProps = (state, ownProps) => {
                 if (state.category[ownProps.match.params.id] == item.type) {
                     return item;
                 }
+<<<<<<< HEAD
                 else if(ownProps.match.params.id == "l_d"){
                     if(item.futured == true){
                         return item;
@@ -39,6 +42,22 @@ const mapStateToProps = (state, ownProps) => {
         return { books: state.books, filter: state.filter}
     }
 };
+=======
+            }
+            if (state.search != "") {
+                if (item.name.toLowerCase().includes(ownProps.match.params.id.toLowerCase())
+                ||item.author.toLowerCase().includes(ownProps.match.params.id.toLowerCase())
+                ||item.seria.toLowerCase().includes(ownProps.match.params.id.toLowerCase())) {
+                    return item;
+                }
+                         
+            }
+            
+        }), filter: state.filter, search: state.search, sidebar: state.sidebar }
+    : { books: state.books, filter: state.filter, sidebar: state.sidebar }
+};
+
+>>>>>>> 704155bf127d6034f5b9a125ebad4c2293f577f7
 
 @connect (mapStateToProps, mapDispatchToProps)
 export default class BookList extends React.Component {
@@ -92,15 +111,23 @@ export default class BookList extends React.Component {
             }
         }    
     }
+
     render() {
             return (
+            <div>    
+                <Filter />
+                <div>
+                    <Category />                
                     <div className="book-list-main">
+
                         <Filter />
                         <div id={this.props.sidebar? "w77" : "w96"}  className="book-list"  ref="book_list">
+
                             {this.state.books.map((item, index) => <Book item={item} key={index} index={index}/>)}
                         </div>
                     </div>
-        
+                 </div>
+            </div>
         )
     }
 }
