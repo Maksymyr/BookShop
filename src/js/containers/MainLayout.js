@@ -1,9 +1,9 @@
 import React from 'react';
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import FooterSlider from '../components/FooterSlider'
 import Category from '../components/Category'
 import { Route, Switch, Link } from 'react-router-dom';
-
 import BookList from '../components/BookList';
 import CategoryList from '../components/CategoryList';
 
@@ -18,7 +18,6 @@ export default class MainLayout extends React.Component {
         this.setState({types: type});
     }
     render() {
-        console.log(this.state.types);
         return (
             <div className="wrapper">
                 <Header />
@@ -42,6 +41,7 @@ export default class MainLayout extends React.Component {
                     {/* <Route path="/add" component={AddPost}/> */}
                     <Route path="*" component={() => <div>Page Not Found</div>}/>
                 </Switch>
+                <FooterSlider />
                 <Footer />
                 {/*<Footer />        
                 1. Copyrights;

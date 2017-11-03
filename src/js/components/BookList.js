@@ -11,7 +11,6 @@ const mapStateToProps = (state, ownProps) => {
 @connect (mapStateToProps)
 export default class BookList extends React.Component {
     render() {
-        // console.log(this.props.books);
             return (
             <div className="book-list-main">
                 <div className="book-list">
