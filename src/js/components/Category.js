@@ -9,26 +9,6 @@ const mapStateToProps = (state, ownProps) => {
 
 @connect(mapStateToProps)
 export default class Category extends React.Component{
-    // constructor(props){
-    //     super(props);
-    //     this.state = {types: []
-    //     }
-    // }
-    // componentWillMount() {
-    //     this.arrayOfSeria();
-    // }
-
-    // arrayOfSeria = () => {
-    //     let arrayOfSerias = [];
-    //     this.props.books.map((item,index) => {
-    //         if (!arrayOfSerias.includes(item.type)) {
-    //             arrayOfSerias.push(item.type);
-    //         }  
-    //         this.setState({types: arrayOfSerias})
-    //     })
-        
-    //     this.props.arrayTypes(arrayOfSerias);
-    // }
     render(){
         
         return(

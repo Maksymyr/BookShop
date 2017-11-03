@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import { withRouter } from 'react-router';
+import {withRouter} from 'react-router';
 import {searchBook} from '../actions';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';

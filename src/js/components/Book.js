@@ -26,7 +26,7 @@ export default class Book extends React.Component {
     handleClick = () => {
         console.log(this.props.item.futured)
         console.log(this.props.index)
-        this.props.futureBook(this.props.index)
+        this.props.futureBook(this.props.item.name)
         
     }
 
