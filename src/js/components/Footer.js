@@ -45,7 +45,7 @@ export default class Footer extends React.Component{
                     
                 </div>
                 <div className="footer-bottom">
-                    <div className='copyrights'> Copyrights &copy; 2017 All Rights Reserved by Canvas Inc.</div>
+                    <div className='copyrights'> Copyrights &copy; 2017 All Rights Reserved by Snails Team.</div>
                </div>  
             </footer>
         )
