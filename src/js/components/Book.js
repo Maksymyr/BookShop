@@ -24,7 +24,7 @@ export default class Book extends React.Component {
         this.props.addBasket(this.props.item)
     }
     handleClick = () => {
-        this.props.futureBook(this.props.item.name)  
+        this.props.futureBook(this.props.item.code)  
     }
 
     render() {
