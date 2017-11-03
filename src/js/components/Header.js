@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import { withRouter } from 'react-router';
+import {withRouter} from 'react-router';
 import {searchBook} from '../actions';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
@@ -26,7 +26,7 @@ export default class Header extends React.Component {
     render(){
         return(
             <header className="header">
-                <Link to='/'><h1 className="page-title">Book Shop</h1></Link>
+                <Link to='/'><h1 className="page-title">Snails</h1></Link>
                 <div className='head-nav'>
                     <div className='head-center'>
                         <input type='text' onKeyPress={this.search} className='search' ref='search'/>
