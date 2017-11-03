@@ -10,7 +10,8 @@ export default function books(state = InitialState.books, action) {
             item.futured = !item.futured
             : false)
             return [...state];
-
+        case types.ADD_BOOK:
+            return [...state, payload];
         default:
             return state;
     }

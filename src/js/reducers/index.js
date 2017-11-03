@@ -16,7 +16,7 @@ const reducers = combineReducers({
     search,
     filter,
     sidebar,
-  watchedBooks,
+    watchedBooks, 
 
 });
 

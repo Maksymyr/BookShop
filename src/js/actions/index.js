@@ -6,5 +6,6 @@ export const searchBook = (payload) => ({type: types.SEARCH, payload});
 export const addBasket = (payload) => ({type: types.ADD_BASKET, payload});
 export const filterBooks = (payload) => ({type: types.FILTER, payload});
 export const sideBarHide = (payload) => ({type: types.SIDEBAR_HIDE, payload});
+export const addBook = (payload) => ({type: types.ADD_BOOK, payload});
 
 
