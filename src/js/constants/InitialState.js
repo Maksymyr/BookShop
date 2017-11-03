@@ -6,7 +6,7 @@ export default {
     category: ["Искусство/Фотография", "Хобби", "Фэнтези", "История", "ЛитРПГ", "Детектив", "Триллер"],
     inbasket: JSON.parse(localStorage.getItem('Basket')) !== null ? JSON.parse(localStorage.getItem('Basket')) : false || [],
     books: [
-        { code: 0, futured: false, name:  "Depeche Mode: Обнаженные до костей", author: "Джонатан Миллер", price: 507, type: "Искусство/Фотография", seria: "Дискография", img: require('../../image/artbook1.jpg'),
+        { code: 0, futured: false, name:  "Depeche Mode: Обнаженные до костей", author: "Джонатан Миллер", price: 507, type: "Искусство/Фотография", seria: "Дискография", 
         description: "Книга рассказывает о становлении поистине культовой британской группы, повлиявшей на всю мировую поп-музыку последних десятилетий. ", rating: 3, inStock: true},
         { code: 1, futured: false, name:  "Об искусстве", author: "	Леонардо да Винчи", price: 382, type: "Детектив", seria: "Искусство/Фотография", img: require('../../image/artbook2.jpg'),
         description: "В издании представлена часть обширного рукописного наследия величайшего художника эпохи Возрождения - его записки об искусстве. В них затрагиваются различные \
