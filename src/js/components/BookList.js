@@ -80,7 +80,7 @@ export default class BookList extends React.Component {
      
     }
   
-    render() 
+    render() {
             return (
                     <div className="book-list-main">
                         <Filter />

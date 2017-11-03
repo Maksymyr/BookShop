@@ -10,6 +10,7 @@ import filter from './filter';
 import sidebar from './sidebar';
 
 
+
 const reducers = combineReducers({
     books,
     inbasket,
@@ -17,7 +18,8 @@ const reducers = combineReducers({
     search,
     filter,
     sidebar,
-    watchedBooks,
+    watchedBooks, 
+    
 });
 
 export default reducers;
