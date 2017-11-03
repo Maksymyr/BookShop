@@ -34,7 +34,7 @@ const mapStateToProps = (state, ownProps) => {
                          
             }
             
-        }), filter: state.filter, search: state.search, }
+        }), filter: state.filter, search: state.search, sidebar: state.sidebar }
     : { books: state.books, filter: state.filter, sidebar: state.sidebar }
 };
 

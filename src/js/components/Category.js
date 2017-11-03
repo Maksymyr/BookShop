@@ -21,18 +21,22 @@ export default class Category extends React.Component{
         super(props)
     }
     
+    handleChange = () => {
+        // this.props.sideBarHide(true)
+        // console.log(this.props.visible)
+    }
 
     handleShow = () => {
 
 
         if(this.props.visible){
             this.refs.hide_show.style.backgroundColor ="lime";
-            this.refs.wrapp.style.width = "0";
+            // this.refs.wrapp.style.width = "0";   
             this.props.sideBarHide(false);
 
         } else {
             this.refs.hide_show.style.backgroundColor ="steelblue";
-            this.refs.wrapp.style.width = "20%";        
+            // this.refs.wrapp.style.width = "20%";            
             this.props.sideBarHide(true);
         }
     }
@@ -46,7 +50,7 @@ export default class Category extends React.Component{
                     <div className="category_body" ref="category_body">
                     <h3 ref="title">Категории:</h3>
                         {this.props.category.map((item, index) =>
-                            <Link key={index} className="category__link" to={"/category" + index}>{item}</Link>)}
+                            <Link onClick={this.handleChange} key={index} className="category__link" to={"/category" + index}>{item}</Link>)}
                     </div>
                 </div>
 
