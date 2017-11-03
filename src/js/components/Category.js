@@ -10,6 +10,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state, ownProps) => {
     return {books: state.books,
+        visible: state.sidebar,
         category: state.category}
 }
 
@@ -19,23 +20,19 @@ export default class Category extends React.Component{
     constructor(props){
         super(props)
     }
-    state = {
-        visible: true
-    }
+    
 
     handleShow = () => {
 
 
-        if(this.state.visible){
+        if(this.props.visible){
             this.refs.hide_show.style.backgroundColor ="lime";
             this.refs.wrapp.style.width = "0";
-            this.setState({visible: !this.state.visible})
             this.props.sideBarHide(false);
 
         } else {
             this.refs.hide_show.style.backgroundColor ="steelblue";
             this.refs.wrapp.style.width = "20%";        
-            this.setState({visible: !this.state.visible})
             this.props.sideBarHide(true);
         }
     }
@@ -44,7 +41,7 @@ export default class Category extends React.Component{
         
         return(
             
-            <div className="category_wrap" ref="wrapp">
+            <div id={this.props.visible? "w20" : "w0"} className="category_wrap" ref="wrapp">
                     <div className="category_hide" ref="hide_show" onClick={this.handleShow}>Category</div>
                     <div className="category_body" ref="category_body">
                     <h3 ref="title">Категории:</h3>
