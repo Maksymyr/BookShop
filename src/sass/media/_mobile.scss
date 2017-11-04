@@ -13,4 +13,24 @@
         }
     }
 
+// bookPage----------------
+    .book_page{
+        width: 100%;
+        .page_title{
+            font-size: 2.2rem;
+        }
+        .page_description{
+            font-size: 1.4rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 620px) {
+
+    .book_page #imeg2{
+        margin: 0 auto;
+        margin-bottom: 20px;
+        float: none;
+    }
+
 }
