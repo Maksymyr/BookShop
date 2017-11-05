@@ -12,6 +12,12 @@ export default function books(state = InitialState.books, action) {
             return [...state];
         case types.ADD_BOOK:
             return [...state, payload];
+         case types.LIKE:
+              state.filter((item, index) => payload.book == item.code? item.comments[payload.comment].like = payload.data : false);
+            return [...state]
+        case types.ADD_COMMENT:
+            state.filter((item, index) => payload.code == item.code? item.comments = [...item.comments, payload.info] : false);
+            return [...state]
         default:
             return state;
     }
