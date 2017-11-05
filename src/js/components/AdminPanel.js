@@ -14,7 +14,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state) => {
-    return {state: state}
+    return {state: state, api: state.api}
 }
 
 
@@ -29,15 +29,35 @@ export default class AdminPanel extends React.Component {
     }
 
     handleGoogle() {
-        fetch(`https://www.googleapis.com/books/v1/volumes?q=${this.refs.api.value}`)
+        fetch(`https://www.googleapis.com/books/v1/volumes?q=${this.refs.api.value}&maxResults=1&startIndex=1`)
         .then(res => res.json())
         .then(res => {
             console.log(res);
+            console.log(res.items[0].volumeInfo.authors[0])
+            let api_book = {
+                comments: [],
+                code: this.props.state.books.length,
+                futured: false,                
+                name: res.items[0].volumeInfo.title ,
+                author: res.items[0].volumeInfo.authors[0],
+                price: 228,
+                type: res.items[0].volumeInfo.categories[0],
+                seria: "",
+                img: require('../../image/no-image.png'),
+                description: res.items[0].volumeInfo.description,
+                rating: 3,
+                inStock:true,
+            }
+            this.props.addBook(api_book)
+            console.log(api_book)
             this.props.fetchData(res.items);
         })
         .catch(err => console.log(err))
-    this.refs.api.value = '';
-
+        this.refs.api.value = '';
+        console.log("Tyt preobrazovanie");
+        
+        
+        //console.log(this.props.api)
     }
 
     handleOnSubmit(event) {
@@ -87,8 +107,8 @@ export default class AdminPanel extends React.Component {
                     <button type="submit">Добавить новую книгу</button>
                 </form>
 
-                <button id="api_btn" onClick={this.handleGoogle}>Google API</button>
                 <input id="api_search" ref="api" type="text"/>
+                <button id="api_btn" onClick={this.handleGoogle}>Google API</button>
             </div>
         );
     }
