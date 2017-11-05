@@ -32,5 +32,18 @@
         margin-bottom: 20px;
         float: none;
     }
+    .price_container{
+        float: right;
+        margin-right: 2%;
+        margin-top: 6%;
+    }
+    .book_page #page_buy{
+        display: inline-block;
+        vertical-align: bottom
 
+    }
+    .book_page #page_price{
+        display: inline-block;
+        vertical-align: bottom
+    }
 }
