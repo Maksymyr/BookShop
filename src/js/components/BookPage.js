@@ -100,21 +100,6 @@ export default  class BookPage extends React.Component{
                         <BookPageComment book={this.props.item.code} id={index} item={item}/>
                     </div>) : null}
 
-                    {/*this.state.comments.length != 0 ? this.state.comments.map((item, index) => <div className="comment" key={index}>
-                        <p className="comment_name inline">Andrey</p>
-                        <p className="comment_data inline">Nov 4, 2017</p>
-                        <p className="comment_title">{item.title}</p>
-                        <div className="comment_desc">
-                            {item.desc}
-                            <div className="likes">
-                                <div onClick={this.handleDiss} className="disslike" style={this.state.disslike ?{backgroundImage: 'url('+ require("../../icon/disslike_fill.png")+')'}:{backgroundImage: 'url('+ require("../../icon/disslike_zero.png")+')'} }></div> 
-                                <div onClick={this.handleLike} className="like" style={this.state.like ?{backgroundImage: 'url('+ require("../../icon/like_fill.png")+')'}:{backgroundImage: 'url('+ require("../../icon/like_zero.png")+')'} }></div>
-                            </div>
-                        </div>
-
-                    </div>) : null */}
-
-
 
             </div>
         )
