@@ -25,7 +25,8 @@ export default class Basket extends React.Component {
         this.props.delallbasket();
     }
     bought = () => {
-        this.props.addNotify("Кросавчег!")
+        this.props.addNotify("Кросавчег! Твои книги уже в пути!")
+        this.props.delallbasket();
     }
     add = () =>{
         if(this.props.books !=""){
