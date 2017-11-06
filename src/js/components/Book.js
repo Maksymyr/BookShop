@@ -2,9 +2,10 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import { bindActionCreators} from 'redux';
-import {futureBook, addBasket, sideBarHide} from '../actions';
+import {addNotify, futureBook, addBasket, sideBarHide} from '../actions';
 
-const mapDispatchToProps = dispatch => ( bindActionCreators({ futureBook, addBasket, sideBarHide }, dispatch) );
+
+const mapDispatchToProps = dispatch => ( bindActionCreators({ addNotify, futureBook, addBasket, sideBarHide }, dispatch) );
 
 const mapStateToProps = (state, ownProps) => {
     return {books: state.books, futured: state.futured, code: state.code, visible: state.sidebar}
@@ -22,6 +23,7 @@ export default class Book extends React.Component {
     handleBasket =(e) => {
         e.preventDefault();
         this.props.addBasket(this.props.item)
+        this.props.addNotify("В корзину добавлен новый товар!")
     }
     handleClick = () => {
         this.props.futureBook(this.props.item.code)  

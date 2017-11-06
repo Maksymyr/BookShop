@@ -7,6 +7,8 @@ export const addBasket = (payload) => ({type: types.ADD_BASKET, payload});
 export const filterBooks = (payload) => ({type: types.FILTER, payload});
 export const sideBarHide = (payload) => ({type: types.SIDEBAR_HIDE, payload});
 export const addBook = (payload) => ({type: types.ADD_BOOK, payload});
+export const addCategory = (payload) => ({type: types.ADD_CATEGORY, payload});
 export const addComment = (payload) => ({type: types.ADD_COMMENT, payload});
 export const likePost = (payload) => ({type: types.LIKE, payload});
-export const addCategory = (payload) => ({type: types.})
+export const delallbasket = (payload) => ({type: types.DEL_ALL_BASKET, payload});
+export const addNotify = (payload) => ({type: types.ADD_NOTIFY, payload})

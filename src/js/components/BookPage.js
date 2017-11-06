@@ -3,11 +3,11 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import BookPageComment from '../components/BookPageComment'
 import {bindActionCreators} from 'redux';
-import {addComment} from '../actions';
+import {addComment, addNotify, addBasket} from '../actions';
 
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({addComment}, dispatch)
+    return bindActionCreators({addComment, addNotify, addBasket}, dispatch)
 }
 
 const mapStateToProps = (state, ownProps) => {
@@ -49,7 +49,10 @@ export default  class BookPage extends React.Component{
     handleDiss = () => {
         this.setState({disslike: !this.state.disslike})
     }
-
+    bought = () => {
+        this.props.addBasket(this.props.item)
+        this.props.addNotify("В корзину добавлен новый товар!")
+    }
     render(){
         //console.log(this.props.match.params.id);
         //console.log(this.props.item)
@@ -63,7 +66,7 @@ export default  class BookPage extends React.Component{
                     {this.props.item.seria? <p className="page_info"><span>Серия:</span> {this.props.item.seria}</p> : null}
                     <div className="price_container">
                     <p id="page_price">{this.props.item.price} грн.</p>
-                    <div id="page_buy">Купить</div>
+                    <div id="page_buy" onClick={this.bought}>Купить</div>
                     </div>
 
                     <div className="clear"></div>
@@ -99,22 +102,6 @@ export default  class BookPage extends React.Component{
                     <div className="comment" key={index}> 
                         <BookPageComment book={this.props.item.code} id={index} item={item}/>
                     </div>) : null}
-
-                    {/*this.state.comments.length != 0 ? this.state.comments.map((item, index) => <div className="comment" key={index}>
-                        <p className="comment_name inline">Andrey</p>
-                        <p className="comment_data inline">Nov 4, 2017</p>
-                        <p className="comment_title">{item.title}</p>
-                        <div className="comment_desc">
-                            {item.desc}
-                            <div className="likes">
-                                <div onClick={this.handleDiss} className="disslike" style={this.state.disslike ?{backgroundImage: 'url('+ require("../../icon/disslike_fill.png")+')'}:{backgroundImage: 'url('+ require("../../icon/disslike_zero.png")+')'} }></div> 
-                                <div onClick={this.handleLike} className="like" style={this.state.like ?{backgroundImage: 'url('+ require("../../icon/like_fill.png")+')'}:{backgroundImage: 'url('+ require("../../icon/like_zero.png")+')'} }></div>
-                            </div>
-                        </div>
-
-                    </div>) : null */}
-
-
 
             </div>
         )

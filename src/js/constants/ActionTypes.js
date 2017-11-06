@@ -7,3 +7,5 @@ export const SIDEBAR_HIDE = "SIDEBAR_HIDE";
 export const ADD_BOOK = "ADD_BOOK";
 export const ADD_COMMENT = "ADD_COMMENT";
 export const LIKE = "LIKE";
+export const DEL_ALL_BASKET= "DEL_ALL_BASKET";
+export const ADD_NOTIFY = "ADD_NOTIFY";
