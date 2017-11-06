@@ -27,7 +27,7 @@ export default class MainLayout extends React.Component {
                     <Route path="/category:id" component= {BookList}/>
                     <Route path="/search/:id" component= {BookList}/>
                     <Route path="/basket:id" component= {BookList}/>
-                    
+                    <Route path="/page:id" component= {BookList}/>
                     {/* <Route path="/add" component={AddPost}/> */}
                     <Route path="/basket" component={Basket}/>
                     <Route path="*" component={() => <div>Page Not Found</div>}/>
