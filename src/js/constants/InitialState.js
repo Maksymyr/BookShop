@@ -1,4 +1,5 @@
 export default { 
+    api: [],
     sidebar: false,
     filter: "",
     search: "",
