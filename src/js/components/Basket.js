@@ -1,10 +1,10 @@
 import React from 'react';
 import BookBasket from './BookBasket'
 import {connect} from 'react-redux';
-import {delallbasket} from '../actions';
+import {delallbasket, addNotify} from '../actions';
 import {bindActionCreators} from 'redux';
 
-const mapDispatchToProps = dispatch => ( bindActionCreators({ delallbasket }, dispatch) );
+const mapDispatchToProps = dispatch => ( bindActionCreators({ delallbasket, addNotify }, dispatch) );
 
 const mapStateToProps = (state) => {
     // if(state.inbasket[0] !=""){
@@ -24,7 +24,9 @@ export default class Basket extends React.Component {
     delallbusket = () =>{
         this.props.delallbasket();
     }
-
+    bought = () => {
+        this.props.addNotify("Кросавчег!")
+    }
     add = () =>{
         if(this.props.books !=""){
             return (
@@ -65,7 +67,7 @@ export default class Basket extends React.Component {
                         <p>Write tel like:(+380123456789)</p>
                         <input type='tel' defaultValue='+380' maxLength='13' size='13'/>
                     </div>
-                    <button className='basket-buy'>buy</button>
+                    <button onClick={this.bought}className='basket-buy'>buy</button>
                 </div>
                 
             </div>)
