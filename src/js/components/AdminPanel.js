@@ -44,7 +44,7 @@ export default class AdminPanel extends React.Component {
             this.refs.author.value = '';
             this.refs.price.value = '';
             this.refs.type.value = '';
-            this.refs.type.value = '';
+            this.refs.seria.value = '';
             this.refs.image.value = '';
             this.refs.description.value = '';
         }
