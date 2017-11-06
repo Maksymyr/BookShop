@@ -100,6 +100,7 @@ export default  class BookPage extends React.Component{
                         <BookPageComment book={this.props.item.code} id={index} item={item}/>
                     </div>) : null}
 
+
             </div>
         )
     }
