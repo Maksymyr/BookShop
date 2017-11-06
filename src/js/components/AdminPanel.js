@@ -33,21 +33,29 @@ export default class AdminPanel extends React.Component {
         .then(res => res.json())
         .then(res => {
             console.log(res);
+            
+                this.refs.title.value = res.items[0].volumeInfo.title;
+                this.refs.author.value = res.items[0].volumeInfo.authors[0];
+                this.refs.type.value = res.items[0].volumeInfo.categories[0];
+                this.refs.description.value = res.items[0].volumeInfo.description;
+                this.refs.image.value = res.items[0].volumeInfo.imageLinks.thumbnail;
+
             //console.log(res.items[0].volumeInfo.imageLinks.thumbnail)
-            let api_book = {
-                comments: [],
-                code: this.props.state.books.length,
-                futured: false,                
-                name: res.items[0].volumeInfo.title ,
-                author: res.items[0].volumeInfo.authors[0],
-                price: 228,
-                type: res.items[0].volumeInfo.categories[0],
-                seria: "",
-                img: res.items[0].volumeInfo.imageLinks.thumbnail,
-                description: res.items[0].volumeInfo.description,
-                rating: 3,
-                inStock:true,
-            }
+            // let api_book = {
+            //     comments: [],
+            //     code: this.props.state.books.length,
+            //     futured: false,                
+            //     name: res.items[0].volumeInfo.title ,
+            //     author: res.items[0].volumeInfo.authors[0],
+            //     price: 228,
+            //     type: res.items[0].volumeInfo.categories[0],
+            //     seria: "",
+            //     img: res.items[0].volumeInfo.imageLinks.thumbnail,
+            //     description: res.items[0].volumeInfo.description,
+            //     rating: 3,
+            //     inStock:true,
+            // }
+            
             this.props.addBook(api_book)
             console.log(api_book)
             this.props.fetchData(res.items);
@@ -67,15 +75,19 @@ export default class AdminPanel extends React.Component {
 
         if(this.refs.title.value.trim() !== '' || this.refs.description.value.trim() !== '') {
             let new_book = {
+
+                comments: [],
                 name: this.refs.title.value,
                 author: this.refs.author.value,
                 price: this.refs.price.value,
                 type: this.refs.type.value,
-                seria: this.refs.type.value,
-                image: this.refs.image.value,
+                seria: "",
+                img: this.refs.image.value,
                 description: this.refs.description.value,
                 futured: false,
-                code: this.props.state.books.length
+                code: this.props.state.books.length,
+                rating: 3,
+                inStock:true,
 
             };
             console.log(this.props.state)
