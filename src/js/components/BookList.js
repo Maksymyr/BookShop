@@ -15,7 +15,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state, ownProps) => {
     if(ownProps.match.params.id) {
-        if(ownProps.match.url.replace(/[^a-z]/g, '')=='page'){
+        if(ownProps.match.url.replace(/[^a-z]/g, '')=='pages'){
             if(state.books.length>20){
                 let bbb=state.books.slice((ownProps.match.params.id-1)*20, (ownProps.match.params.id-1)*20+20);
                 console.log(bbb)
@@ -106,9 +106,9 @@ export default class BookList extends React.Component {
             let a=[];
             for(var i=1; i<Math.floor(this.props.books.length/20)+1; i++){
                 if(a[i]=='undefined'){
-                    a[i]=<Link to={`/page${i+1}`}><p key={i} >{i+1}</p></Link>
+                    a[i]=<Link to={`/pages${i+1}`}><p key={i} >{i+1}</p></Link>
                 }else{
-                    a[i]=<Link to={`/page${i+1}`}><p key={i}>{i+1}</p></Link>
+                    a[i]=<Link to={`/pages${i+1}`}><p key={i}>{i+1}</p></Link>
                 }
             }
             return a.map((item)=>{return item});
@@ -123,7 +123,7 @@ export default class BookList extends React.Component {
                     <Category />                
                     <div className="book-list-main">
                         <div id={this.props.sidebar? "w77" : "w96"}  className="book-list"  ref="book_list">
-                        {console.log(this.state.books)}
+                         {/*console.log(this.state.books)*/} 
                             {this.state.books.slice(0,20).map((item, index) => <Book item={item} key={index} index={index}/>)}
                             {this.page()}
                         </div>
