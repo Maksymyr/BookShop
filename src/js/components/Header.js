@@ -26,10 +26,10 @@ export default class Header extends React.Component {
     render(){
         return(
             <header className="header">
-                <Link to='/'><h1 className="page-title">Snails</h1></Link>
+                <Link to='/'> <h1 className="page-title">Snails</h1></Link>
                 <div className='head-nav'>
                     <div className='head-center'>
-                        <input type='text' onKeyPress={this.search} className='search' ref='search'/>
+                        <input type='text' onKeyPress={this.search} className='search' ref='search' placeholder='Поиск' />
                         <Link to='/basket'><div style={{backgroundImage: 'url('+ require("../../icon/bascket.png")+')'}} className='basket'></div></Link>
                         <div className='room-main'>
                             <div className='room-down'>
