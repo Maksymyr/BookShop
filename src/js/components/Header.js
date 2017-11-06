@@ -14,7 +14,8 @@ const mapDispatchToProps = (dispatch) => {
 export default class Header extends React.Component {
 
     state = {
-        left: 0
+        left: 0,
+        firstChild: {}
     }
 
     search=(event)=>{
@@ -25,7 +26,36 @@ export default class Header extends React.Component {
             return (this.props.history.push(`/search/${t}`))
         }
     }
+    // componentDidMount(){
+    //     this.setState({left: parseInt(this.state.left)+5+'px'})
+    // }
 
+    
+    headerSlider(width){
+        this.setState({firstChild: document.getElementById('headerSlider').firstChild})
+        setInterval(() => {
+            // console.log(this.state.firstChild.getBoundingClientRect().left)
+            // console.log(this.refs.headerSlideImg)
+            
+            
+            let width = this.refs.headerSlideImg.getBoundingClientRect().width
+            // console.log(this.refs.headerSlideImg.getBoundingClientRect().left)
+
+        
+                if(this.state.firstChild.getBoundingClientRect().left  == -width) {
+                    document.getElementById('headerSlider').appendChild(document.getElementById('headerSlider').firstChild)
+
+                    this.setState({left: "-1px", firstChild: document.getElementById('headerSlider').firstChild});
+
+
+                }
+             else{this.setState({left: parseInt(this.state.left)-1+'px'});
+            }}, 50)
+          
+    }
+    componentDidMount = () =>{
+        this.headerSlider()
+    }
 
 
    
@@ -55,9 +85,9 @@ export default class Header extends React.Component {
                 <div className='bottom-line'></div>
 
                 <div className='header-slider-wrapper'>
-                    <div className='header-slider' style={{left: this.state.left}}>
-                        <div style={{backgroundImage: 'url('+ require("../../image/header-img.png")+')'}} className='header-img'></div>
-                        <div style={{backgroundImage: 'url('+ require("../../image/header-img.png")+')'}} className='header-img'></div>
+                    <div id='headerSlider' className='header-slider'   style={{left: this.state.left}}>
+                        <div ref='headerSlideImg' style={{backgroundImage: 'url('+ require("../../image/slider-book1.jpg")+')'}} className='header-img'></div>
+                        <div ref='headerSlideImg2' style={{backgroundImage: 'url('+ require("../../image/slider-book1.jpg")+')'}} className='header-img'></div>
                     </div>
                 </div>
             </header>
