@@ -9,6 +9,8 @@ export default function inbasket(state = InitialState.inbasket, action) {
             return state.filter((item, index)=>{return index!=payload});
         case types.ADD_BASKET:
             return [...state, payload]
+        case types.DEL_ALL_BASKET:
+            return []
         default:
             return state;
     }
