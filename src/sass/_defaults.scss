@@ -31,3 +31,25 @@ body {
     width: 100%;
     display: table;
 }
+.notify-font {
+    opacity: 0.9;
+    background-color: rgb(19, 18, 18);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding-top: 45vh; 
+    z-index: 33;
+    .notify {
+        margin: auto;
+        font-size: 24px;
+        color: white;
+        background-color: black;
+        width: 500px;
+        height: 50px;
+        text-align: center;
+        padding: 13px 0; 
+        border-radius: 20px;
+    }
+}

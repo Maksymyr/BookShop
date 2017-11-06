@@ -10,6 +10,7 @@ import filter from './filter';
 import sidebar from './sidebar';
 
 import api from './api';
+import notify from './notify';
 
 
 const reducers = combineReducers({
@@ -21,7 +22,7 @@ const reducers = combineReducers({
     sidebar,
     watchedBooks, 
     api,
-
+    notify,
 });
 
 export default reducers;
