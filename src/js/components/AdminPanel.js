@@ -33,7 +33,7 @@ export default class AdminPanel extends React.Component {
         .then(res => res.json())
         .then(res => {
             console.log(res);
-            console.log(res.items[0].volumeInfo.authors[0])
+            //console.log(res.items[0].volumeInfo.imageLinks.thumbnail)
             let api_book = {
                 comments: [],
                 code: this.props.state.books.length,
@@ -43,7 +43,7 @@ export default class AdminPanel extends React.Component {
                 price: 228,
                 type: res.items[0].volumeInfo.categories[0],
                 seria: "",
-                img: require('../../image/no-image.png'),
+                img: res.items[0].volumeInfo.imageLinks.thumbnail,
                 description: res.items[0].volumeInfo.description,
                 rating: 3,
                 inStock:true,
@@ -52,9 +52,11 @@ export default class AdminPanel extends React.Component {
             console.log(api_book)
             this.props.fetchData(res.items);
         })
-        .catch(err => console.log(err))
+        .catch(err => {
+            console.log("Ошибка запроса")
+        
+        })
         this.refs.api.value = '';
-        console.log("Tyt preobrazovanie");
         
         
         //console.log(this.props.api)
