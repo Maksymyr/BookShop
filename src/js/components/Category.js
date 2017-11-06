@@ -10,31 +10,33 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state, ownProps) => {
     return {books: state.books,
+        visible: state.sidebar,
         category: state.category}
 }
 
 @connect(mapStateToProps, mapDispatchToProps)
 export default class Category extends React.Component{
+
     constructor(props){
         super(props)
     }
-    state = {
-        visible: true
+    
+    handleChange = () => {
+        // this.props.sideBarHide(true)
+        // console.log(this.props.visible)
     }
 
     handleShow = () => {
 
 
-        if(this.state.visible){
+        if(this.props.visible){
             this.refs.hide_show.style.backgroundColor ="lime";
-            this.refs.wrapp.style.width = "0";
-            this.setState({visible: !this.state.visible})
+            // this.refs.wrapp.style.width = "0";   
             this.props.sideBarHide(false);
 
         } else {
             this.refs.hide_show.style.backgroundColor ="steelblue";
-            this.refs.wrapp.style.width = "20%";        
-            this.setState({visible: !this.state.visible})
+            // this.refs.wrapp.style.width = "20%";            
             this.props.sideBarHide(true);
         }
     }
@@ -43,12 +45,12 @@ export default class Category extends React.Component{
         
         return(
             
-            <div className="category_wrap" ref="wrapp">
+            <div id={this.props.visible? "w20" : "w0"} className="category_wrap" ref="wrapp">
                     <div className="category_hide" ref="hide_show" onClick={this.handleShow}>Category</div>
                     <div className="category_body" ref="category_body">
                     <h3 ref="title">Категории:</h3>
                         {this.props.category.map((item, index) =>
-                            <Link key={index} className="category__link" to={"/category" + index}>{item}</Link>)}
+                            <Link onClick={this.handleChange} key={index} className="category__link" to={"/category" + index}>{item}</Link>)}
                     </div>
                 </div>
 
