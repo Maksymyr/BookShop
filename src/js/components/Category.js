@@ -20,11 +20,30 @@ export default class Category extends React.Component{
     constructor(props){
         super(props)
     }
-    
-    handleChange = () => {
-        // this.props.sideBarHide(true)
-        // console.log(this.props.visible)
+    getCoord = (elem) => {
+        var box = elem.getBoundingClientRect();
+        
+          return {
+            top: box.top + pageYOffset,
+            left: box.left + pageXOffset
+          };
     }
+    windowHeightDetect =() =>{
+
+    }
+    componentDidMount() {
+        this.handleTest()
+    }
+    handleTest = (e) => {
+        console.log(e)
+        var wd = window.innerWidth;
+        //console.log(this.getCoord(wd));
+        console.log(this.getCoord(this.refs.wrapp))
+        window.onscroll = function(e) {
+            console.log(e)
+        }
+    }
+
 
     handleShow = () => {
 
@@ -48,7 +67,7 @@ export default class Category extends React.Component{
             <div id={this.props.visible? "w20" : "w0"} className="category_wrap" ref="wrapp">
                     <div className="category_hide" ref="hide_show" onClick={this.handleShow}>Category</div>
                     <div className="category_body" ref="category_body">
-                    <h3 ref="title">Категории:</h3>
+                    <h3 onClick={this.handleTest} ref="title">Категории:</h3>
                         {this.props.category.map((item, index) =>
                             <Link onClick={this.handleChange} key={index} className="category__link" to={"/category" + index}>{item}</Link>)}
                     </div>

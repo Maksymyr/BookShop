@@ -106,9 +106,9 @@ export default class BookList extends React.Component {
             let a=[];
             for(var i=1; i<Math.floor(this.props.books.length/20)+1; i++){
                 if(a[i]=='undefined'){
-                    a[i]=<Link to={`/pages${i+1}`}><p key={i} >{i+1}</p></Link>
+                    a[i]=<Link key={i} to={`/pages${i+1}`}><p key={i} >{i+1}</p></Link>
                 }else{
-                    a[i]=<Link to={`/pages${i+1}`}><p key={i}>{i+1}</p></Link>
+                    a[i]=<Link key={i} to={`/pages${i+1}`}><p key={i}>{i+1}</p></Link>
                 }
             }
             return a.map((item)=>{return item});
@@ -122,7 +122,7 @@ export default class BookList extends React.Component {
                 <div>
                     <Category />                
                     <div className="book-list-main">
-                        <div id={this.props.sidebar? "w77" : "w96"}  className="book-list"  ref="book_list">
+                        <div id="w77"   className="book-list"  ref="book_list">
                          {/*console.log(this.state.books)*/} 
                             {this.state.books.slice(0,20).map((item, index) => <Book item={item} key={index} index={index}/>)}
                             {this.page()}
