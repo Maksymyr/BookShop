@@ -12,36 +12,38 @@ const mapStateToProps = (state, ownProps) => {
 export default class FooterSlider extends React.Component{
   state = {
     watchedBooks: {},
-    left : 0
+    left : 0,
+    offsetValue: 110
 
   }
 
-  handleClickRight = () =>{
-    if(this.state.left <= -110){
-    this.setState({left: this.state.left+110})
+  
+  sliderInitialize=(someBooks, width, amount)=>{
+    if (someBooks.length-amount<2){
+      amount=someBooks.length-2
     }
-  }
-
-  handleClickLeft = () =>{
-    if(this.state.left >= -330){
-      this.setState({left: this.state.left-110})
+    let x = width/amount-10;
+    let y = width/amount;
+    this.handleClickRight = () =>{
+      if(this.state.left <= -y){
+      this.setState({left: this.state.left+y})
+      }
     }
-    
-    
-  }
-  sliderInitialize(someBooks){
-
-    
+    this.handleClickLeft = () =>{
+      if(this.state.left >= -(someBooks.length-1-amount)*y){
+        this.setState({left: this.state.left-y})
+      }
+    }
     return (
     <div className="footer-slider-wrapper">
       <h2>Недавно просмотренные товары</h2>
       <span className='btn btn-left' onClick={this.handleClickLeft}>&#60;</span>
-      <div className='slider-block'>
+      <div className='slider-block'  style={{width: width +'px', height: 1.5 * x + 'px'}}>
         <div className='slider-inline' style={{left: this.state.left+'px'}}>
         
         {someBooks.map((item, index) => {
         return(
-        <Link to='/' key={index}><img src={item.img}/></Link>
+        <Link to='/' key={index}><img src={item.img}  style={{width: x +'px', height: 1.5 * x + 'px'}} /></Link>
         )
         } )}
         </div>
@@ -58,7 +60,7 @@ export default class FooterSlider extends React.Component{
       
         return(
            
-              this.sliderInitialize(watchedBooks)
+              this.sliderInitialize(watchedBooks, 660, 3)
 
         )
     }
