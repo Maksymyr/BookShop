@@ -32,50 +32,50 @@ export default class Basket extends React.Component {
         if(this.props.books !=""){
             return (
             <div className='basket-book'>
-                <table>
+                 <table>
                     <tbody>
                         <tr>
                             <td className='t1'>
-                                img
+                                Книга
                             </td>
                             <td className='t2'>
-                                name
+                                Название
                             </td>
                             <td className='t3'>
-                                cost
+                                Цена
                             </td>
                             <td className='t4'>
-                                number
+                                Количество
                             </td>
                             <td className='t5'>
-                                del
+                                Удалить
                             </td>
                         </tr>
                     </tbody>
-                </table>
+                </table> 
                 {this.props.books.map((item, index)=>{
                 return <BookBasket books={item} index={index} key={index}/>
                 })}
                 <div className="basket-add-contacts">
                     <br/>
-                <p> del all basket</p>
-                <button className='basket-button del-all' onClick={this.delallbusket}>del-all</button>
+                <p> Очистить корзину</p>
+                <button className='basket-button del-all' onClick={this.delallbusket}>Удалить всё</button>
                 <hr/>
-                    <div className='contacts'>
-                        <p>Buy book now </p>
-                        <p>Write email like:(asdf@gmail.com)</p>
-                        <input type='email' defaultValue='email'/>
-                        <p>Write tel like:(+380123456789)</p>
-                        <input type='tel' defaultValue='+380' maxLength='13' size='13'/>
-                    </div>
-                    <button onClick={this.bought}className='basket-buy'>buy</button>
+                    <form className='contacts'>
+                        <p>Купить книгу сейчас</p>
+                        <p>E-mail:</p>
+                        <input type='email' placeholder='E-mail'/>
+                        <p>Номер телефона:</p>
+                        <input type='tel' placeholder='Номер телефона' maxLength='13' size='13'/>
+                    </form>
+                    <button onClick={this.bought}className='basket-buy'>Купить</button>
                 </div>
                 
             </div>)
         }else{
             return(
                 <div className='nobasket'>
-                    <p>basket null</p>
+                    <p>Корзина пуста</p>
                 </div>
         )
         };
@@ -83,11 +83,11 @@ export default class Basket extends React.Component {
 
     render(){
         return(
-            <basket className='basket-list'>
-                <h2>basket</h2>
+            <div className='basket-list'>
+                <h2>Корзина</h2>
                 <br/>
                 {this.add()}
-            </basket>
+            </div>
         );
     }
 }
