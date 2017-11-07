@@ -28,11 +28,9 @@ export default  class BookPage extends React.Component{
         disslike: false,
     }
     componentDidMount() {
-        console.log(this.props.item)
         this.props.addWatchedBooks(this.props.item)
     }
     handleClick = () => {
-        console.log(this)
         if(this.refs.desc.value != "" && this.refs.title.value != ""){    
             let obj = {
 
@@ -44,10 +42,8 @@ export default  class BookPage extends React.Component{
                 code: this.props.item.code
             }
             this.props.addComment(obj)
-            //this.setState({comments: [...this.state.comments, obj]})
             this.refs.title.value = "";
             this.refs.desc.value = "";
-            //console.log(this.state.comments)
         }
     } 
     handleLike = () =>{
