@@ -43,32 +43,24 @@ export default class Category extends React.Component{
     }
     handleTest = (e) => {
         
-        //console.log(e)
         var wrap = this.getCoord(this.refs.wrapp)
-        //console.log(document.documentElement.scrollTop)
         window.onscroll = (e) =>{
-           // console.log("Window :"+window.pageYOffset+ " Element: "+wrap.top);
-            //console.dir(this.refs.wrapp.getBoundingClientRect().top);
-            console.log(this.state.toggleId)
-
+            //console.log(this.state.toggleId)
             if(this.state.toggleId == true){
              if(this.refs.wrapp.getBoundingClientRect().top + this.refs.wrapp.clientHeight + 50 < 0){
                     if(!this.refs.wrapp.classList.contains("fixed_cat")){
                         this.setState({toggleId: false}) 
                         this.setState({top_coord: window.pageYOffset})
-                        console.log(this.refs)
+                        //console.log(this.refs)
                         setTimeout(this.refs.wrapp.classList.add("fixed_position"), 3000)
-                        
                         
                     }
                 }
              }else if(this.state.toggleId == false){
-                console.log(window.pageYOffset)
+                //console.log(window.pageYOffset)
                 if(window.pageYOffset < this.state.top_coord -  this.refs.wrapp.clientHeight -50 -50){
-                    //alert("Works")
                     this.setState({toggleId: true}) 
 
-                    
                 }  
             }   
         }
