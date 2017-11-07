@@ -3,15 +3,19 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import BookPageComment from '../components/BookPageComment'
 import {bindActionCreators} from 'redux';
-import {addComment, addNotify, addBasket} from '../actions';
+import {addComment, addNotify, addWatchedBooks, addBasket} from '../actions';
 
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({addComment, addNotify, addBasket}, dispatch)
+    return bindActionCreators({addComment, addNotify,addWatchedBooks,addBasket}, dispatch)
 }
 
 const mapStateToProps = (state, ownProps) => {
-    return {item: state.books[ownProps.match.params.id], books: state.books}
+    
+    return {item: state.books.find((item, index) => {
+        if(item.code == ownProps.match.params.id) {
+            return item}
+    }), books: state.books}
  }
  
  @connect (mapStateToProps, mapDispatchToProps)
@@ -22,6 +26,10 @@ export default  class BookPage extends React.Component{
     state = {
         like: false,
         disslike: false,
+    }
+    componentDidMount() {
+        console.log(this.props.item)
+        this.props.addWatchedBooks(this.props.item)
     }
     handleClick = () => {
         console.log(this)
@@ -54,8 +62,9 @@ export default  class BookPage extends React.Component{
         this.props.addNotify("В корзину добавлен новый товар!")
     }
     render(){
+
         //console.log(this.props.match.params.id);
-        //console.log(this.props.item)
+        console.log(this.props.item)
         return(
             <div className="book_page">
                 
@@ -98,10 +107,10 @@ export default  class BookPage extends React.Component{
                     <button onClick={this.handleClick}>Отправить</button>
                     </div>
                     
-                    {this.props.item.comments.length != 0 ? this.props.item.comments.map((item, index) => 
+                    { this.props.item.comments.length != 0 ? this.props.item.comments.map((item, index) => 
                     <div className="comment" key={index}> 
                         <BookPageComment book={this.props.item.code} id={index} item={item}/>
-                    </div>) : null}
+                    </div>) : null} 
 
 
             </div>

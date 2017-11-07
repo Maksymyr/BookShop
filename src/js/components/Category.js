@@ -33,8 +33,10 @@ export default class Category extends React.Component{
             left: box.left + pageXOffset
           };
     }
-    windowHeightDetect =() =>{
+    windowHeightDetect =() =>{}
 
+    scrolling = () => {
+        window.scrollTo(0,420);
     }
     componentDidMount() {
         this.handleTest()
@@ -69,7 +71,7 @@ export default class Category extends React.Component{
                     
                 }  
             }   
-
+        }
              
                 
             //  if( window.pageYOffset < this.state.toggleId){
@@ -85,7 +87,7 @@ export default class Category extends React.Component{
             
             
         }
-    }
+    
 
 
     handleShow = () => {
@@ -112,10 +114,10 @@ export default class Category extends React.Component{
                     <div className="category_body" ref="category_body">
                     <h3 onClick={this.handleTest} ref="title">Категории:</h3>
                         {this.props.category.map((item, index) =>
-                            <Link onClick={this.handleChange} key={index} className="category__link" to={"/category" + index}>{item}</Link>)}
+                            <Link onClick={this.scrolling} key={index} className="category__link" to={"/category" + index}>{item}</Link>)}
                     </div>
                 </div>
 
         )
     }
-}
+    }

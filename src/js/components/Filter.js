@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {filterBooks} from '../actions';
 import {connect} from 'react-redux';
+import {withRouter} from 'react-router';
 import {bindActionCreators} from 'redux';
 
 const mapDispatchToProps = (dispatch) => {
@@ -11,7 +12,7 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state, ownProps) => {
     return {filter: state.filter, books: state.books}
 }
-
+@withRouter
 @connect(mapStateToProps, mapDispatchToProps)
 export default class Filter extends React.Component {
     constructor (props) {
@@ -29,7 +30,8 @@ export default class Filter extends React.Component {
     }
     filtring = () => {
         // console.log(this.refs.selected.value);
-        this.props.filterBooks(this.refs.selected.value)
+        this.props.filterBooks(this.refs.selected.value);
+        this.props.history.push("/");
     }
     render() {
         
@@ -46,8 +48,8 @@ export default class Filter extends React.Component {
                             <option value='raiting'>По рейтингу</option>
                             <option value='author_a'>По автору (А-Я)</option>
                             <option value='author_z'>По автору (Я-А)</option>
-                            <option value='price_a'>Цена по убыванию</option>
-                            <option value='price_z'>Цена по возрастанию</option>
+                            <option value='price_a'>Цена по возрастанию</option>
+                            <option value='price_z'>Цена по убыванию</option>
                         </select>
                     </div>
                 </form>

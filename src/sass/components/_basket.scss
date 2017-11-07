@@ -1,11 +1,19 @@
-basket.basket-list{
+.basket-list{
+    margin: 20px 0 0 0;
+    h2{
+        text-align: center;
+    }
+}
+
+.basket-list{
     display: flex;
     .nobasket{
         height: 400px;
     }
     h2{
         padding: 10px;
-        height: 20px
+        height: 20px;
+        text-align: center;
     }
     .basket-book{
         width: 100%;
@@ -177,6 +185,14 @@ basket.basket-list{
                 background-image: linear-gradient(to bottom, #fc3c3c, #000000);             
                 text-decoration: none;
             }
+        }
+        .cart-inp{
+            width: 200px;
+            height: 30px;
+            margin: 5px 0;
+            padding-left: 5px;
+            border-radius: 5px;
+            border: 1px solid gray;
         }
     
         .del-all{

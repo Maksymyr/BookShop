@@ -24,7 +24,7 @@ export default class Basket extends React.Component {
     delallbusket = () =>{
         this.props.delallbasket();
     }
-    bought = () => {
+    boughtBtn = () => {
         this.props.addNotify("Кросавчег! Твои книги уже в пути!")
         this.props.delallbasket();
     }
@@ -32,50 +32,45 @@ export default class Basket extends React.Component {
         if(this.props.books !=""){
             return (
             <div className='basket-book'>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td className='t1'>
-                                img
-                            </td>
-                            <td className='t2'>
-                                name
-                            </td>
-                            <td className='t3'>
-                                cost
-                            </td>
-                            <td className='t4'>
-                                number
-                            </td>
-                            <td className='t5'>
-                                del
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+               <div className='cart-block'>
+               <span className='cart-top-block'>Книга</span>
+                <span className='cart-top-block'>
+                    Название
+                </span>
+                <span className='cart-top-block'>
+                    Цена
+                </span>
+                <span className='cart-top-block'>
+                    Количество
+                </span>
+                <span className='cart-top-block'>
+                    Удалить
+                </span>
+               </div>
+
                 {this.props.books.map((item, index)=>{
                 return <BookBasket books={item} index={index} key={index}/>
                 })}
                 <div className="basket-add-contacts">
                     <br/>
-                <p> del all basket</p>
-                <button className='basket-button del-all' onClick={this.delallbusket}>del-all</button>
+                <p> Очистить корзину</p>
+                <button className='basket-button del-all' onClick={this.delallbusket}>Удалить всё</button>
                 <hr/>
-                    <div className='contacts'>
-                        <p>Buy book now </p>
-                        <p>Write email like:(asdf@gmail.com)</p>
-                        <input type='email' defaultValue='email'/>
-                        <p>Write tel like:(+380123456789)</p>
-                        <input type='tel' defaultValue='+380' maxLength='13' size='13'/>
-                    </div>
-                    <button onClick={this.bought}className='basket-buy'>buy</button>
+                    <form className='contacts'>
+                        <p>Купить книгу сейчас</p>
+                        <p>E-mail:</p>
+                        <input className='cart-inp' type='email' placeholder='E-mail'/>
+                        <p>Номер телефона:</p>
+                        <input className='cart-inp' type='tel' placeholder='Номер телефона' maxLength='13' size='13'/>
+                    </form>
+                    <button onClick={this.boughtBtn}className='basket-buy'>Купить</button>
                 </div>
                 
             </div>)
         }else{
             return(
                 <div className='nobasket'>
-                    <p>basket null</p>
+                    <p>Корзина пуста</p>
                 </div>
         )
         };
@@ -83,11 +78,11 @@ export default class Basket extends React.Component {
 
     render(){
         return(
-            <basket className='basket-list'>
-                <h2>basket</h2>
+            <div className='basket-list'>
+                <h2>Корзина</h2>
                 <br/>
                 {this.add()}
-            </basket>
+            </div>
         );
     }
 }

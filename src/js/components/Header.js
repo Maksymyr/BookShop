@@ -26,28 +26,19 @@ export default class Header extends React.Component {
             return (this.props.history.push(`/search/${t}`))
         }
     }
-    // componentDidMount(){
-    //     this.setState({left: parseInt(this.state.left)+5+'px'})
-    // }
+
 
     
     headerSlider(width){
         this.setState({firstChild: document.getElementById('headerSlider').firstChild})
         setInterval(() => {
-            // console.log(this.state.firstChild.getBoundingClientRect().left)
-            // console.log(this.refs.headerSlideImg)
-            
-            
-            let width = this.refs.headerSlideImg.getBoundingClientRect().width
-            // console.log(this.refs.headerSlideImg.getBoundingClientRect().left)
 
+            let width = this.refs.headerSlideImg.getBoundingClientRect().width
         
                 if(this.state.firstChild.getBoundingClientRect().left  == -width) {
                     document.getElementById('headerSlider').appendChild(document.getElementById('headerSlider').firstChild)
 
                     this.setState({left: "-1px", firstChild: document.getElementById('headerSlider').firstChild});
-
-
                 }
              else{this.setState({left: parseInt(this.state.left)-1+'px'});
             }}, 50)
@@ -56,11 +47,9 @@ export default class Header extends React.Component {
     componentDidMount = () =>{
         this.headerSlider()
     }
-
-
-   
-
-
+    scrolling = () => {
+        window.scrollTo(0,420);
+    }
     render(){
         return(
             <header className="header">
@@ -75,10 +64,9 @@ export default class Header extends React.Component {
                     <button className='menu search-icon'><i className="fa fa-search" aria-hidden="true"></i></button>
                 </form>
                 
-                <Link to='/buy'><div className='menu-links menu buy'>Купленные книги</div></Link>
-                <Link to={'/basket'+"l_d"}><div className='menu-links menu love'>Понравившиеся книги</div></Link>
-                <Link to='/basket' className='menu-links menu'>Корзина<i className="menu-cart fa fa-shopping-cart" aria-hidden="true"></i>
-                </Link>
+                <Link to='/buy' onClick = {this.scrolling}><div className='menu-links menu buy'>Купленные книги</div></Link>
+                <Link to={'/basket'+"l_d"} onClick = {this.scrolling}><div className='menu-links menu love'>Понравившиеся книги</div></Link>
+                <Link to='/basket' className='menu-links menu' onClick = {this.scrolling}>Корзина<i className="menu-cart fa fa-shopping-cart" aria-hidden="true"></i></Link>
                     
                 </div> 
                 </div>
