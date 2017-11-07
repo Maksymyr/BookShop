@@ -24,6 +24,7 @@ export default class Category extends React.Component{
             top_coord: 1,
 
         }
+        this.handleTest = this.handleTest.bind(this);
     }
     getCoord = (elem) => {
         var box = elem.getBoundingClientRect();
@@ -41,7 +42,7 @@ export default class Category extends React.Component{
     componentDidMount() {
         this.handleTest()
     }
-    handleTest = (e) => {
+    handleTest(e) {
         
         //console.log(e)
         var wrap = this.getCoord(this.refs.wrapp)
@@ -49,7 +50,7 @@ export default class Category extends React.Component{
         window.onscroll = (e) =>{
            // console.log("Window :"+window.pageYOffset+ " Element: "+wrap.top);
             //console.dir(this.refs.wrapp.getBoundingClientRect().top);
-            console.log(this.state.toggleId)
+            // console.log(this.state.toggleId)
 
             if(this.state.toggleId == true){
              if(this.refs.wrapp.getBoundingClientRect().top + this.refs.wrapp.clientHeight + 50 < 0){
