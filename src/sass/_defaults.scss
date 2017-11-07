@@ -32,8 +32,8 @@ body {
     display: table;
 }
 .notify-font {
-    opacity: 0.9;
-    background-color: rgb(19, 18, 18);
+    
+    background-color: rgba(73, 71, 71, 0.699);
     width: 100vw;
     height: 100vh;
     position: fixed;
@@ -45,7 +45,7 @@ body {
         margin: auto;
         font-size: 24px;
         color: white;
-        background-color: black;
+        background-color: rgba(46, 44, 44, 0.938);
         width: 500px;
         height: 50px;
         text-align: center;

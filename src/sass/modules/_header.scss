@@ -4,6 +4,7 @@ header.header {
   background: white;
   position: static;
   z-index: 100;
+  margin-bottom: 30px;
   .logo-wrapper{
     text-decoration: none;
     margin-top: 15px;
@@ -95,11 +96,15 @@ header.header {
   .header-slider-wrapper{
     position: relative;
     width: 100%;
-    height: 100%;
+    overflow: hidden;
+    height: 320px;
+    margin-bottom: 30px;
+  
   }
   .header-slider{
     position: absolute;
     width: 200%;
+    height: 320px;
 
     .header-img{
       float: left;
