@@ -81,10 +81,6 @@ export default class BookList extends React.Component {
         
     }
     componentDidUpdate(){
-        // if(this.props.match.url.replace(/[^a-z]/g, '')==''){
-        //     window.scrollTo(0,0);
-        // }
-       
         if(this.state.check == this.props.filter) {
             switch(this.state.check) {
                 case("name_a"):
@@ -151,8 +147,8 @@ export default class BookList extends React.Component {
                 <div>
                     <Category />                
                     <div className="book-list-main">
-                        <div id={this.props.sidebar? "w77" : "w96"}  className="book-list"  ref="book_list">
-
+                        <div id="w77"   className="book-list"  ref="book_list">
+                         {/*console.log(this.state.books)*/} 
                             {this.state.books.slice(0,20).map((item, index) => <Book item={item} key={index} index={index}/>)}
                             {this.page()}
                         </div>

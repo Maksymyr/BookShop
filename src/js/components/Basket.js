@@ -21,10 +21,9 @@ export default class Basket extends React.Component {
         super(props)
     }
 
-    // delallbusket = () =>{
-    //     this.props.delallbasket();
-    // }
+
     bought = () => {
+
         this.props.addNotify("Кросавчег! Твои книги уже в пути!")
         // console.log(this.props.books)
         // console.log(this.props.bought);
@@ -41,27 +40,22 @@ export default class Basket extends React.Component {
         if(this.props.books !=""){
             return (
             <div className='basket-book'>
-                 <table>
-                    <tbody>
-                        <tr>
-                            <td className='t1'>
-                                Книга
-                            </td>
-                            <td className='t2'>
-                                Название
-                            </td>
-                            <td className='t3'>
-                                Цена
-                            </td>
-                            <td className='t4'>
-                                Количество
-                            </td>
-                            <td className='t5'>
-                                Удалить
-                            </td>
-                        </tr>
-                    </tbody>
-                </table> 
+               <div className='cart-block'>
+               <span className='cart-top-block'>Книга</span>
+                <span className='cart-top-block'>
+                    Название
+                </span>
+                <span className='cart-top-block'>
+                    Цена
+                </span>
+                <span className='cart-top-block'>
+                    Количество
+                </span>
+                <span className='cart-top-block'>
+                    Удалить
+                </span>
+               </div>
+
                 {this.props.books.map((item, index)=>{
                 return <BookBasket books={item} index={index} key={index}/>
                 })}
@@ -73,11 +67,11 @@ export default class Basket extends React.Component {
                     <form className='contacts'>
                         <p>Купить книгу сейчас</p>
                         <p>E-mail:</p>
-                        <input type='email' placeholder='E-mail'/>
+                        <input className='cart-inp' type='email' placeholder='E-mail'/>
                         <p>Номер телефона:</p>
-                        <input type='tel' placeholder='Номер телефона' maxLength='13' size='13'/>
+                        <input className='cart-inp' type='tel' placeholder='Номер телефона' maxLength='13' size='13'/>
                     </form>
-                    <button onClick={this.bought}className='basket-buy'>Купить</button>
+                    <button onClick={this.boughtBtn}className='basket-buy'>Купить</button>
                 </div>
                 
             </div>)
