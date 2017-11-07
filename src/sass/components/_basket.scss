@@ -1,11 +1,19 @@
-basket.basket-list{
+.basket-list{
+    margin: 20px 0 0 0;
+    // h2{
+    //     text-align: center;
+    // }
+}
+
+.basket-list{
     display: flex;
     .nobasket{
         height: 400px;
     }
     h2{
         padding: 10px;
-        height: 20px
+        height: 20px;
+        text-align: center;
     }
     .basket-book{
         width: 100%;
