@@ -1,14 +1,14 @@
 import React from 'react';
 import BookBasket from './BookBasket'
 import {connect} from 'react-redux';
-import {delallbasket, addNotify} from '../actions';
+import {delallbasket, addNotify, boughtBook} from '../actions';
 import {bindActionCreators} from 'redux';
 
-const mapDispatchToProps = dispatch => ( bindActionCreators({ delallbasket, addNotify }, dispatch) );
+const mapDispatchToProps = dispatch => ( bindActionCreators({ delallbasket, addNotify , boughtBook}, dispatch) );
 
 const mapStateToProps = (state) => {
     // if(state.inbasket[0] !=""){
-        return {books: state.inbasket}
+        return {books: state.inbasket, bought: state.bought}
     // }else{
     //     return {books: [JSON.parse(localStorage.getItem('Basket'))]}
     // }
@@ -21,11 +21,20 @@ export default class Basket extends React.Component {
         super(props)
     }
 
-    delallbusket = () =>{
-        this.props.delallbasket();
-    }
+    // delallbusket = () =>{
+    //     this.props.delallbasket();
+    // }
     bought = () => {
         this.props.addNotify("Кросавчег! Твои книги уже в пути!")
+        // console.log(this.props.books)
+        // console.log(this.props.bought);
+
+
+        
+        this.props.boughtBook(this.props.books);
+
+
+
         this.props.delallbasket();
     }
     add = () =>{
@@ -59,7 +68,7 @@ export default class Basket extends React.Component {
                 <div className="basket-add-contacts">
                     <br/>
                 <p> Очистить корзину</p>
-                <button className='basket-button del-all' onClick={this.delallbusket}>Удалить всё</button>
+                <button className='basket-button del-all' onClick={this.props.delallbasket}>Удалить всё</button>
                 <hr/>
                     <form className='contacts'>
                         <p>Купить книгу сейчас</p>

@@ -1,8 +1,9 @@
 export default { 
     api: [],
+    bought: JSON.parse(localStorage.getItem('Bought')) !== null ? JSON.parse(localStorage.getItem('Bought')) : false || [],    
     notify: "",
     sidebar: false,
-    filter: "",
+    filter: "raiting",
     search: "",
     category: ["Искусство", "Хобби", "Фэнтези", "История", "ЛитРПГ", "Детектив", "Триллер"],
     inbasket: JSON.parse(localStorage.getItem('Basket')) !== null ? JSON.parse(localStorage.getItem('Basket')) : false || [],

@@ -27,6 +27,7 @@ export default class MainLayout extends React.Component {
                 <Switch>
                     <Route exact path="/" component={BookList}/>
                     <Route path="/category:id" component= {BookList}/>
+                    <Route path="/buy" component= {BookList}/>
                     <Route path="/search/:search" component= {BookList}/>
                     <Route path="/basket:id" component= {BookList}/>
                     <Route path="/pages:id" component= {BookList}/>
