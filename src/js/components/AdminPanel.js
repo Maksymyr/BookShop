@@ -1,16 +1,14 @@
 
 import React from 'react';
-import { addBook } from '../actions';
+import { addBook , addCategory, fetchData, apiData} from '../actions';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 import {withRouter} from 'react-router-dom';
 
-const fetchData = (payload) => ({ type: "FETCH_DATA", payload })
-const apiData = (payload) => ({type: "API_DATA", payload})
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({addBook, fetchData, apiData}, dispatch)
+    return bindActionCreators({addBook, addCategory, fetchData, apiData}, dispatch)
 }
 
 const mapStateToProps = (state) => {
@@ -39,22 +37,6 @@ export default class AdminPanel extends React.Component {
                 this.refs.type.value = res.items[0].volumeInfo.categories[0];
                 this.refs.description.value = res.items[0].volumeInfo.description;
                 this.refs.image.value = res.items[0].volumeInfo.imageLinks.thumbnail;
-
-            //console.log(res.items[0].volumeInfo.imageLinks.thumbnail)
-            // let api_book = {
-            //     comments: [],
-            //     code: this.props.state.books.length,
-            //     futured: false,                
-            //     name: res.items[0].volumeInfo.title ,
-            //     author: res.items[0].volumeInfo.authors[0],
-            //     price: 228,
-            //     type: res.items[0].volumeInfo.categories[0],
-            //     seria: "",
-            //     img: res.items[0].volumeInfo.imageLinks.thumbnail,
-            //     description: res.items[0].volumeInfo.description,
-            //     rating: 3,
-            //     inStock:true,
-            // }
             
             this.props.addBook(api_book)
             console.log(api_book)
@@ -86,13 +68,12 @@ export default class AdminPanel extends React.Component {
                 description: this.refs.description.value,
                 futured: false,
                 code: this.props.state.books.length,
-                rating: 3,
+                rating: 0,
                 inStock:true,
 
             };
-            console.log(this.props.state)
             this.props.addBook(new_book);
-
+            this.props.addCategory(new_book.type);
             this.refs.title.value = '';
             this.refs.author.value = '';
             this.refs.price.value = '';
