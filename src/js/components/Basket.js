@@ -7,33 +7,14 @@ import {bindActionCreators} from 'redux';
 const mapDispatchToProps = dispatch => ( bindActionCreators({ delallbasket, addNotify , boughtBook}, dispatch) );
 
 const mapStateToProps = (state) => {
-    // if(state.inbasket[0] !=""){
         return {books: state.inbasket, bought: state.bought}
-    // }else{
-    //     return {books: [JSON.parse(localStorage.getItem('Basket'))]}
-    // }
-
 }
 
 @connect(mapStateToProps, mapDispatchToProps)
 export default class Basket extends React.Component {
-    constructor(props){
-        super(props)
-    }
-
-
     bought = () => {
-
         this.props.addNotify("Кросавчег! Твои книги уже в пути!")
-        // console.log(this.props.books)
-        // console.log(this.props.bought);
-
-
-        
         this.props.boughtBook(this.props.books);
-
-
-
         this.props.delallbasket();
     }
     add = () =>{
@@ -80,7 +61,7 @@ export default class Basket extends React.Component {
                 <div className='nobasket'>
                     <p>Корзина пуста</p>
                 </div>
-        )
+            )
         };
     }
 

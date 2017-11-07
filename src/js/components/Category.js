@@ -43,51 +43,27 @@ export default class Category extends React.Component{
         this.handleTest()
     }
     handleTest(e) {
-        
-        //console.log(e)
         var wrap = this.getCoord(this.refs.wrapp)
-        //console.log(document.documentElement.scrollTop)
-        window.onscroll = (e) =>{
-           // console.log("Window :"+window.pageYOffset+ " Element: "+wrap.top);
-            //console.dir(this.refs.wrapp.getBoundingClientRect().top);
-            // console.log(this.state.toggleId)
+        window.onscroll = (e) => {
+
 
             if(this.state.toggleId == true){
              if(this.refs.wrapp.getBoundingClientRect().top + this.refs.wrapp.clientHeight + 50 < 0){
                     if(!this.refs.wrapp.classList.contains("fixed_cat")){
                         this.setState({toggleId: false}) 
                         this.setState({top_coord: window.pageYOffset})
-                        console.log(this.refs)
-                        setTimeout(this.refs.wrapp.classList.add("fixed_position"), 3000)
-                        
-                        
+                        setTimeout(this.refs.wrapp.classList.add("fixed_position"), 3000) 
                     }
                 }
              }else if(this.state.toggleId == false){
-                console.log(window.pageYOffset)
                 if(window.pageYOffset < this.state.top_coord -  this.refs.wrapp.clientHeight -50 -50){
-                    //alert("Works")
                     this.setState({toggleId: true}) 
 
                     
                 }  
             }   
-        }
-             
-                
-            //  if( window.pageYOffset < this.state.toggleId){
-            //     this.setState({toggleId: true}) 
-            //     alert("Mem")
-            //  }
-            //  if(this.refs.wrapp.getBoundingClientRect().top > 0){
-            //      this.setState({toggleId: false})
-                 
-            //  }
-
-
-            
-            
-        }
+        }  
+    }
     
 
 
@@ -95,21 +71,17 @@ export default class Category extends React.Component{
 
 
         if(this.props.visible){
-            this.refs.hide_show.style.backgroundColor ="lime";
-            // this.refs.wrapp.style.width = "0";   
+            this.refs.hide_show.style.backgroundColor ="lime";  
             this.props.sideBarHide(false);
 
         } else {
-            this.refs.hide_show.style.backgroundColor ="steelblue";
-            // this.refs.wrapp.style.width = "20%";            
+            this.refs.hide_show.style.backgroundColor ="steelblue";           
             this.props.sideBarHide(true);
         }
     }
 
     render(){
-        
         return(
-            
             <div id={this.props.visible? "w20" : "w0"}  className={this.state.toggleId ? "category_wrap relative_cat" : "category_wrap fixed_cat"} ref="wrapp">
                     <div className="category_hide" ref="hide_show" onClick={this.handleShow}>Category</div>
                     <div className="category_body" ref="category_body">
@@ -120,5 +92,5 @@ export default class Category extends React.Component{
                 </div>
 
         )
-    }
-    }
+    }   
+}
