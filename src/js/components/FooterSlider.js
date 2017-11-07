@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => {
 @connect(mapStateToProps)
 export default class FooterSlider extends React.Component{
   state = {
-    watchedBooks: {},
+    watchedBooks: [],
     left : 0,
     offsetValue: 110
 
@@ -24,12 +24,12 @@ export default class FooterSlider extends React.Component{
     }
     let x = width/amount-10;
     let y = width/amount;
-    this.handleClickRight = () =>{
+    this.handleClickLeft = () =>{
       if(this.state.left <= -y){
       this.setState({left: this.state.left+y})
       }
     }
-    this.handleClickLeft = () =>{
+    this.handleClickRight = () =>{
       if(this.state.left >= -(someBooks.length-1-amount)*y){
         this.setState({left: this.state.left-y})
       }
@@ -51,17 +51,20 @@ export default class FooterSlider extends React.Component{
     <span className='btn btn-right' onClick={this.handleClickRight}>&#62;</span>
     </div>)
   }
-    componentDidMount(){
-      this.setState({watchedBooks})
+    // componentDidMount(){
+    //   this.setState({watchedBooks})
 
-    }
+    // }
 
     render () {
-      
+        if(this.props.watchedBooks.length >= 5) {
         return(
            
-              this.sliderInitialize(watchedBooks, 660, 3)
+              this.sliderInitialize(this.props.watchedBooks, 660, 3)
 
         )
+      }
+      else
+      return null;
     }
 }
