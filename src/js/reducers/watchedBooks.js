@@ -6,7 +6,8 @@ export default function watchedBooks(state = InitialState.watchedBooks, action) 
 
     switch(type) {
     case types.ADD_WATCHED_BOOKS:
-        return [...state, payload];
+                if(state.find((item, index) => item==payload)) {return state}
+                else return [...state, payload]
     default:
         return state;
     }
