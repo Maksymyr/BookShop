@@ -36,6 +36,7 @@ export default class MainLayout extends React.Component {
                     <Route path="/basket" component={Basket}/>
                     <Route path="*" component={() => <div>Page Not Found</div>}/>
                 </Switch>
+                <div className="clear"></div>
                 <FooterSlider />
                 <Footer />
                 <Notify />
