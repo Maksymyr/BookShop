@@ -17,7 +17,7 @@ export default class Notify extends Component {
             if (this.props.notify == "") 
                 return null 
             else { 
-                setTimeout(() => {this.props.addNotify("")}, 1000)
+                setTimeout(() => {this.props.addNotify("")}, 1500)
                 return (
                     <div className="notify-font">
                         <div className="notify">

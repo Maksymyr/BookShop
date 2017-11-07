@@ -17,8 +17,8 @@ const mapStateToProps = (state, ownProps) => {
     if(ownProps.match.params.id) {
         if(ownProps.match.url.replace(/[^a-z]/g, '')=='pages'){
             if(state.books.length>20){
-                let bbb=state.books.slice((ownProps.match.params.id-1)*20, (ownProps.match.params.id-1)*20+20);
-                return {books: bbb, l:state.books.length, pages: ownProps.match.params.id};
+                let newBooks=state.books.slice((ownProps.match.params.id-1)*20, (ownProps.match.params.id-1)*20+20);
+                return {books: newBooks, l:state.books.length, pages: ownProps.match.params.id};
             }
         }
         else
@@ -68,9 +68,10 @@ export default class BookList extends React.Component {
             this.setState({check: nextProps.filter})
         }     
     }
-
+    scrolling = () => {
+        window.scrollTo(0,420);
+    }
     componentDidUpdate(){
-        
         if(this.state.check == this.props.filter) {
             switch(this.state.check) {
                 case("name_a"):
@@ -101,33 +102,34 @@ export default class BookList extends React.Component {
     }
 
     page = () =>{
-        let a=[];
-        if(this.state.books.length>20){
-        for(var i=1; i<Math.floor(this.state.books.length/20)+1; i++){
-            if(a[i]=='undefined'){
-                a[i]=<Link to={`/pages${i+1}`}><p className='pageP' key={i} >{i+1 + " "} </p></Link>
-            }else{
-                a[i]=<Link to={`/pages${i+1}`}><p className='pageP' key={i}>{i+1+ " "} </p></Link>
-            }
-        }
-    }else{
-        for(var i=1; i<Math.floor(this.props.l/20)+2; i++){
-            if(+this.props.pages!=i){
-                if(i==1){
-                    a[i]=<Link to="/"><p className='pageP' key={1} >1</p></Link>
+        if (this.state.books.length > 20 || this.props.l > 20) {
+            let a=[];
+            if(this.state.books.length>20){
+            for(var i=1; i<Math.floor(this.state.books.length/20)+1; i++){
+                if(a[i]=='undefined'){
+                    a[i]=<Link to={`/pages${i+1}`} onClick={this.scrolling} key={i}><p className='pageP'>{i+1} </p></Link>
                 }else{
-                    a[i]=<Link to={`/pages${i}`}><p className='pageP' key={i} >{i + "\ "} </p></Link>
+                    a[i]=<Link to={`/pages${i+1}`} onClick={this.scrolling} key={i}><p className='pageP'>{i+1} </p></Link>
+                }
+            }
+        }else{
+            for(var i=1; i<Math.floor(this.props.l/20)+2; i++){
+                if(+this.props.pages!=i){
+                    if(i==1){
+                        a[i]=<Link to="/" onClick={this.scrolling} key={i}><p className='pageP'>1</p></Link>
+                    }else{
+                        a[i]=<Link to={`/pages${i}`} onClick={this.scrolling} key={i}><p className='pageP'>{i} </p></Link>
+                    }
                 }
             }
         }
+            return (
+                <div className='page'>
+                    {a.map((item, index)=>{return item})}
+                </div>
+            );
+        }    
     }
-        return (
-            <div className='page'>
-                {a.map((item)=>{return item})}
-            </div>
-        );
-    }    
-
     render() {
             return (
             <div>    
