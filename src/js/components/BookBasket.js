@@ -25,7 +25,7 @@ export default class BookBasket extends React.Component {
                 <div className='basket-input'>
                     <input className='basket-number' type='number' ref='number' defaultValue='1' min='1' max='99'/>
                   </div>
-                <button className='basket-button' onClick={this.del}>del</button>
+                <button className='basket-button' onClick={this.del}>Удалить</button>
             </div>
         )
     }

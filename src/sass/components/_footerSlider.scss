@@ -14,7 +14,7 @@
 
   .slider-block{
     overflow: hidden;
-    height: 150px;
+    min-height: 150px;
     width: 330px;
     position: relative;
     margin: 0 auto;
@@ -32,11 +32,11 @@
 
   img{
     display: inline-block;
-    width: 100px;
-    height: 150px;
     margin-right: 10px;
   }
-
+  .btn-wrapper{
+    position: absolute;
+  }
 
   .btn{
     position: absolute;
@@ -54,11 +54,11 @@
     top: 50%;
   }
   .btn-left{
-    left: 25%;
+    left: 10%;
     
   }
   .btn-right{
-    right: 25%;
+    right: 10%;
 
   }
 }

@@ -8,6 +8,7 @@ import BookPage from '../components/BookPage'
 import { Route, Switch, Link } from 'react-router-dom';
 import BookList from '../components/BookList';
 import AdminPanel from '../components/AdminPanel';
+import Notify from '../components/Notify';
 
 export default class MainLayout extends React.Component {
     constructor(props){
@@ -30,6 +31,7 @@ export default class MainLayout extends React.Component {
                     <Route path="/basket:id" component= {BookList}/>
                     <Route path="/pages:id" component= {BookList}/>
                     <Route path="/admin" component= {AdminPanel}/>
+                    <Route path="/buy" component={BookList}/>
                     {/* <Route path="/add" component={AddPost}/> */}
                     <Route path="/page:id" component = {BookPage} />
                     <Route path="/basket" component={Basket}/>
@@ -37,6 +39,7 @@ export default class MainLayout extends React.Component {
                 </Switch>
                 <FooterSlider />
                 <Footer />
+                <Notify />
 
             </div>
         ); 

@@ -10,7 +10,7 @@ const middleware = store => next => action => {
         localStorage.setItem("Basket", JSON.stringify(store.getState().inbasket))
     }
     if(action.type == types.DEL_ALL_BASKET){
-        localStorage.clear("Basket")
+        localStorage.setItem("Basket",null)
     }
     return;
 }
