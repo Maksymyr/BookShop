@@ -101,6 +101,7 @@ export default class BookList extends React.Component {
     }
 
     page = () =>{
+        if(this.state.books.length>20){
         let a=[];
         if(this.state.books.length>20){
         for(var i=1; i<Math.floor(this.state.books.length/20)+1; i++){
@@ -126,6 +127,7 @@ export default class BookList extends React.Component {
                 {a.map((item)=>{return item})}
             </div>
         );
+    }
     }    
 
     render() {
