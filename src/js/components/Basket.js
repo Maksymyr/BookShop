@@ -71,7 +71,7 @@ export default class Basket extends React.Component {
                         <p>Номер телефона:</p>
                         <input className='cart-inp' type='tel' placeholder='Номер телефона' maxLength='13' size='13'/>
                     </form>
-                    <button onClick={this.boughtBtn}className='basket-buy'>Купить</button>
+                    <button onClick={this.bought}className='basket-buy'>Купить</button>
                 </div>
                 
             </div>)
