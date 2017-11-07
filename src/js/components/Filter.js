@@ -24,7 +24,7 @@ export default class Filter extends React.Component {
 
     componentDidMount() {
         let count = 0;
-        this.refs.selected.value = "";
+        // this.refs.selected.value = "raiting";
         this.props.books.map(item => { count++ })
         this.setState({count: count})
     }
@@ -42,10 +42,9 @@ export default class Filter extends React.Component {
                     <div>
                         <label>Сортировка: </label>
                         <select ref="selected">
-                            <option value=''></option>
+                            <option value='raiting'>По рейтингу</option>
                             <option value='name_a'>По названию (А-Я)</option>
                             <option value='name_z'>По названию (Я-А)</option>
-                            <option value='raiting'>По рейтингу</option>
                             <option value='author_a'>По автору (А-Я)</option>
                             <option value='author_z'>По автору (Я-А)</option>
                             <option value='price_a'>Цена по возрастанию</option>

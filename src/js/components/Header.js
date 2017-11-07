@@ -50,11 +50,14 @@ export default class Header extends React.Component {
     scrolling = () => {
         window.scrollTo(0,420);
     }
+    scrollingUp = () => {
+        window.scrollTo(0,0);
+    }
     render(){
         return(
             <header className="header">
                 <div className='head-center'>
-                <Link to='/' className='logo-wrapper'> 
+                <Link to='/' onClick={this.scrollingUp}className='logo-wrapper'> 
                     <div style={{backgroundImage: 'url('+ require("../../image/logo.png")+')'}} className='logo-snail'></div>
                     <h1 className="page-title">Snails</h1>
                 </Link>
