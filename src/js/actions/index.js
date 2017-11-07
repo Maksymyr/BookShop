@@ -11,5 +11,7 @@ export const addCategory = (payload) => ({type: types.ADD_CATEGORY, payload});
 export const addComment = (payload) => ({type: types.ADD_COMMENT, payload});
 export const likePost = (payload) => ({type: types.LIKE, payload});
 export const delallbasket = (payload) => ({type: types.DEL_ALL_BASKET, payload});
-export const addNotify = (payload) => ({type: types.ADD_NOTIFY, payload})
+export const addNotify = (payload) => ({type: types.ADD_NOTIFY, payload});
+export const fetchData = (payload) => ({ type: types.FETCH_DATA, payload });
+export const apiData = (payload) => ({type: types.API_DATA, payload});
 

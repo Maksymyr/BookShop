@@ -17,13 +17,8 @@ const mapStateToProps = (state, ownProps) => {
 @connect(mapStateToProps, mapDispatchToProps)
 export default class Category extends React.Component{
 
-    constructor(props){
-        super(props)
-    }
-    
-    handleChange = () => {
-        // this.props.sideBarHide(true)
-        // console.log(this.props.visible)
+    scrolling = () => {
+        window.scrollTo(0,420);
     }
 
     handleShow = () => {
@@ -50,7 +45,7 @@ export default class Category extends React.Component{
                     <div className="category_body" ref="category_body">
                     <h3 ref="title">Категории:</h3>
                         {this.props.category.map((item, index) =>
-                            <Link onClick={this.handleChange} key={index} className="category__link" to={"/category" + index}>{item}</Link>)}
+                            <Link onClick={this.scrolling} key={index} className="category__link" to={"/category" + index}>{item}</Link>)}
                     </div>
                 </div>
 

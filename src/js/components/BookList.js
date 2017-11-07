@@ -18,7 +18,8 @@ const mapStateToProps = (state, ownProps) => {
         if(ownProps.match.url.replace(/[^a-z]/g, '')=='pages'){
             if(state.books.length>20){
                 let newBooks=state.books.slice((ownProps.match.params.id-1)*20, (ownProps.match.params.id-1)*20+20);
-                return {books: newBooks, l:state.books.length, pages: ownProps.match.params.id};
+                return {books: newBooks, l:state.books.length, pages: ownProps.match.params.id, 
+                    sidebar: state.sidebar, filter: state.filter};
             }
         }
         else
@@ -41,11 +42,11 @@ const mapStateToProps = (state, ownProps) => {
             ||item.author.toLowerCase().includes(ownProps.match.params.search.toLowerCase())
             ||item.seria.toLowerCase().includes(ownProps.match.params.search.toLowerCase()))
                 return item;
-            }), sidebar: state.sidebar, filter: state.filter,
+            }), sidebar: state.sidebar, l:state.books.length, pages: ownProps.match.params.id, filter: state.filter
         }
     }
     else {
-        return { books: state.books, filter: state.filter, sidebar: state.sidebar}
+        return { books: state.books, sidebar: state.sidebar,l:state.books.length, pages: ownProps.match.params.id, filter: state.filter}
     }
 };
 
@@ -72,6 +73,9 @@ export default class BookList extends React.Component {
         window.scrollTo(0,420);
     }
     componentDidUpdate(){
+        // if(this.props.match.url.replace(/[^a-z]/g, '')==''){
+        //     window.scrollTo(0,0);
+        // }
         if(this.state.check == this.props.filter) {
             switch(this.state.check) {
                 case("name_a"):
@@ -131,6 +135,7 @@ export default class BookList extends React.Component {
         }    
     }
     render() {
+        console.log (this.state.books)
             return (
             <div>    
                 <Filter />
