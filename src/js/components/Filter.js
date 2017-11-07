@@ -41,6 +41,7 @@ export default class Filter extends React.Component {
                 <form onChange= {this.filtring}>
                     <div>
                         <label>Сортировка: </label>
+
                         <select ref="selected">
                             <option value='raiting'>По рейтингу</option>
                             <option value='name_a'>По названию (А-Я)</option>

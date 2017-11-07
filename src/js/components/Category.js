@@ -42,30 +42,30 @@ export default class Category extends React.Component{
     componentDidMount() {
         this.handleTest()
     }
-    handleTest(e) {
-        var wrap = this.getCoord(this.refs.wrapp)
-        window.onscroll = (e) => {
 
+    handleTest(e) {
+        
+        var wrap = this.getCoord(this.refs.wrapp)
+        window.onscroll = (e) =>{
 
             if(this.state.toggleId == true){
              if(this.refs.wrapp.getBoundingClientRect().top + this.refs.wrapp.clientHeight + 50 < 0){
                     if(!this.refs.wrapp.classList.contains("fixed_cat")){
                         this.setState({toggleId: false}) 
                         this.setState({top_coord: window.pageYOffset})
-                        setTimeout(this.refs.wrapp.classList.add("fixed_position"), 3000) 
+                        setTimeout(this.refs.wrapp.classList.add("fixed_position"), 3000)
+                        
                     }
                 }
              }else if(this.state.toggleId == false){
+
                 if(window.pageYOffset < this.state.top_coord -  this.refs.wrapp.clientHeight -50 -50){
                     this.setState({toggleId: true}) 
 
-                    
                 }  
             }   
         }  
     }
-    
-
 
     handleShow = () => {
 
