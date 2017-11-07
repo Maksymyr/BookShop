@@ -47,7 +47,9 @@ export default class Header extends React.Component {
     componentDidMount = () =>{
         this.headerSlider()
     }
-
+    scrolling = () => {
+        window.scrollTo(0,420);
+    }
     render(){
         return(
             <header className="header">
@@ -62,10 +64,9 @@ export default class Header extends React.Component {
                     <button className='menu search-icon'><i className="fa fa-search" aria-hidden="true"></i></button>
                 </form>
                 
-                <Link to='/buy'><div className='menu-links menu buy'>Купленные книги</div></Link>
-                <Link to={'/basket'+"l_d"}><div className='menu-links menu love'>Понравившиеся книги</div></Link>
-                <Link to='/basket' className='menu-links menu'>Корзина<i className="menu-cart fa fa-shopping-cart" aria-hidden="true"></i>
-                </Link>
+                <Link to='/buy' onClick = {this.scrolling}><div className='menu-links menu buy'>Купленные книги</div></Link>
+                <Link to={'/basket'+"l_d"} onClick = {this.scrolling}><div className='menu-links menu love'>Понравившиеся книги</div></Link>
+                <Link to='/basket' className='menu-links menu' onClick = {this.scrolling}>Корзина<i className="menu-cart fa fa-shopping-cart" aria-hidden="true"></i></Link>
                     
                 </div> 
                 </div>

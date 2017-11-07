@@ -25,7 +25,6 @@ export default class Basket extends React.Component {
         this.props.delallbasket();
     }
     bought = () => {
-        localStorage.setItem('buybook', localStorage.getItem('Basket'));
         this.props.addNotify("Кросавчег! Твои книги уже в пути!")
         this.props.delallbasket();
     }
