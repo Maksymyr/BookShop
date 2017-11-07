@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import { bindActionCreators} from 'redux';
 import {addNotify, futureBook, addBasket, sideBarHide} from '../actions';
-
+import Star from '../components/Star'
 
 const mapDispatchToProps = dispatch => ( bindActionCreators({ addNotify, futureBook, addBasket, sideBarHide }, dispatch) );
 
@@ -31,19 +31,26 @@ export default class Book extends React.Component {
     scrolling = () => {
         window.scrollTo(0,420);
     }
-    
-    star(x){
+    handleAlert = () => {
+        console.log(this)
+        // console.log(this.refs[])
+    }
+    star = (x) =>{
         let stars = [];
 
 
         for(let i = 5; i>0; i--){
-            if(i<x){
-                stars.push(<div className="star" style={{backgroundImage: 'url('+ require("../../icon/bookstar_fill.png")+')'}} key={i}></div>)
+            if(i<x+1){
+                stars.push(<Star className="star" code={this.props.item.code} data={i} key={i} style={{backgroundImage: 'url('+ require("../../icon/bookstar_fill.png")+')'}}></Star>)
+
+                
             } else{
-                stars.push(<div className="star_empty" style={{backgroundImage: 'url('+ require("../../icon/bookstar_zero.png")+')'}} key={i}></div>)
+                stars.push(<Star className="star_empty" code={this.props.item.code} empty={true} data={i}  key={i} ></Star>)
+
+
             }
         }
-
+       
        
         return stars;
     
@@ -63,6 +70,7 @@ export default class Book extends React.Component {
                     <div className="book_stars">
                         
                         {this.star(this.props.item.rating)}
+
                     </div>
                     <div className="clear"></div>
                     <p className="book_text"><Link onClick={this.scrolling} className="book_link" to={"/page"+this.props.item.code}>{this.props.item.name}</Link></p>
