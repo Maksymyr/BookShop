@@ -101,7 +101,7 @@ export default class BookList extends React.Component {
     }
 
     page = () =>{
-        if(this.state.books.length>20){
+        if(this.state.books.length>20 || this.props.l>20){
         let a=[];
         if(this.state.books.length>20){
         for(var i=1; i<Math.floor(this.state.books.length/20)+1; i++){
