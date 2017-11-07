@@ -48,8 +48,8 @@ export default class Filter extends React.Component {
                             <option value='raiting'>По рейтингу</option>
                             <option value='author_a'>По автору (А-Я)</option>
                             <option value='author_z'>По автору (Я-А)</option>
-                            <option value='price_a'>Цена по убыванию</option>
-                            <option value='price_z'>Цена по возрастанию</option>
+                            <option value='price_a'>Цена по возрастанию</option>
+                            <option value='price_z'>Цена по убыванию</option>
                         </select>
                     </div>
                 </form>
