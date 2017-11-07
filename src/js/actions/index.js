@@ -16,5 +16,6 @@ export const addWatchedBooks = (payload) => ({type: types.ADD_WATCHED_BOOKS, pay
 export const fetchData = (payload) => ({ type: types.FETCH_DATA, payload });
 export const apiData = (payload) => ({type: types.API_DATA, payload});
 export const rateBook = (payload) => ({type: types.RATE, payload});
+export const boughtBook = (payload) => ({type: types.BOUGHT_BOOK, payload});
 
 

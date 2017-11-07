@@ -24,6 +24,7 @@ export default class Category extends React.Component{
             top_coord: 1,
 
         }
+        this.handleTest = this.handleTest.bind(this);
     }
     getCoord = (elem) => {
         var box = elem.getBoundingClientRect();
@@ -41,66 +42,46 @@ export default class Category extends React.Component{
     componentDidMount() {
         this.handleTest()
     }
-    handleTest = (e) => {
+
+    handleTest(e) {
         
         var wrap = this.getCoord(this.refs.wrapp)
         window.onscroll = (e) =>{
-            //console.log(this.state.toggleId)
+
             if(this.state.toggleId == true){
              if(this.refs.wrapp.getBoundingClientRect().top + this.refs.wrapp.clientHeight + 50 < 0){
                     if(!this.refs.wrapp.classList.contains("fixed_cat")){
                         this.setState({toggleId: false}) 
                         this.setState({top_coord: window.pageYOffset})
-                        //console.log(this.refs)
                         setTimeout(this.refs.wrapp.classList.add("fixed_position"), 3000)
                         
                     }
                 }
              }else if(this.state.toggleId == false){
-                //console.log(window.pageYOffset)
+
                 if(window.pageYOffset < this.state.top_coord -  this.refs.wrapp.clientHeight -50 -50){
                     this.setState({toggleId: true}) 
 
                 }  
             }   
-        }
-             
-                
-            //  if( window.pageYOffset < this.state.toggleId){
-            //     this.setState({toggleId: true}) 
-            //     alert("Mem")
-            //  }
-            //  if(this.refs.wrapp.getBoundingClientRect().top > 0){
-            //      this.setState({toggleId: false})
-                 
-            //  }
-
-
-            
-            
-        }
-    
-
+        }  
+    }
 
     handleShow = () => {
 
 
         if(this.props.visible){
-            this.refs.hide_show.style.backgroundColor ="lime";
-            // this.refs.wrapp.style.width = "0";   
+            this.refs.hide_show.style.backgroundColor ="lime";  
             this.props.sideBarHide(false);
 
         } else {
-            this.refs.hide_show.style.backgroundColor ="steelblue";
-            // this.refs.wrapp.style.width = "20%";            
+            this.refs.hide_show.style.backgroundColor ="steelblue";           
             this.props.sideBarHide(true);
         }
     }
 
     render(){
-        
         return(
-            
             <div id={this.props.visible? "w20" : "w0"}  className={this.state.toggleId ? "category_wrap relative_cat" : "category_wrap fixed_cat"} ref="wrapp">
                     <div className="category_hide" ref="hide_show" onClick={this.handleShow}>Category</div>
                     <div className="category_body" ref="category_body">
@@ -111,5 +92,5 @@ export default class Category extends React.Component{
                 </div>
 
         )
-    }
-    }
+    }   
+}

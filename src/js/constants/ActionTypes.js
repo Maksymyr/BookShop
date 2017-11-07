@@ -14,3 +14,5 @@ export const ADD_CATEGORY = "ADD_CATEGORY";
 export const FETCH_DATA = "FETCH_DATA";
 export const API_DATA = "API_DATA";
 export const RATE = "RATE";
+export const BOUGHT_BOOK = "BOUGHT_BOOK";
+

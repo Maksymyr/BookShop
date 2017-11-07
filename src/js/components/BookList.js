@@ -46,7 +46,11 @@ const mapStateToProps = (state, ownProps) => {
         }
     }
     else {
-        return { books: state.books, sidebar: state.sidebar,l:state.books.length, pages: ownProps.match.params.id, filter: state.filter}
+        if (ownProps.match.url == '/buy') {
+            return {books: state.bought}
+        }
+        else
+            return { books: state.books, sidebar: state.sidebar,l:state.books.length, pages: ownProps.match.params.id, filter: state.filter}
     }
 };
 
@@ -72,8 +76,11 @@ export default class BookList extends React.Component {
     scrolling = () => {
         window.scrollTo(0,420);
     }
+    componentDidMount(){
+        this.setState({ books: this.state.books.sort((item, nextItem) => (item.rating < nextItem.rating) ? -1 : (item.rating > nextItem.rating) ? 1 : 0), check: null });
+        
+    }
     componentDidUpdate(){
-
         if(this.state.check == this.props.filter) {
             switch(this.state.check) {
                 case("name_a"):
@@ -133,7 +140,7 @@ export default class BookList extends React.Component {
         }    
     }
     render() {
-        console.log (this.state.books)
+        // console.log (this.state.books)
             return (
             <div>    
                 <Filter />

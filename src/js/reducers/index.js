@@ -8,7 +8,7 @@ import inbasket from './inbasket';
 import search from './search';
 import filter from './filter';
 import sidebar from './sidebar';
-
+import bought from './bought';
 import api from './api';
 import notify from './notify';
 
@@ -23,6 +23,7 @@ const reducers = combineReducers({
     watchedBooks, 
     api,
     notify,
+    bought,
 });
 
 export default reducers;
