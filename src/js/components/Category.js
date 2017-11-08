@@ -44,7 +44,6 @@ export default class Category extends React.Component{
     }
     componentWillUnmount(){
         window.onscroll = null;
-        console.log('dsdadsadasd')
     }
 
     handleTest(e) {

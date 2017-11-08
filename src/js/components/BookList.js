@@ -87,7 +87,7 @@ export default class BookList extends React.Component {
         window.scrollTo(0,420);
     }
     componentDidMount(){
-        this.setState({ books: this.state.books.sort((item, nextItem) => (item.rating < nextItem.rating) ? -1 : (item.rating > nextItem.rating) ? 1 : 0), check: null });
+        this.setState({ books: this.state.books.sort((item, nextItem) => (item.rating < nextItem.rating) ? 1 : (item.rating > nextItem.rating) ? -1 : 0), check: null });
         
     }
     componentDidUpdate(){
@@ -103,7 +103,7 @@ export default class BookList extends React.Component {
                     this.setState({ books: this.state.books.sort((item, nextItem) => (item.name.trim() < nextItem.name.trim()) ? 1 : (item.name.trim() > nextItem.name.trim()) ? -1 : 0), check: null });
                     break;
                 case("raiting"):  
-                    this.setState({ books: this.state.books.sort((item, nextItem) => (item.rating < nextItem.rating) ? -1 : (item.rating > nextItem.rating) ? 1 : 0), check: null });
+                    this.setState({ books: this.state.books.sort((item, nextItem) => (item.rating < nextItem.rating) ? 1 : (item.rating > nextItem.rating) ? -1 : 0), check: null });
                     break;          
                 case("author_a"):
                     this.setState({ books: this.state.books.sort((item, nextItem) => (item.author.trim() < nextItem.author.trim()) ? -1 : (item.author.trim() > nextItem.author.trim()) ? 1 : 0), check: null });
