@@ -68,6 +68,7 @@ header.header {
     display: block;
     color: #3a3838;
     font-weight: bold;
+    font-family: 'Poiret One', cursive;
     &:hover, &:active{
       color: #a39d9d;
     }
@@ -98,16 +99,17 @@ header.header {
     position: relative;
     width: 100%;
     overflow: hidden;
-    height: 240px;
+    height: 300px;
     margin-bottom: 30px;
   
   }
   .header-slider{
     position: absolute;
     width: 200%;
-    height: 240px;
+    height: 300px;
 
     .header-img{
+      height: 100%;
       float: left;
       width: 50%;
       background-size: 100% 100%;
