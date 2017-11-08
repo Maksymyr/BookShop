@@ -151,7 +151,7 @@ export default class BookList extends React.Component {
             <div>    
                 <Filter />
                 <div>
-                    {/* <Category />                 */}
+                    {<Category />                }
                     <div className="book-list-main">
                         <div id="w77"   className="book-list"  ref="book_list">
                          {/*console.log(this.state.books)*/} 

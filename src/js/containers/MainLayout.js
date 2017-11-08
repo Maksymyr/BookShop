@@ -2,7 +2,6 @@ import React from 'react';
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import FooterSlider from '../components/FooterSlider'
-import Category from '../components/Category'
 import Basket from '../components/Basket'
 import BookPage from '../components/BookPage'
 import { Route, Switch, Link } from 'react-router-dom';

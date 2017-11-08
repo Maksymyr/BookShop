@@ -53,6 +53,27 @@
     width: 74%;
     height: 320px;
     margin-bottom: 2%;
+    float: left;
+    margin-right: 26px;
+}
+.book_stars{
+    width: 29px;
+    height: 270px;
+    float: left;
+    .star{
+        height: 29px;
+        width: 100%;
+        margin-bottom: 5px;
+        //background-color: steelblue;
+        background-size: 100%; 
+    }
+    .star_empty{
+        height: 29px;
+        width: 100%;
+        margin-bottom: 5px;
+        //background-color: #6bcf70;
+        background-size: 100%; 
+    }
 }
 .book_author{
     color: rgb(119, 156, 206);
