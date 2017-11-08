@@ -38,7 +38,7 @@ export default class Book extends React.Component {
     star = (x) =>{
         let stars = [];
 
-        for(let i = 5; i>0; i--){
+        for(let i = 4; i>=0; i--){
             if(i<x+1){
                 stars.push(<Star bookPage={false} code={this.props.item.code} data={i} key={i} ></Star>)
             } else{
