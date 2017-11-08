@@ -26,7 +26,7 @@ export default class Book extends React.Component {
     render(){
         return(
         <div>
-            <div  className={this.props.empty? "star_empty":"star"} onClick={this.handleRate} style={this.props.empty? {backgroundImage: 'url('+ require("../../icon/bookstar_zero.png")+')'} : {backgroundImage: 'url('+ require("../../icon/bookstar_fill.png")+')'}}></div>
+            <div id={this.props.bookPage? "star" : null} className={this.props.empty? "star_empty":"star"} onClick={this.handleRate} style={this.props.empty? {backgroundImage: 'url('+ require("../../icon/bookstar_zero.png")+')'} : {backgroundImage: 'url('+ require("../../icon/bookstar_fill.png")+')'}}></div>
         </div>
         )
     }

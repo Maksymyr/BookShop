@@ -38,22 +38,14 @@ export default class Book extends React.Component {
     star = (x) =>{
         let stars = [];
 
-
         for(let i = 5; i>0; i--){
             if(i<x+1){
-                stars.push(<Star className="star" code={this.props.item.code} data={i} key={i} style={{backgroundImage: 'url('+ require("../../icon/bookstar_fill.png")+')'}}></Star>)
-
-                
+                stars.push(<Star bookPage={false} code={this.props.item.code} data={i} key={i} ></Star>)
             } else{
-                stars.push(<Star className="star_empty" code={this.props.item.code} empty={true} data={i}  key={i} ></Star>)
-
-
+                stars.push(<Star bookPage={false} code={this.props.item.code} empty={true} data={i}  key={i} ></Star>)
             }
         }
-       
-       
         return stars;
-    
     }
 
     render() {

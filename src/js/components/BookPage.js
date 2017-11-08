@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 import BookPageComment from '../components/BookPageComment'
 import {bindActionCreators} from 'redux';
 import {addComment, addNotify, addWatchedBooks, addBasket} from '../actions';
-
+import Star from '../components/Star'
 
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({addComment, addNotify,addWatchedBooks,addBasket}, dispatch)
@@ -57,6 +57,18 @@ export default  class BookPage extends React.Component{
         this.props.addBasket(this.props.item)
         this.props.addNotify("В корзину добавлен новый товар!")
     }
+    star = (x) =>{
+        let stars = [];
+
+        for(let i = 0; i<5; i++){
+            if(i<x+1){
+                stars.push(<Star bookPage={true} code={this.props.item.code} data={i} key={i} ></Star>)
+            } else{
+                stars.push(<Star bookPage={true} code={this.props.item.code} empty={true} data={i}  key={i} ></Star>)
+            }
+        }
+        return stars;
+    }
     render(){
 
         //console.log(this.props.match.params.id);
@@ -69,6 +81,11 @@ export default  class BookPage extends React.Component{
                     <p className="page_info"><span>Автор:</span> {this.props.item.author}</p>
                     <p className="page_info"><span>Жанр:</span> {this.props.item.type}</p>
                     {this.props.item.seria? <p className="page_info"><span>Серия:</span> {this.props.item.seria}</p> : null}
+                    <div className="star_container">
+
+                    {this.star(this.props.item.rating)}
+                    
+                    </div>
                     <div className="price_container">
                     <p id="page_price">{this.props.item.price} грн.</p>
                     <div id="page_buy" onClick={this.bought}>Купить</div>
