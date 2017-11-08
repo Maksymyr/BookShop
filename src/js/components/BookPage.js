@@ -33,7 +33,6 @@ export default  class BookPage extends React.Component{
     handleClick = () => {
         if(this.refs.desc.value != "" && this.refs.title.value != ""){    
             let obj = {
-
                 info: {
                     title: this.refs.title.value,
                     desc: this.refs.desc.value,

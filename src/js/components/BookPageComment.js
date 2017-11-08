@@ -35,6 +35,7 @@ export default  class BookPage extends React.Component{
     }
 
     render(){
+        
         return(
             <div>
             <p className="comment_name inline">Andrey</p>
