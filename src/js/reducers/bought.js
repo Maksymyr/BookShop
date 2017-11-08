@@ -7,7 +7,7 @@ export default function bought(state = InitialState.bought, action) {
         case types.BOUGHT_BOOK:
         if  (state.length > 0) {
             return [...state, ...payload.filter((item, index)=> {
-                if(state.map((item2, index2)=> item!=item2).includes(false)) {}
+                if(state.map((item2, index2)=> item.code!=item2.code).includes(false)) {}
                 else return item
             })]
         }
