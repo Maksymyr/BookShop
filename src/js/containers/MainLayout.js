@@ -32,6 +32,7 @@ export default class MainLayout extends React.Component {
                     <Route path="/pages:id" component= {BookList}/>
                     <Route path="/admin" component= {AdminPanel}/>
                     <Route path="/buy" component={BookList}/>
+                    <Route path="/author/:idauthor" component={BookList}/>
                     {/* <Route path="/add" component={AddPost}/> */}
                     <Route path="/page:id" component = {BookPage} />
                     <Route path="/basket" component={Basket}/>

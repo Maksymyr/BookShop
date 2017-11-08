@@ -14,6 +14,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state, ownProps) => {
+   
     if(ownProps.match.url=='/buy'){
         return { books: JSON.parse(localStorage.getItem('buybook'))}
     }else
@@ -24,8 +25,7 @@ const mapStateToProps = (state, ownProps) => {
                 return {books: newBooks, l:state.books.length, pages: ownProps.match.params.id, 
                     sidebar: state.sidebar, filter: state.filter};
             }
-        }
-        else
+        }else
         return {
             books: state.books.filter((item, index) => {
                  if (state.category[ownProps.match.params.id] == item.type) {
@@ -46,6 +46,13 @@ const mapStateToProps = (state, ownProps) => {
             ||item.seria.toLowerCase().includes(ownProps.match.params.search.toLowerCase()))
                 return item;
             }), sidebar: state.sidebar, l:state.books.length, pages: ownProps.match.params.id, filter: state.filter
+        }
+    }
+    else if (ownProps.match.params.idauthor){
+        if(state.books.map((item)=>{item.author==ownProps.match.params.idauthor})){
+            return {
+                books: state.books.filter((item)=>item.author==ownProps.match.params.idauthor)
+            }
         }
     }
     else {
