@@ -14,5 +14,7 @@ export const delallbasket = (payload) => ({type: types.DEL_ALL_BASKET, payload})
 export const addNotify = (payload) => ({type: types.ADD_NOTIFY, payload});
 export const fetchData = (payload) => ({ type: types.FETCH_DATA, payload });
 export const apiData = (payload) => ({type: types.API_DATA, payload});
-export const addWatchedBooks = (payload) => ({type: types.ADD_WATCHED_BOOKS, payload})
+export const rateBook = (payload) => ({type: types.RATE, payload});
 export const boughtBook = (payload) => ({type: types.BOUGHT_BOOK, payload});
+export const addWatchedBooks = (payload) => ({type: types.ADD_WATCHED_BOOKS, payload})
+

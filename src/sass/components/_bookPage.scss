@@ -20,6 +20,7 @@
         text-align: center;
         margin-bottom: 4%;
         color: #005388;
+        font-family: 'Poiret One', cursive;
     }
     .page_info{
         font-size: 1.8rem;
@@ -28,18 +29,37 @@
     h2{
         font-size: 2rem;
         color :#46a48c;
-        margin-bottom: 1rem
+        margin-bottom: 1rem;
     }
     
     h3{
         font-size: 2rem;
         color :#46a48c;
-        margin-bottom: 1rem
+        margin-bottom: 1rem;
+        font-family: 'Poiret One', cursive;
+    }
+    .star_container{
+        width: 200px;
+        height: 20px;
+        //background-color: blueviolet;
+        float: left;
+        margin-top: 10px;
+        #star{
+            height: 20px;
+            width: 20px;
+            background-size: 100%;
+            float: left;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+    }
+    .price_container{
+        margin-top: 60px;
     }
     #page_price{
         font-size: 3.1rem;
-
-
+        display:inline-block;
+        margin-right: 30px;
     }
     #page_buy{
         display: inline-block;
@@ -58,11 +78,13 @@
         right: 20rem;
         text-decoration: none;
         transition: .2s linear;
+        display:inline-block;
         cursor: pointer;
         &:hover{
             opacity: 1;
         }
       }
+
     
     .page_description{
         font-size: 1.6rem;
@@ -116,8 +138,6 @@
         
     }
     p{
-        font-family: Arial, Helvetica, sans-serif ;
-    
     }
     .review{
         border: 1px solid rgb(169, 169, 169);

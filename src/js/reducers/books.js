@@ -17,6 +17,10 @@ export default function books(state = InitialState.books, action) {
         case types.ADD_COMMENT:
             state.filter((item, index) => payload.code == item.code? item.comments = [...item.comments, payload.info] : false);
             return [...state]
+        case types.RATE:
+            return state.map((item, i) => item.code === payload.book_code ? {...item, rating: payload.rate} : item);
+            // return state[payload.book_code].rating = payload.rate 
+            //return [...state]
         default:
             return state;
     }
