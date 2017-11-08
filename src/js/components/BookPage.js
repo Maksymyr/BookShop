@@ -3,11 +3,11 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import BookPageComment from '../components/BookPageComment'
 import {bindActionCreators} from 'redux';
-import {addComment, addNotify, addBasket} from '../actions';
+import {addComment, addNotify, addWatchedBooks, addBasket} from '../actions';
 
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({addComment, addNotify, addBasket}, dispatch)
+    return bindActionCreators({addComment, addNotify,addWatchedBooks,addBasket}, dispatch)
 }
 
 const mapStateToProps = (state, ownProps) => {
@@ -26,6 +26,10 @@ export default  class BookPage extends React.Component{
     state = {
         like: false,
         disslike: false,
+    }
+    componentDidMount() {
+        console.log(this.props.item)
+        this.props.addWatchedBooks(this.props.item)
     }
     handleClick = () => {
         if(this.refs.desc.value != "" && this.refs.title.value != ""){    

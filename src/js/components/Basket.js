@@ -1,18 +1,13 @@
 import React from 'react';
 import BookBasket from './BookBasket'
 import {connect} from 'react-redux';
-import {delallbasket, addNotify} from '../actions';
+import {delallbasket, addNotify, boughtBook} from '../actions';
 import {bindActionCreators} from 'redux';
 
-const mapDispatchToProps = dispatch => ( bindActionCreators({ delallbasket, addNotify }, dispatch) );
+const mapDispatchToProps = dispatch => ( bindActionCreators({ delallbasket, addNotify , boughtBook}, dispatch) );
 
 const mapStateToProps = (state) => {
-    // if(state.inbasket[0] !=""){
-        return {books: state.inbasket}
-    // }else{
-    //     return {books: [JSON.parse(localStorage.getItem('Basket'))]}
-    // }
-
+        return {books: state.inbasket, bought: state.bought}
 }
 
 @connect(mapStateToProps, mapDispatchToProps)
@@ -21,52 +16,44 @@ export default class Basket extends React.Component {
         super(props)
     }
 
-    delallbusket = () =>{
-        this.props.delallbasket();
-    }
     bought = () => {
-        this.props.addNotify("Кросавчег! Твои книги уже в пути!")
+        this.props.addNotify("Кросавчег! Твои книги уже в пути!")        
+        this.props.boughtBook(this.props.books);
         this.props.delallbasket();
     }
     add = () =>{
+        console.log(this.props.books)
         if(this.props.books !=""){
             return (
             <div className='basket-book'>
-                 <table>
-                    <tbody>
-                        <tr>
-                            <td className='t1'>
-                                Книга
-                            </td>
-                            <td className='t2'>
-                                Название
-                            </td>
-                            <td className='t3'>
-                                Цена
-                            </td>
-                            <td className='t4'>
-                                Количество
-                            </td>
-                            <td className='t5'>
-                                Удалить
-                            </td>
-                        </tr>
-                    </tbody>
-                </table> 
-                {this.props.books.map((item, index)=>{
-                return <BookBasket books={item} index={index} key={index}/>
-                })}
+               <div className='cart-block'>
+               <span className='cart-top-block'>Книга</span>
+                <span className='cart-top-block'>
+                    Название
+                </span>
+                <span className='cart-top-block'>
+                    Цена
+                </span>
+                <span className='cart-top-block'>
+                    Количество
+                </span>
+                <span className='cart-top-block'>
+                    Удалить
+                </span>
+               </div>
+                {this.addbooktobasket()}
+                
                 <div className="basket-add-contacts">
                     <br/>
                 <p> Очистить корзину</p>
-                <button className='basket-button del-all' onClick={this.delallbusket}>Удалить всё</button>
+                <button className='basket-button del-all' onClick={this.props.delallbasket}>Удалить всё</button>
                 <hr/>
                     <form className='contacts'>
                         <p>Купить книгу сейчас</p>
                         <p>E-mail:</p>
-                        <input type='email' placeholder='E-mail'/>
+                        <input className='cart-inp' type='email' placeholder='E-mail'/>
                         <p>Номер телефона:</p>
-                        <input type='tel' placeholder='Номер телефона' maxLength='13' size='13'/>
+                        <input className='cart-inp' type='tel' placeholder='Номер телефона' maxLength='13' size='13'/>
                     </form>
                     <button onClick={this.bought}className='basket-buy'>Купить</button>
                 </div>
@@ -81,6 +68,26 @@ export default class Basket extends React.Component {
         };
     }
 
+
+    addbooktobasket = () =>{
+        let a=[]
+        let b=JSON.parse(JSON.stringify(this.props.books))
+        for(let i=0;i<b.length;i++) {
+          for(let k=0;k<b.length;k++) {
+            if(k!=i) {
+              if(b[i].code==b[k].code) b[k]=''
+            }
+          }
+        }
+        for(let i=0;i<b.length;i++) {
+          if(b[i]=='') continue
+          else a.push(b[i])
+        }
+        console.log(a)
+        console.log(b)
+        return a.map((item, index)=> {return <BookBasket books={item} index={index} key={index}/>})
+    }
+
     render(){
         return(
             <div className='basket-list'>
@@ -91,3 +98,8 @@ export default class Basket extends React.Component {
         );
     }
 }
+
+
+// {this.props.books.map((item, index)=>{
+//     return <BookBasket books={item} index={index} key={index}/>
+//     })}

@@ -49,7 +49,11 @@ const mapStateToProps = (state, ownProps) => {
         }
     }
     else {
-        return { books: state.books, sidebar: state.sidebar,l:state.books.length, pages: ownProps.match.params.id, filter: state.filter}
+        if (ownProps.match.url == '/buy') {
+            return {books: state.bought}
+        }
+        else
+            return { books: state.books, sidebar: state.sidebar,l:state.books.length, pages: ownProps.match.params.id, filter: state.filter}
     }
 };
 
@@ -74,6 +78,10 @@ export default class BookList extends React.Component {
     }
     scrolling = () => {
         window.scrollTo(0,420);
+    }
+    componentDidMount(){
+        this.setState({ books: this.state.books.sort((item, nextItem) => (item.rating < nextItem.rating) ? -1 : (item.rating > nextItem.rating) ? 1 : 0), check: null });
+        
     }
     componentDidUpdate(){
         // if(this.props.match.url.replace(/[^a-z]/g, '')==''){
@@ -138,16 +146,17 @@ export default class BookList extends React.Component {
         }    
     }
     render() {
+        // console.log (this.state.books)
             return (
             <div>    
                 <Filter />
                 <div>
-                    <Category />                
+                    {/* <Category />                 */}
                     <div className="book-list-main">
-                        <div id={this.props.sidebar? "w77" : "w96"}  className="book-list"  ref="book_list">
-
-                            {this.state.books.slice(0,20).map((item, index) => <Book item={item} key={index} index={index}/>)}
-                            {this.page()}
+                        <div id="w77"   className="book-list"  ref="book_list">
+                         {/*console.log(this.state.books)*/} 
+                            {this.state.books?this.state.books.slice(0,20).map((item, index) => <Book item={item} key={index} index={index}/>):null}
+                            {this.state.books?this.page():null}
                         </div>
                     </div>
                  </div>
