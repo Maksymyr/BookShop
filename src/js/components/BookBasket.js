@@ -12,7 +12,11 @@ const mapStateToProps = (state) => {
 @connect(mapStateToProps, mapDispatchToProps)
 export default class BookBasket extends React.Component {
     constructor(props){
-        super(props)
+        super(props);
+        this.state={
+            cost:this.props.books.price,
+            updown:0
+        }
     }
 
     componentDidMount = () =>{
@@ -20,21 +24,26 @@ export default class BookBasket extends React.Component {
             let a=0;
             this.props.book.map((item)=>{if(item.code==this.props.books.code){a=a+1}})
             this.refs.number.value=a;
-            console.log(this.props.book)
-            console.log(this.props.books)
-            console.log(a)
+            this.setState({cost: this.state.cost*a})
+            this.setState({updown: this.refs.number.value})
+        }
+    }
+    cost = () =>{
+        this.setState({cost: this.state.cost*a})
+    }
+    updownbtn = () => {
+        if(this.state.updown!=0){
+            if(this.state.updown>this.refs.number.value){
+                this.setState({cost: this.state.cost/this.state.updown*this.refs.number.value})
+                this.setState({updown: this.refs.number.value})
+            }else{
+                this.setState({cost: this.state.cost/this.state.updown*this.refs.number.value})
+                this.setState({updown: this.refs.number.value})
+            }
         }
     }
 
     bookbuy = () =>{
-        // let a=0;
-        // for(var i=0; i<this.props.book.length; i++){
-        //     console.log('4s')
-        // if(this.props.book[i].code==this.props.books.code){
-        //     a=a+1
-        // }
-        // if(a==1){
-        //     console.log('1s')
             return(
                 <div className='basket-book-wrapper'>
                     <div key={this.props.index} className='basket-book-one'>
@@ -43,21 +52,15 @@ export default class BookBasket extends React.Component {
                     <h3>{this.props.books.name}</h3>
                     </div>
                     <div className='basket-book-block cost'>
-                        <p>{this.props.books.price}</p>
+                        <p>{this.state.cost}</p>
                     </div>
                     <div className='basket-book-block basket-input'>
-                        <input className='basket-number' type='number' ref='number' defaultValue='1' min='1' max='99'/>
+                        <input onClick={this.updownbtn} className='basket-number' defaultValue='' type='number' ref='number' min='1' max='99'/>
                     </div>
                     <button className='basket-book-block basket-button' onClick={this.del}>Удалить</button>
                 </div>
                 </div>
             )
-        // }else{
-        //     console.log('2s')
-        //     return null
-        // }
-        // }
-        // return null
     }
 
     del = () =>{

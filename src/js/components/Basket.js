@@ -22,7 +22,6 @@ export default class Basket extends React.Component {
         this.props.delallbasket();
     }
     add = () =>{
-        console.log(this.props.books)
         if(this.props.books !=""){
             return (
             <div className='basket-book'>
@@ -83,8 +82,6 @@ export default class Basket extends React.Component {
           if(b[i]=='') continue
           else a.push(b[i])
         }
-        console.log(a)
-        console.log(b)
         return a.map((item, index)=> {return <BookBasket books={item} index={index} key={index}/>})
     }
 
@@ -98,8 +95,3 @@ export default class Basket extends React.Component {
         );
     }
 }
-
-
-// {this.props.books.map((item, index)=>{
-//     return <BookBasket books={item} index={index} key={index}/>
-//     })}

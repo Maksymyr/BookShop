@@ -48,7 +48,6 @@ export default  class BookPage extends React.Component{
     } 
     handleLike = () =>{
         this.setState({like: !this.state.like})
-        console.log(this)
     }
     handleDiss = () => {
         this.setState({disslike: !this.state.disslike})
@@ -58,9 +57,6 @@ export default  class BookPage extends React.Component{
         this.props.addNotify("В корзину добавлен новый товар!")
     }
     render(){
-
-        //console.log(this.props.match.params.id);
-        console.log(this.props.item)
         return(
             <div className="book_page">
                 
