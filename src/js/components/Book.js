@@ -66,7 +66,7 @@ export default class Book extends React.Component {
                     </div>
                     <div className="clear"></div>
                     <p className="book_text"><Link onClick={this.scrolling} className="book_link" to={"/page"+this.props.item.code}>{this.props.item.name}</Link></p>
-                    <p className="book_author">{this.props.item.author}</p>
+                    <p className="book_author"><Link onClick={this.scrolling} className="book_link" to={"/author/"+this.props.item.author}>{this.props.item.author}</Link></p>
                     {this.props.item.seria? <p className="book_seria">{"Серия: " +this.props.item.seria}</p>: null}
                     
                     
