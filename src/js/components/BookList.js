@@ -14,6 +14,9 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state, ownProps) => {
+    if(ownProps.match.url=='/buy'){
+        return { books: JSON.parse(localStorage.getItem('buybook'))}
+    }else
     if(ownProps.match.params.id) {
         if(ownProps.match.url.replace(/[^a-z]/g, '')=='pages'){
             if(state.books.length>20){
@@ -81,6 +84,9 @@ export default class BookList extends React.Component {
         
     }
     componentDidUpdate(){
+        // if(this.props.match.url.replace(/[^a-z]/g, '')==''){
+        //     window.scrollTo(0,0);
+        // }
         if(this.state.check == this.props.filter) {
             switch(this.state.check) {
                 case("name_a"):
@@ -145,12 +151,12 @@ export default class BookList extends React.Component {
             <div>    
                 <Filter />
                 <div>
-                    <Category />                
+                    {<Category />                }
                     <div className="book-list-main">
                         <div id="w77"   className="book-list"  ref="book_list">
                          {/*console.log(this.state.books)*/} 
-                            {this.state.books.slice(0,20).map((item, index) => <Book item={item} key={index} index={index}/>)}
-                            {this.page()}
+                            {this.state.books?this.state.books.slice(0,20).map((item, index) => <Book item={item} key={index} index={index}/>):null}
+                            {this.state.books?this.page():null}
                         </div>
                     </div>
                  </div>
