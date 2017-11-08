@@ -12,12 +12,17 @@ const mapStateToProps = (state) => {
 
 @connect(mapStateToProps, mapDispatchToProps)
 export default class Basket extends React.Component {
+    constructor(props){
+        super(props)
+    }
+      
     bought = () => {
         this.props.addNotify("Кросавчег! Твои книги уже в пути!")
         this.props.boughtBook(this.props.books);
         this.props.delallbasket();
     }
     add = () =>{
+        console.log(this.props.books)
         if(this.props.books !=""){
             return (
             <div className='basket-book'>
@@ -36,10 +41,8 @@ export default class Basket extends React.Component {
                     Удалить
                 </span>
                </div>
-
-                {this.props.books.map((item, index)=>{
-                return <BookBasket books={item} index={index} key={index}/>
-                })}
+                {this.addbooktobasket()}
+                
                 <div className="basket-add-contacts">
                     <br/>
                 <p> Очистить корзину</p>
@@ -65,6 +68,26 @@ export default class Basket extends React.Component {
         };
     }
 
+
+    addbooktobasket = () =>{
+        let a=[]
+        let b=JSON.parse(JSON.stringify(this.props.books))
+        for(let i=0;i<b.length;i++) {
+          for(let k=0;k<b.length;k++) {
+            if(k!=i) {
+              if(b[i].code==b[k].code) b[k]=''
+            }
+          }
+        }
+        for(let i=0;i<b.length;i++) {
+          if(b[i]=='') continue
+          else a.push(b[i])
+        }
+        console.log(a)
+        console.log(b)
+        return a.map((item, index)=> {return <BookBasket books={item} index={index} key={index}/>})
+    }
+
     render(){
         return(
             <div className='basket-list'>
@@ -75,3 +98,8 @@ export default class Basket extends React.Component {
         );
     }
 }
+
+
+// {this.props.books.map((item, index)=>{
+//     return <BookBasket books={item} index={index} key={index}/>
+//     })}

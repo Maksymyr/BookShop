@@ -14,6 +14,10 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state, ownProps) => {
+   
+    if(ownProps.match.url=='/buy'){
+        return { books: JSON.parse(localStorage.getItem('buybook'))}
+    }else
     if(ownProps.match.params.id) {
         if(ownProps.match.url.replace(/[^a-z]/g, '')=='pages'){
             if(state.books.length>20){
@@ -21,8 +25,7 @@ const mapStateToProps = (state, ownProps) => {
                 return {books: newBooks, l:state.books.length, pages: ownProps.match.params.id, 
                     sidebar: state.sidebar, filter: state.filter};
             }
-        }
-        else
+        }else
         return {
             books: state.books.filter((item, index) => {
                  if (state.category[ownProps.match.params.id] == item.type) {
@@ -43,6 +46,13 @@ const mapStateToProps = (state, ownProps) => {
             ||item.seria.toLowerCase().includes(ownProps.match.params.search.toLowerCase()))
                 return item;
             }), sidebar: state.sidebar, l:state.books.length, pages: ownProps.match.params.id, filter: state.filter
+        }
+    }
+    else if (ownProps.match.params.idauthor){
+        if(state.books.map((item)=>{item.author==ownProps.match.params.idauthor})){
+            return {
+                books: state.books.filter((item)=>item.author==ownProps.match.params.idauthor)
+            }
         }
     }
     else {
@@ -81,6 +91,9 @@ export default class BookList extends React.Component {
         
     }
     componentDidUpdate(){
+        // if(this.props.match.url.replace(/[^a-z]/g, '')==''){
+        //     window.scrollTo(0,0);
+        // }
         if(this.state.check == this.props.filter) {
             switch(this.state.check) {
                 case("name_a"):
@@ -146,12 +159,12 @@ export default class BookList extends React.Component {
             <div>    
                 <Filter />
                 <div>
-                    <Category />                
+                    {<Category />                }
                     <div className="book-list-main">
                         <div id="w77"   className="book-list"  ref="book_list">
                          {/*console.log(this.state.books)*/} 
-                            {this.state.books.slice(0,20).map((item, index) => <Book item={item} key={index} index={index}/>)}
-                            {this.page()}
+                            {this.state.books?this.state.books.slice(0,20).map((item, index) => <Book item={item} key={index} index={index}/>):null}
+                            {this.state.books?this.page():null}
                         </div>
                     </div>
                  </div>
