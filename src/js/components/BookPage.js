@@ -69,9 +69,6 @@ export default  class BookPage extends React.Component{
         return stars;
     }
     render(){
-
-        //console.log(this.props.match.params.id);
-        console.log(this.props.item)
         return(
             <div className="book_page">
                 
@@ -121,7 +118,7 @@ export default  class BookPage extends React.Component{
                     
                     { this.props.item.comments.length != 0 ? this.props.item.comments.map((item, index) => 
                     <div className="comment" key={index}> 
-                        <BookPageComment book={this.props.item.code} id={index} item={item}/>
+                        <BookPageComment book={this.props.item} id={index} item={item}/>
                     </div>) : null} 
 
 

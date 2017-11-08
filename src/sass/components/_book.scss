@@ -1,6 +1,6 @@
 
 .book{
-    width: 310px;
+    width: 280px;
     min-height: 465px;
     box-shadow: 0 0 5px #888;
     float: left;
@@ -12,7 +12,7 @@
     background-color: white;
     position: relative;
     font-family: 'Poiret One', cursive;
-    
+    // transition: all .3s ease;
 }
 .book_text{
     font-weight: bold;
@@ -101,7 +101,8 @@
     font-size: 1.8rem;
     font-family: 'Poiret One', cursive;
     color: white;
-    background: #46a48c ;
+    background: #1ABC9C;
+    opacity: 0.7;
     position: absolute;
     bottom: 12px;
     right: 12px;
@@ -109,8 +110,9 @@
     transition: .2s linear;
     
     &:hover{
-        box-shadow: 0 0 0 2px white, 0 0 0 4px #3c8b75;
-        filter: brightness(105%)
+        opacity: 1;
+        // box-shadow: 0 0 0 2px white, 0 0 0 4px #3c8b75;
+        // filter: brightness(105%)
     }
   }
  

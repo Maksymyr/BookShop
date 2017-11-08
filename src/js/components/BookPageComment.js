@@ -44,8 +44,8 @@ export default  class BookPage extends React.Component{
             <div className="comment_desc">
                 {this.props.item.desc}
                  <div className="likes">
-                    <div onClick={this.handleDiss} className="disslike" style={this.props.books[this.props.book].comments[this.props.id].like == 2? {backgroundImage: 'url('+ require("../../icon/disslike_fill.png")+')'} : {backgroundImage: 'url('+ require("../../icon/disslike_zero.png")+')'}}></div> 
-                    <div onClick={this.handleLike} className="like" style={this.props.books[this.props.book].comments[this.props.id].like == 1? {backgroundImage: 'url('+ require("../../icon/like_fill.png")+')'} : {backgroundImage: 'url('+ require("../../icon/like_zero.png")+')'}}></div>
+                    <div onClick={this.handleDiss} className="disslike" style={this.props.book.comments[this.props.id].like == 2? {backgroundImage: 'url('+ require("../../icon/disslike_fill.png")+')'} : {backgroundImage: 'url('+ require("../../icon/disslike_zero.png")+')'}}></div> 
+                    <div onClick={this.handleLike} className="like" style={this.props.book.comments[this.props.id].like == 1? {backgroundImage: 'url('+ require("../../icon/like_fill.png")+')'} : {backgroundImage: 'url('+ require("../../icon/like_zero.png")+')'}}></div>
                 </div> 
             </div>
             </div>
