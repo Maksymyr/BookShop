@@ -50,15 +50,17 @@ header.header {
         padding-left: 5px;
       }
       .search-icon{
-        height: 30px;
-        width: 30px;
+        height: 25px;
+        width: 25px;
         background: white;
-        border: 1px solid #3a3838;
-        border-radius: 0 5px 5px 0;
+        border: none;
+        -webkit-border-radius: 0 5px 5px 0;
+        border-radius: 0;
         border-left: none;
         margin-left: -30px;
         cursor: pointer;
         display: inline-block;
+        vertical-align: middle;
       }
     }
   }

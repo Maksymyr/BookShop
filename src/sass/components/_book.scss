@@ -12,15 +12,7 @@
     background-color: white;
     position: relative;
     font-family: 'Poiret One', cursive;
-    transition: all .3s ease;
-    -webkit-filter: grayscale(90%);
-    filter: grayscale(90%);
-
-    &:hover{
-        -webkit-filter: none;
-        filter: none;
-    }
-    
+    // transition: all .3s ease;
 }
 .book_text{
     font-weight: bold;
