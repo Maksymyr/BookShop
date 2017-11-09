@@ -26,7 +26,7 @@ export default class Basket extends React.Component {
             return (
             <div className='basket-book'>
                <div className='cart-block'>
-               <span className='cart-top-block'>Книга</span>
+               {/* <span className='cart-top-block'>Книга</span>
                 <span className='cart-top-block'>
                     Название
                 </span>
@@ -38,14 +38,16 @@ export default class Basket extends React.Component {
                 </span>
                 <span className='cart-top-block'>
                     Удалить
-                </span>
+                </span> */}
                </div>
                 {this.addbooktobasket()}
                 
                 <div className="basket-add-contacts">
                     <br/>
-                <p> Очистить корзину</p>
+                {/* <p className='clearfix'> Очистить корзину</p> */}
+                <div className='del-all-wrapper'>
                 <button className='basket-button del-all' onClick={this.props.delallbasket}>Удалить всё</button>
+                </div>
                 <hr/>
                     <form className='contacts'>
                         <p>Купить книгу сейчас</p>
@@ -53,15 +55,16 @@ export default class Basket extends React.Component {
                         <input className='cart-inp' type='email' placeholder='E-mail'/>
                         <p>Номер телефона:</p>
                         <input className='cart-inp' type='tel' placeholder='Номер телефона' maxLength='13' size='13'/>
+                        <button onClick={this.bought}className='basket-buy'>Купить</button>
                     </form>
-                    <button onClick={this.bought}className='basket-buy'>Купить</button>
+                    
                 </div>
                 
             </div>)
         }else{
             return(
                 <div className='nobasket'>
-                    <p>Корзина пуста</p>
+                    <p>Ваша корзина пуста</p>
                 </div>
             )
         };
@@ -88,7 +91,9 @@ export default class Basket extends React.Component {
     render(){
         return(
             <div className='basket-list'>
+                <div className='basket-header-wrapper'>
                 <h2>Корзина</h2>
+                </div>
                 <br/>
                 {this.add()}
             </div>

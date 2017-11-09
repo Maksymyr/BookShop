@@ -5,6 +5,7 @@ header.header {
   position: static;
   z-index: 100;
   margin-bottom: 30px;
+  
   .logo-wrapper{
     text-decoration: none;
     margin-top: 15px;
@@ -49,15 +50,17 @@ header.header {
         padding-left: 5px;
       }
       .search-icon{
-        height: 30px;
-        width: 30px;
+        height: 25px;
+        width: 25px;
         background: white;
-        border: 1px solid #3a3838;
-        border-radius: 0 5px 5px 0;
+        border: none;
+        -webkit-border-radius: 0 5px 5px 0;
+        border-radius: 0;
         border-left: none;
         margin-left: -30px;
         cursor: pointer;
         display: inline-block;
+        vertical-align: middle;
       }
     }
   }
@@ -67,6 +70,7 @@ header.header {
     display: block;
     color: #3a3838;
     font-weight: bold;
+    font-family: 'Poiret One', cursive;
     &:hover, &:active{
       color: #a39d9d;
     }
@@ -88,7 +92,7 @@ header.header {
   }
   .header-img{
     background-size: 100% 100%;
-    height: 320px;
+    height: 240px;
     width: 100%;
   }
 
@@ -97,19 +101,20 @@ header.header {
     position: relative;
     width: 100%;
     overflow: hidden;
-    height: 320px;
+    height: 300px;
     margin-bottom: 30px;
   
   }
   .header-slider{
     position: absolute;
     width: 200%;
-    height: 320px;
+    height: 300px;
 
     .header-img{
+      height: 100%;
       float: left;
       width: 50%;
-      background-size: 50% 100%;
+      background-size: 100% 100%;
     }
   }
   

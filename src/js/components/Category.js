@@ -42,6 +42,9 @@ export default class Category extends React.Component{
     componentDidMount() {
         this.handleTest()
     }
+    componentWillUnmount(){
+        window.onscroll = null;
+    }
 
     handleTest(e) {
         
@@ -49,7 +52,7 @@ export default class Category extends React.Component{
         window.onscroll = (e) =>{
 
             if(this.state.toggleId == true){
-             if(this.refs.wrapp.getBoundingClientRect().top + this.refs.wrapp.clientHeight + 50 < 0){
+             if(this.refs.wrapp.getBoundingClientRect().top + this.refs.wrapp.clientHeight + 60 < 0){
                     if(!this.refs.wrapp.classList.contains("fixed_cat")){
                         this.setState({toggleId: false}) 
                         this.setState({top_coord: window.pageYOffset})
@@ -84,6 +87,7 @@ export default class Category extends React.Component{
         return(
             <div id={this.props.visible? "w20" : "w0"}  className={this.state.toggleId ? "category_wrap relative_cat" : "category_wrap fixed_cat"} ref="wrapp">
                     <div className="category_hide" ref="hide_show" onClick={this.handleShow}>Category</div>
+                    {/* <div className="category_bookmark" style={{backgroundImage: 'url('+ require("../../icon/bookmark.png")+')'}}></div> */}
                     <div className="category_body" ref="category_body">
                     <h3 onClick={this.handleTest} ref="title">Категории:</h3>
                         {this.props.category.map((item, index) =>
