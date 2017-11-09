@@ -50,7 +50,7 @@ export default class Category extends React.Component{
         
         var wrap = this.getCoord(this.refs.wrapp)
         window.onscroll = (e) =>{
-
+            //console.log(this.refs.wrapp.getBoundingClientRect().top)
             if(this.state.toggleId == true){
              if(this.refs.wrapp.getBoundingClientRect().top + this.refs.wrapp.clientHeight + 60 < 0){
                     if(!this.refs.wrapp.classList.contains("fixed_cat")){

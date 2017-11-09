@@ -61,7 +61,7 @@ export default  class BookPage extends React.Component{
         let stars = [];
 
         for(let i = 0; i<5; i++){
-            if(i<x+1){
+            if(i<x){
                 stars.push(<Star bookPage={true} code={this.props.item.code} data={i} key={i} ></Star>)
             } else{
                 stars.push(<Star bookPage={true} code={this.props.item.code} empty={true} data={i}  key={i} ></Star>)

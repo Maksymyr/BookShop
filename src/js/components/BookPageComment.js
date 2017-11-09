@@ -18,7 +18,7 @@ export default  class BookPage extends React.Component{
 
     handleLike = () =>{
         let obj = {
-            book: this.props.book,
+            book: this.props.book.code,
             comment: this.props.id,
             data: 1
         }
@@ -27,7 +27,7 @@ export default  class BookPage extends React.Component{
     }
     handleDiss = () => {
         let obj = {
-            book: this.props.book,
+            book: this.props.book.code,
             comment: this.props.id,
             data: 2
         }
