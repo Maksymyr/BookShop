@@ -12,13 +12,14 @@ import Notify from '../components/Notify';
 export default class MainLayout extends React.Component {
     constructor(props){
         super(props);
-        this.state = {types: []
+        this.state = {types: [],
         }
         this.arrayTypes = this.arrayTypes.bind(this);
     }
     arrayTypes(type) {
         this.setState({types: type});
     }
+    
     render() {
         return (
             <div className="wrapper">

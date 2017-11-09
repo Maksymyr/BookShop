@@ -1,6 +1,35 @@
 import React from 'react'
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {setStick} from '../actions';
 
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({setStick}, dispatch)
+}
+const mapStateToProps = (state, ownProps) => {
+   return {stick: state.stick}
+}
+
+@connect (mapStateToProps, mapDispatchToProps)
 export default class Footer extends React.Component{
+
+    componentDidMount () {
+        //this.handleScrollStick()
+        setTimeout(() => {
+            console.log(this.refs.footer.offsetTop)
+            this.props.setStick(this.refs.footer.offsetTop)
+        }, 1000);
+        
+        
+    }
+
+    // handleScrollStick = () => {
+    //     window.onscroll = () => {
+
+    //         this.props.setStick()
+    //     }
+    // }
+
     render(){
 
         // handleOnSubscribe = (event) => {
@@ -25,7 +54,7 @@ export default class Footer extends React.Component{
     
         // }
         return(
-            <footer>
+            <footer ref="footer">
                 <div className='footer-wrapper'>
                     
                     <div className='footer-block address-wrapper'>

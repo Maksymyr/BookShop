@@ -1,4 +1,5 @@
 export default { 
+    stick: "",
     api: [],
     bought: JSON.parse(localStorage.getItem('Bought')) !== null ? JSON.parse(localStorage.getItem('Bought')) : false || [],    
     notify: "",

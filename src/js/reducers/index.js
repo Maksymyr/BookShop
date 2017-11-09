@@ -11,6 +11,7 @@ import sidebar from './sidebar';
 import bought from './bought';
 import api from './api';
 import notify from './notify';
+import stick from './stick';
 
 
 const reducers = combineReducers({
@@ -24,6 +25,7 @@ const reducers = combineReducers({
     api,
     notify,
     bought,
+    stick
 });
 
 export default reducers;
