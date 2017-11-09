@@ -74,11 +74,11 @@ export default class Category extends React.Component{
 
 
         if(this.props.visible){
-            this.refs.hide_show.style.backgroundColor ="lime";  
+            this.refs.hide_show.style.backgroundColor ="rgba(26, 188, 156, 0.90)";  
             this.props.sideBarHide(false);
 
         } else {
-            this.refs.hide_show.style.backgroundColor ="steelblue";           
+            this.refs.hide_show.style.backgroundColor ="1ABC9C";           
             this.props.sideBarHide(true);
         }
     }
