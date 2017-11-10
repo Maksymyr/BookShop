@@ -30,6 +30,7 @@ export default class Header extends React.Component {
 
     
     headerSlider(width){
+        
         this.setState({firstChild: document.getElementById('headerSlider').firstChild})
         setInterval(() => {
 
@@ -42,10 +43,16 @@ export default class Header extends React.Component {
                 }
              else{this.setState({left: parseInt(this.state.left)-1+'px'});
             }}, 50)
-          
+        
     }
     componentDidMount = () =>{
-        this.headerSlider()
+        if (document.documentElement.clientWidth > 852) {
+            this.headerSlider()}
+            else null
+        window.addEventListener("resize", () => this.forceUpdate())
+    }
+    componentWillUnmount () {
+        window.removeEventListener("resize", () => this.forceUpdate())
     }
     scrolling = () => {
         window.scrollTo(0,420);
@@ -54,8 +61,9 @@ export default class Header extends React.Component {
         window.scrollTo(0,0);
     }
     render(){
+        
         return(
-            <header className="header">
+            <header style={document.documentElement.clientWidth > 852 ? {height: 400+"px"} : {height: 300+"px"}} className="header">
                 <div className='head-center'>
                 <Link to='/' onClick={this.scrollingUp}className='logo-wrapper'> 
                     <div style={{backgroundImage: 'url('+ require("../../image/logo.png")+')'}} className='logo-snail'></div>
@@ -67,20 +75,25 @@ export default class Header extends React.Component {
                     <button className='menu search-icon'><i className="fa fa-search" aria-hidden="true"></i></button>
                 </form>
                 
+                
+                <nav>
                 <Link to='/buy' onClick = {this.scrolling}><div className='menu-links menu buy'>Купленные книги</div></Link>
                 <Link to={'/basket'+"l_d"} onClick = {this.scrolling}><div className='menu-links menu love'>Понравившиеся книги</div></Link>
                 <Link to='/basket' className='menu-links menu' onClick = {this.scrolling}>Корзина<i className="menu-cart fa fa-shopping-cart" aria-hidden="true"></i></Link>
+                </nav>
                     
                 </div> 
                 </div>
                 <div className='bottom-line'></div>
-
-                <div className='header-slider-wrapper'>
-                    <div id='headerSlider' className='header-slider'   style={{left: this.state.left}}>
-                        <div ref='headerSlideImg' style={{backgroundImage: 'url('+ require("../../image/fill _books.png")+')'}} className='header-img'></div>
-                        <div ref='headerSlideImg2' style={{backgroundImage: 'url('+ require("../../image/fill _books.png")+')'}} className='header-img'></div>
+                {document.documentElement.clientWidth > 852 ?
+                    <div className='header-slider-wrapper'>
+                        <div id='headerSlider' className='header-slider'   style={{left: this.state.left}}>
+                            <div ref='headerSlideImg' style={{backgroundImage: 'url('+ require("../../image/fill _books.png")+')'}} className='header-img'></div>
+                            <div ref='headerSlideImg2' style={{backgroundImage: 'url('+ require("../../image/fill _books.png")+')'}} className='header-img'></div>
+                            <div ref='headerSlideImg3' style={{backgroundImage: 'url('+ require("../../image/fill _books.png")+')'}} className='header-img'></div>
+                        </div>
                     </div>
-                </div>
+                :  <div ref='headerSlideImg'></div> }
             </header>
         );
     }
