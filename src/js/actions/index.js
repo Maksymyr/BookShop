@@ -18,3 +18,4 @@ export const rateBook = (payload) => ({type: types.RATE, payload});
 export const boughtBook = (payload) => ({type: types.BOUGHT_BOOK, payload});
 export const addWatchedBooks = (payload) => ({type: types.ADD_WATCHED_BOOKS, payload})
 
+

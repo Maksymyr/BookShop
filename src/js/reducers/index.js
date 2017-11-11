@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import books from './books';
 import watchedBooks from './watchedBooks';
+import saleBooks from './saleBooks';
 
 
 import category from './category';
@@ -24,6 +25,7 @@ const reducers = combineReducers({
     api,
     notify,
     bought,
+    saleBooks,
 });
 
 export default reducers;
