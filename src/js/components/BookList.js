@@ -3,14 +3,14 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import Category from '../components/Category'
 
-import {searchBook} from '../actions';
+import {searchBook, setStick} from '../actions';
 import {bindActionCreators} from 'redux';
 
 import Book from './Book';
 import Filter from './Filter';
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({searchBook}, dispatch)
+    return bindActionCreators({searchBook, setStick}, dispatch)
 }
 
 const mapStateToProps = (state, ownProps) => {
@@ -86,6 +86,7 @@ export default class BookList extends React.Component {
         window.scrollTo(0,420);
     }
     componentDidMount(){
+        console.log(this.refs.book_list.offsetTop+ this.refs.book_list.clientHeight)
         if (this.props.match.url != '/buy') 
             this.setState({ books: this.state.books.sort((item, nextItem) => (item.rating < nextItem.rating) ? 1 : (item.rating > nextItem.rating) ? -1 : 0), check: null });
         
