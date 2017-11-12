@@ -88,9 +88,9 @@ export default class Header extends React.Component {
                 {document.documentElement.clientWidth > 852 ?
                     <div className='header-slider-wrapper'>
                         <div id='headerSlider' className='header-slider'   style={{left: this.state.left}}>
-                            <div ref='headerSlideImg' style={{backgroundImage: 'url('+ require("../../image/fill _books.png")+')'}} className='header-img'></div>
-                            <div ref='headerSlideImg2' style={{backgroundImage: 'url('+ require("../../image/fill _books.png")+')'}} className='header-img'></div>
-                            <div ref='headerSlideImg3' style={{backgroundImage: 'url('+ require("../../image/fill _books.png")+')'}} className='header-img'></div>
+                            <div ref='headerSlideImg' style={{backgroundImage: 'url('+ require("../../image/snails_team.png")+')'}} className='header-img'></div>
+                            {/* <div ref='headerSlideImg2' style={{backgroundImage: 'url('+ require("../../image/snails_team.png")+')'}} className='header-img'></div> */}
+                            {/* <div ref='headerSlideImg3' style={{backgroundImage: 'url('+ require("../../image/fill _books.png")+')'}} className='header-img'></div> */}
                         </div>
                     </div>
                 :  <div ref='headerSlideImg'></div> }
