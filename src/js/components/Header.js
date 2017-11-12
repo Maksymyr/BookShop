@@ -54,6 +54,7 @@ export default class Header extends React.Component {
     componentWillUnmount () {
         window.removeEventListener("resize", () => this.forceUpdate())
     }
+
     scrolling = () => {
         window.scrollTo(0,420);
     }
