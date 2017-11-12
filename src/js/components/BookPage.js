@@ -48,7 +48,7 @@ export default  class BookPage extends React.Component{
     } 
     handleLike = () =>{
         this.setState({like: !this.state.like})
-        console.log(this)
+        // console.log(this)
     }
     handleDiss = () => {
         this.setState({disslike: !this.state.disslike})
@@ -101,7 +101,7 @@ export default  class BookPage extends React.Component{
                             
                             if(this.props.item.author == itm.author && counter <=2 ){
                                 counter++
-                                console.log(index)
+                                // console.log(index)
                                 return  <Link to={`page${itm.code}`} key={index}><div  className="small_book">
                                         <img id="imeg" src={itm.img}/>
                                         <p>{itm.name}</p>

@@ -24,9 +24,6 @@ export default class BookBasket extends React.Component {
             this.props.book.map((item)=>{if(item.code==this.props.books.code){a=a+1}})
             this.refs.number.value=a;
             this.setState({price:a})
-            console.log(this.props.book)
-            console.log(this.props.books)
-            console.log(a)
         }
     }
     handlePrice = () => {
