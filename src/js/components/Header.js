@@ -29,26 +29,26 @@ export default class Header extends React.Component {
 
 
     
-    headerSlider(width){
+    // headerSlider(width){
         
-        this.setState({firstChild: document.getElementById('headerSlider').firstChild})
-        setInterval(() => {
+    //     this.setState({firstChild: document.getElementById('headerSlider').firstChild})
+    //     setInterval(() => {
 
-            let width = this.refs.headerSlideImg.getBoundingClientRect().width
+    //         let width = this.refs.headerSlideImg.getBoundingClientRect().width
         
-                if(this.state.firstChild.getBoundingClientRect().left  == -width) {
-                    document.getElementById('headerSlider').appendChild(document.getElementById('headerSlider').firstChild)
+    //             if(this.state.firstChild.getBoundingClientRect().left  == -width) {
+    //                 document.getElementById('headerSlider').appendChild(document.getElementById('headerSlider').firstChild)
 
-                    this.setState({left: "-1px", firstChild: document.getElementById('headerSlider').firstChild});
-                }
-             else{this.setState({left: parseInt(this.state.left)-1+'px'});
-            }}, 50)
+    //                 this.setState({left: "-1px", firstChild: document.getElementById('headerSlider').firstChild});
+    //             }
+    //          else{this.setState({left: parseInt(this.state.left)-1+'px'});
+    //         }}, 50)
         
-    }
+    // }
     componentDidMount = () =>{
-        if (document.documentElement.clientWidth > 852) {
-            this.headerSlider()}
-            else null
+        // if (document.documentElement.clientWidth > 852) {
+        //     this.headerSlider()}
+        //     else null
         window.addEventListener("resize", () => this.forceUpdate())
     }
     componentWillUnmount () {
@@ -61,9 +61,9 @@ export default class Header extends React.Component {
         window.scrollTo(0,0);
     }
     render(){
-        
+        // style={document.documentElement.clientWidth > 852 ? {height: 400+"px"} : {height: 300+"px"}}
         return(
-            <header style={document.documentElement.clientWidth > 852 ? {height: 400+"px"} : {height: 300+"px"}} className="header">
+            <header  className="header">
                 <div className='head-center'>
                 <Link to='/' onClick={this.scrollingUp}className='logo-wrapper'> 
                     <div style={{backgroundImage: 'url('+ require("../../image/logo.png")+')'}} className='logo-snail'></div>
@@ -85,7 +85,7 @@ export default class Header extends React.Component {
                 </div> 
                 </div>
                 <div className='bottom-line'></div>
-                {document.documentElement.clientWidth > 852 ?
+                {/* {document.documentElement.clientWidth > 852 ?
                     <div className='header-slider-wrapper'>
                         <div id='headerSlider' className='header-slider'   style={{left: this.state.left}}>
                             <div ref='headerSlideImg' style={{backgroundImage: 'url('+ require("../../image/fill _books.png")+')'}} className='header-img'></div>
@@ -93,7 +93,7 @@ export default class Header extends React.Component {
                             <div ref='headerSlideImg3' style={{backgroundImage: 'url('+ require("../../image/fill _books.png")+')'}} className='header-img'></div>
                         </div>
                     </div>
-                :  <div ref='headerSlideImg'></div> }
+                :  <div ref='headerSlideImg'></div> } */}
             </header>
         );
     }
