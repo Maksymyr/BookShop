@@ -14,16 +14,23 @@ export default class BookBasket extends React.Component {
     constructor(props){
         super(props)
     }
+    state={
+        price: ''
+    }
 
     componentDidMount = () =>{
         if(this.props.book !=""){
             let a=0;
             this.props.book.map((item)=>{if(item.code==this.props.books.code){a=a+1}})
             this.refs.number.value=a;
+            this.setState({price:a})
             console.log(this.props.book)
             console.log(this.props.books)
             console.log(a)
         }
+    }
+    handlePrice = () => {
+        this.setState({price: this.refs.number.value})
     }
 
     bookbuy = () =>{
@@ -43,10 +50,10 @@ export default class BookBasket extends React.Component {
                     <h3>{this.props.books.name}</h3>
                     </div>
                     <div className='basket-book-block cost'>
-                        <p>{this.props.books.price}</p>
+                        <p>{this.props.books.price*this.state.price}</p>
                     </div>
                     <div className='basket-book-block basket-input'>
-                        <input className='basket-number' type='number' ref='number' defaultValue='1' min='1' max='99'/>
+                        <input onChange={this.handlePrice} className='basket-number' type='number' ref='number' defaultValue={this.state.price} min='1' max='99'/>
                     </div>
                     <button className='basket-book-block basket-button' onClick={this.del}>Удалить</button>
                 </div>
