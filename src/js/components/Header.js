@@ -29,31 +29,31 @@ export default class Header extends React.Component {
 
 
     
-    headerSlider(width){
+    // headerSlider(width){
         
-        this.setState({firstChild: document.getElementById('headerSlider').firstChild})
-        setInterval(() => {
+    //     this.setState({firstChild: document.getElementById('headerSlider').firstChild})
+    //     setInterval(() => {
 
-            let width = this.refs.headerSlideImg.getBoundingClientRect().width
+    //         let width = this.refs.headerSlideImg.getBoundingClientRect().width
         
-                if(this.state.firstChild.getBoundingClientRect().left  == -width) {
-                    document.getElementById('headerSlider').appendChild(document.getElementById('headerSlider').firstChild)
+    //             if(this.state.firstChild.getBoundingClientRect().left  == -width) {
+    //                 document.getElementById('headerSlider').appendChild(document.getElementById('headerSlider').firstChild)
 
-                    this.setState({left: "-1px", firstChild: document.getElementById('headerSlider').firstChild});
-                }
-             else{this.setState({left: parseInt(this.state.left)-1+'px'});
-            }}, 50)
+    //                 this.setState({left: "-1px", firstChild: document.getElementById('headerSlider').firstChild});
+    //             }
+    //          else{this.setState({left: parseInt(this.state.left)-1+'px'});
+    //         }}, 50)
         
-    }
-    componentDidMount = () =>{
-        if (document.documentElement.clientWidth > 852) {
-            this.headerSlider()}
-            else null
-        window.addEventListener("resize", () => this.forceUpdate())
-    }
-    componentWillUnmount () {
-        window.removeEventListener("resize", () => this.forceUpdate())
-    }
+    // }
+    // componentDidMount = () =>{
+    //     if (document.documentElement.clientWidth > 852) {
+    //         this.headerSlider()}
+    //         else null
+    //     window.addEventListener("resize", () => this.forceUpdate())
+    // }
+    // componentWillUnmount () {
+    //     window.removeEventListener("resize", () => this.forceUpdate())
+    // }
     scrolling = () => {
         window.scrollTo(0,420);
     }
