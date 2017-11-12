@@ -99,7 +99,7 @@ export default  class BookPage extends React.Component{
 
                         {this.props.books.map((itm, index) => {
                             
-                            if(this.props.item.author == itm.author && counter <=1 ){
+                            if(this.props.item.author == itm.author && counter <=2 ){
                                 counter++
                                 console.log(index)
                                 return  <Link to={`page${itm.code}`} key={index}><div  className="small_book">

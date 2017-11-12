@@ -25,7 +25,7 @@ export default class Category extends React.Component{
         this.state = {
             toggleId: true,
             top_coord: 1,
-
+            animate: 0,
         }
         this.handleTest = this.handleTest.bind(this);
     }
@@ -53,57 +53,30 @@ export default class Category extends React.Component{
         
         var wrap = this.getCoord(this.refs.wrapp)
         window.onscroll = (e) =>{
-            //console.log(this.refs.check_postion.getBoundingClientRect().top);
-            //console.log(window.scrollY + this.refs.wrapp.clientHeight>this.props.stick)
-            //console.log(this.refs.check_postion.getBoundingClientRect().top + this.refs.wrapp.clientHeight)
+            //console.log(this.refs.wrapp.clientHeight + ':::::::::' + this.refs.wrapp.offsetHeight + "::::::" + this.refs.wrapp.scrollHeight )
+            //console.log(this.refs.wrapp.getBoundingClientRect().height)
+            console.log(this.refs.check_postion.getBoundingClientRect().top + this.refs.wrapp.getBoundingClientRect().height )
             if(this.refs.check_postion.getBoundingClientRect().top<0){
-                if(window.scrollY + this.refs.wrapp.clientHeight + 30>this.props.stick){
-                    console.log("SASSSS")
-                    //this.refs.wrapp.classList.add("fixed_position")
-                    //top = this.props.stic - this.refs.wrapp.clientHeight
-                }else if(this.refs.check_postion.getBoundingClientRect().top + this.refs.wrapp.clientHeight + 60 <0){
-                    this.refs.wrapp.classList.add("fixed_cat")
-                    setTimeout(()=>{
-                        this.refs.wrapp.classList.add("fixed_animate")
-                        this.refs.wrapp.classList.remove("relative_cat")
-                
-                        },100)
-                   //fixed
-                   // top 50px
+
+                if(window.scrollY + this.refs.wrapp.clientHeight>this.props.stick){
+                    this.refs.wrapp.style.position = "relative";
+                   this.refs.wrapp.style.top = `${this.props.stick - this.refs.check_postion.offsetTop - this.refs.wrapp.getBoundingClientRect().height}px`;
+
+                }else if(this.refs.check_postion.getBoundingClientRect().top <0){
+                  
+                    this.refs.wrapp.style.position = "fixed"
+                    this.refs.wrapp.style.top = "0"
                 }
             }else{
-                this.refs.wrapp.classList.remove("fixed_animate")
-                this.refs.wrapp.classList.remove("fixed_cat")
-                this.refs.wrapp.classList.add("relative_cat")
+                this.refs.wrapp.style.position = "relative"
                 
-                //initial position
+
             }
 
 
 
 
-            //console.log(window.pageYOffset)
-        //     if(this.state.toggleId == true){
-        //      if(this.refs.wrapp.getBoundingClientRect().top + this.refs.wrapp.clientHeight + 60 < 0){
-        //             if(!this.refs.wrapp.classList.contains("fixed_cat")){
-        //                 this.setState({toggleId: false}) 
-        //                 this.setState({top_coord: window.pageYOffset})
-        //                 setTimeout(this.refs.wrapp.classList.add("fixed_position"), 3000)
-                        
-        //             }
-        //         }
-        //      }else if(this.state.toggleId == false){
-
-        //         if(window.pageYOffset < this.state.top_coord -  this.refs.wrapp.clientHeight -50 -50){
-        //             this.setState({toggleId: true}) 
-
-        //         }  
-        //     } 
-
-        //     console.log(window.scrollY + this.refs.wrapp.clientHeight>this.props.stick)
-        //     // if(window.){
-                
-        //     // } 
+          
         }  
     }
     
@@ -111,11 +84,11 @@ export default class Category extends React.Component{
 
 
         if(this.props.visible){
-            this.refs.hide_show.style.backgroundColor ="lime";  
+            this.refs.hide_show.style.backgroundColor ="rgba(26, 188, 156, 0.90)";  
             this.props.sideBarHide(false);
 
         } else {
-            this.refs.hide_show.style.backgroundColor ="steelblue";           
+            this.refs.hide_show.style.backgroundColor ="1ABC9C";           
             this.props.sideBarHide(true);
         }
     }
