@@ -55,7 +55,7 @@ export default class Category extends React.Component{
         window.onscroll = (e) =>{
             //console.log(this.refs.wrapp.clientHeight + ':::::::::' + this.refs.wrapp.offsetHeight + "::::::" + this.refs.wrapp.scrollHeight )
             //console.log(this.refs.wrapp.getBoundingClientRect().height)
-            console.log(this.refs.check_postion.getBoundingClientRect().top + this.refs.wrapp.getBoundingClientRect().height )
+            // console.log(this.refs.check_postion.getBoundingClientRect().top + this.refs.wrapp.getBoundingClientRect().height )
             if(this.refs.check_postion.getBoundingClientRect().top<0){
 
                 if(window.scrollY + this.refs.wrapp.clientHeight>this.props.stick){

@@ -30,7 +30,6 @@ export default class AdminPanel extends React.Component {
         fetch(`https://www.googleapis.com/books/v1/volumes?q=${this.refs.api.value}&maxResults=1&startIndex=1`)
         .then(res => res.json())
         .then(res => {
-            console.log(res);
             
                 this.refs.title.value = res.items[0].volumeInfo.title;
                 this.refs.author.value = res.items[0].volumeInfo.authors[0];
@@ -39,7 +38,6 @@ export default class AdminPanel extends React.Component {
                 this.refs.image.value = res.items[0].volumeInfo.imageLinks.thumbnail;
             
             this.props.addBook(api_book)
-            console.log(api_book)
             this.props.fetchData(res.items);
         })
         .catch(err => {

@@ -55,7 +55,7 @@ const mapStateToProps = (state, ownProps) => {
     } 
     else {
         if (ownProps.match.url == '/buy') {
-            console.log(state.bought)
+            // console.log(state.bought)
             return {books: state.bought}
         }
         else
@@ -86,7 +86,7 @@ export default class BookList extends React.Component {
         window.scrollTo(0,420);
     }
     componentDidMount(){
-        console.log(this.refs.book_list.offsetTop+ this.refs.book_list.clientHeight)
+        // console.log(this.refs.book_list.offsetTop+ this.refs.book_list.clientHeight)
         if (this.props.match.url != '/buy') 
             this.setState({ books: this.state.books.sort((item, nextItem) => (item.rating < nextItem.rating) ? 1 : (item.rating > nextItem.rating) ? -1 : 0), check: null });
         

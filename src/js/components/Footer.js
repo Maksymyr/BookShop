@@ -16,7 +16,7 @@ export default class Footer extends React.Component{
     componentDidMount () {
         //this.handleScrollStick()
         setTimeout(() => {
-            console.log(this.refs.footer.offsetTop)
+            // console.log(this.refs.footer.offsetTop)
             this.props.setStick(this.refs.footer.offsetTop)
         }, 1000);
         
