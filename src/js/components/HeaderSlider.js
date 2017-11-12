@@ -42,7 +42,7 @@ export default class HeaderSlider extends React.Component{
     }
     return (
     <div className="header-slider-wrapper">
-      <span className='btn btn-left' onClick={this.handleClickLeft}>&#60;</span>
+      <span className='btn btn-left' onClick={this.handleClickLeft}><i className="fa fa-chevron-circle-left" aria-hidden="true"></i></span>
       <div className='slider-block'  style={{width: width +'px', height: 0.5 * x + 'px'}}>
         <div className='slider-inline' style={{left: this.state.left+'px'}}>
      
@@ -54,7 +54,7 @@ export default class HeaderSlider extends React.Component{
         } )}
         </div>
       </div>
-    <span className='btn btn-right' onClick={this.handleClickRight}>&#62;</span>
+    <span className='btn btn-right' onClick={this.handleClickRight}><i className="fa fa-chevron-circle-right" aria-hidden="true"></i></span>
     </div>)
   }
   componentDidMount(){
