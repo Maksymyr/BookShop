@@ -161,11 +161,12 @@ export default class BookList extends React.Component {
                                
                 <Filter />
                 <div> 
-                    {this.props.match.url == '/buy' || this.props.match.url == '/basketl_d' ? null : 
-                    <Category />    
-                    }         
+                        {this.props.match.url == '/buy' || this.props.match.url == '/basketl_d' ? null : 
+                      <Category />  
+                    }     
                     <div className="book-list-main">
                         <div id="w77"   className="book-list"  ref="book_list"> 
+                        
                             {this.props.match.url=='/' && document.documentElement.clientWidth > 852 ? <HeaderSlider /> : null}  
                             {this.state.books?this.state.books.slice(0,21).map((item, index) => <Book item={item} key={index} index={index}/>):null}
                             {this.state.books?this.page():null}

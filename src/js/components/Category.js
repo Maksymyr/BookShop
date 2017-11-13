@@ -23,7 +23,7 @@ export default class Category extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            toggleId: true,
+            toggleId: false,
             top_coord: 1,
             animate: 0,
         }
