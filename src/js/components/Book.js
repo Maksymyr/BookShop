@@ -29,7 +29,7 @@ export default class Book extends React.Component {
         this.props.futureBook(this.props.item.code)  
     }
     scrolling = () => {
-        window.scrollTo(0,460);
+        window.scrollTo(0,0);
     }
     handleAlert = () => {
         console.log(this)
