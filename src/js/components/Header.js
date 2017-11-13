@@ -56,7 +56,7 @@ export default class Header extends React.Component {
     }
 
     scrolling = () => {
-        window.scrollTo(0,420);
+        window.scrollTo(0,460);
     }
     scrollingUp = () => {
         window.scrollTo(0,0);
@@ -92,8 +92,8 @@ export default class Header extends React.Component {
                             <div ref='headerSlideImg' style={{backgroundImage: 'url('+ require("../../image/snails_team.png")+')'}} className='header-img'></div>
                             {/* <div ref='headerSlideImg2' style={{backgroundImage: 'url('+ require("../../image/snails_team.png")+')'}} className='header-img'></div> */}
                             {/* <div ref='headerSlideImg3' style={{backgroundImage: 'url('+ require("../../image/fill _books.png")+')'}} className='header-img'></div> */}
-                        </div>
-                    </div>
+                        {/* </div> */}
+                    {/* </div>
                 :  <div ref='headerSlideImg'></div> } */}
             </header>
         );

@@ -40,7 +40,7 @@ export default class Category extends React.Component{
     windowHeightDetect =() =>{}
 
     scrolling = () => {
-        window.scrollTo(0,420);
+        window.scrollTo(0,460);
     }
     componentDidMount() {
         this.handleTest()
