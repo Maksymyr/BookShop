@@ -19,11 +19,19 @@ const mapStateToProps = (state, ownProps) => {
 
     if(ownProps.match.params.id) {
         if(ownProps.match.url.replace(/[^a-z]/g, '')=='pages'){
-            if(state.books.length>21){
-                let newBooks=state.books.slice((ownProps.match.params.id-1)*21, (ownProps.match.params.id-1)*21+21);
-                return {books: newBooks, l:state.books.length, pages: ownProps.match.params.id, 
-                    sidebar: state.sidebar, filter: state.filter};
-            }
+            if(document.documentElement.clientWidth > 852){
+                if(state.books.length>21){
+                    let newBooks=state.books.slice((ownProps.match.params.id-1)*21, (ownProps.match.params.id-1)*21+21);
+                    return {books: newBooks, l:state.books.length, pages: ownProps.match.params.id, 
+                        sidebar: state.sidebar, filter: state.filter};
+                }
+            }else{
+                if(state.books.length>7){
+                    let newBooks=state.books.slice((ownProps.match.params.id-1)*7, (ownProps.match.params.id-1)*7+7);
+                    return {books: newBooks, l:state.books.length, pages: ownProps.match.params.id, 
+                        sidebar: state.sidebar, filter: state.filter};
+                }
+            }    
         }else
         return {
             books: state.books.filter((item, index) => {
@@ -122,37 +130,66 @@ export default class BookList extends React.Component {
     }
 
     page = () =>{
-        if (this.state.books.length > 21 || this.props.l > 21) {
-            let a=[];
-            if(this.state.books.length>21){
-            for(var i=1; i<Math.floor(this.state.books.length/21)+1; i++){
-                if(a[i]=='undefined'){
-                    a[i]=<Link to={`/pages${i+1}`} onClick={this.scrolling} key={i}><p className='pageP'>{i+1} </p></Link>
-                }else{
-                    a[i]=<Link to={`/pages${i+1}`} onClick={this.scrolling} key={i}><p className='pageP'>{i+1} </p></Link>
-                }
-            }
-        }else{
-            for(var i=1; i<Math.floor(this.props.l/21)+2; i++){
-                if(+this.props.pages!=i){
-                    if(i==1){
-                        a[i]=<Link to="/" onClick={this.scrolling} key={i}><p className='pageP'>1</p></Link>
+        if(document.documentElement.clientWidth > 852){
+            if (this.state.books.length > 21 || this.props.l > 21) {
+                let a=[];
+                if(this.state.books.length>21){
+                for(var i=1; i<Math.floor(this.state.books.length/21)+1; i++){
+                    if(a[i]=='undefined'){
+                        a[i]=<Link to={`/pages${i+1}`} onClick={this.scrolling} key={i}><p className='pageP'>{i+1} </p></Link>
                     }else{
-                        a[i]=<Link to={`/pages${i}`} onClick={this.scrolling} key={i}><p className='pageP'>{i} </p></Link>
+                        a[i]=<Link to={`/pages${i+1}`} onClick={this.scrolling} key={i}><p className='pageP'>{i+1} </p></Link>
+                    }
+                }
+            }else{
+                for(var i=1; i<Math.floor(this.props.l/21)+2; i++){
+                    if(+this.props.pages!=i){
+                        if(i==1){
+                            a[i]=<Link to="/" onClick={this.scrolling} key={i}><p className='pageP'>1</p></Link>
+                        }else{
+                            a[i]=<Link to={`/pages${i}`} onClick={this.scrolling} key={i}><p className='pageP'>{i} </p></Link>
+                        }
                     }
                 }
             }
-        }
-            return (
-                <div className='page'>
-                    {a.map((item, index)=>{return item})}
-                </div>
-            );
+                return (
+                    <div className='page'>
+                        {a.map((item, index)=>{return item})}
+                    </div>
+                );
+            }
+        }else{
+            if (this.state.books.length > 7 || this.props.l > 7) {
+                let a=[];
+                if(this.state.books.length>7){
+                for(var i=1; i<Math.floor(this.state.books.length/7)+1; i++){
+                    if(a[i]=='undefined'){
+                        a[i]=<Link to={`/pages${i+1}`} onClick={this.scrolling} key={i}><p className='pageP'>{i+1} </p></Link>
+                    }else{
+                        a[i]=<Link to={`/pages${i+1}`} onClick={this.scrolling} key={i}><p className='pageP'>{i+1} </p></Link>
+                    }
+                }
+            }else{
+                for(var i=1; i<Math.floor(this.props.l/7)+2; i++){
+                    if(+this.props.pages!=i){
+                        if(i==1){
+                            a[i]=<Link to="/" onClick={this.scrolling} key={i}><p className='pageP'>1</p></Link>
+                        }else{
+                            a[i]=<Link to={`/pages${i}`} onClick={this.scrolling} key={i}><p className='pageP'>{i} </p></Link>
+                        }
+                    }
+                }
+            }
+                return (
+                    <div className='page'>
+                        {a.map((item, index)=>{return item})}
+                    </div>
+                );
+            }
         }    
     }
     
     render() {
-        // console.log (this.state.books)
             return (
             <div>   
                                
@@ -163,8 +200,9 @@ export default class BookList extends React.Component {
                               
                     <div className="book-list-main">
                         <div id="w77"   className="book-list"  ref="book_list"> 
-                            {this.props.match.url=='/' ? <HeaderSlider /> : null}  
-                            {this.state.books?this.state.books.slice(0,21).map((item, index) => <Book item={item} key={index} index={index}/>):null}
+                            {this.props.match.url=='/' ? <HeaderSlider /> : null} 
+                            {document.documentElement.clientWidth > 852 ? this.state.books.slice(0,21).map((item, index) => <Book item={item} key={index} index={index}/>): this.state.books.slice(0,7).map((item, index) => <Book item={item} key={index} index={index}/>)} 
+                            {/* {this.state.books?this.state.books.slice(0,21).map((item, index) => <Book item={item} key={index} index={index}/>):null} */}
                             {this.state.books?this.page():null}
                         </div>
                     </div>

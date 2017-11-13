@@ -43,7 +43,7 @@ export default class BookBasket extends React.Component {
                 this.props.allcost(this.state.cost/this.state.updown*this.refs.number.value, this.state.updown, this.refs.number.value);
                 this.setState({cost: this.state.cost/this.state.updown*this.refs.number.value})
                 this.setState({updown: this.refs.number.value})
-                
+            
             }else{
                 this.props.allcost(this.state.cost/this.state.updown*this.refs.number.value, this.state.updown, this.refs.number.value);
                 this.setState({cost: this.state.cost/this.state.updown*this.refs.number.value})
