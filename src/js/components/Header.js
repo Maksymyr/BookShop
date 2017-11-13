@@ -45,25 +45,26 @@ export default class Header extends React.Component {
     //         }}, 50)
         
     // }
-    // componentDidMount = () =>{
-    //     if (document.documentElement.clientWidth > 852) {
-    //         this.headerSlider()}
-    //         else null
-    //     window.addEventListener("resize", () => this.forceUpdate())
-    // }
-    // componentWillUnmount () {
-    //     window.removeEventListener("resize", () => this.forceUpdate())
-    // }
+    componentDidMount = () =>{
+        // if (document.documentElement.clientWidth > 852) {
+        //     this.headerSlider()}
+        //     else null
+        window.addEventListener("resize", () => this.forceUpdate())
+    }
+    componentWillUnmount () {
+        window.removeEventListener("resize", () => this.forceUpdate())
+    }
+
     scrolling = () => {
-        window.scrollTo(0,420);
+        window.scrollTo(0,460);
     }
     scrollingUp = () => {
         window.scrollTo(0,0);
     }
     render(){
-        
+        // style={document.documentElement.clientWidth > 852 ? {height: 400+"px"} : {height: 300+"px"}}
         return(
-            <header style={document.documentElement.clientWidth > 852 ? {height: 400+"px"} : {height: 300+"px"}} className="header">
+            <header  className="header">
                 <div className='head-center'>
                 <Link to='/' onClick={this.scrollingUp}className='logo-wrapper'> 
                     <div style={{backgroundImage: 'url('+ require("../../image/logo.png")+')'}} className='logo-snail'></div>
@@ -85,15 +86,15 @@ export default class Header extends React.Component {
                 </div> 
                 </div>
                 <div className='bottom-line'></div>
-                {document.documentElement.clientWidth > 852 ?
+                {/* {document.documentElement.clientWidth > 852 ?
                     <div className='header-slider-wrapper'>
                         <div id='headerSlider' className='header-slider'   style={{left: this.state.left}}>
                             <div ref='headerSlideImg' style={{backgroundImage: 'url('+ require("../../image/snails_team.png")+')'}} className='header-img'></div>
                             {/* <div ref='headerSlideImg2' style={{backgroundImage: 'url('+ require("../../image/snails_team.png")+')'}} className='header-img'></div> */}
                             {/* <div ref='headerSlideImg3' style={{backgroundImage: 'url('+ require("../../image/fill _books.png")+')'}} className='header-img'></div> */}
-                        </div>
-                    </div>
-                :  <div ref='headerSlideImg'></div> }
+                        {/* </div> */}
+                    {/* </div>
+                :  <div ref='headerSlideImg'></div> } */}
             </header>
         );
     }

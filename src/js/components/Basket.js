@@ -21,6 +21,7 @@ export default class Basket extends React.Component {
       
     allcost = (x, y, z) => {
         if(y!=0){
+            console.log('4')
             if(y>z){
                 console.log('2')
                 this.setState({allcost: this.state.allcost-x})

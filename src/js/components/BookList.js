@@ -8,6 +8,7 @@ import {bindActionCreators} from 'redux';
 
 import Book from './Book';
 import Filter from './Filter';
+import HeaderSlider from './HeaderSlider';
 
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({searchBook, setStick}, dispatch)
@@ -55,7 +56,6 @@ const mapStateToProps = (state, ownProps) => {
     } 
     else {
         if (ownProps.match.url == '/buy') {
-            // console.log(state.bought)
             return {books: state.bought}
         }
         else
@@ -83,10 +83,9 @@ export default class BookList extends React.Component {
         }     
     }
     scrolling = () => {
-        window.scrollTo(0,420);
+        window.scrollTo(0,460);
     }
     componentDidMount(){
-        // console.log(this.refs.book_list.offsetTop+ this.refs.book_list.clientHeight)
         if (this.props.match.url != '/buy') 
             this.setState({ books: this.state.books.sort((item, nextItem) => (item.rating < nextItem.rating) ? 1 : (item.rating > nextItem.rating) ? -1 : 0), check: null });
         
@@ -155,13 +154,16 @@ export default class BookList extends React.Component {
     render() {
         // console.log (this.state.books)
             return (
-            <div>    
+            <div>   
+                               
                 <Filter />
-                <div>
-                    {<Category />                }
+                <div> 
+                    
+                    <Category />    
+                              
                     <div className="book-list-main">
-                        <div id="w77"   className="book-list"  ref="book_list">
-                         {/*console.log(this.state.books)*/} 
+                        <div id="w77"   className="book-list"  ref="book_list"> 
+                            {this.props.match.url=='/' ? <HeaderSlider /> : null}  
                             {this.state.books?this.state.books.slice(0,21).map((item, index) => <Book item={item} key={index} index={index}/>):null}
                             {this.state.books?this.page():null}
                         </div>

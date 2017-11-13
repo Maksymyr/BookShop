@@ -3,7 +3,7 @@
     width: 80%;
     margin: 0 auto;
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
       h2{
         margin: 0 auto;
         display: block;
@@ -34,12 +34,8 @@
       display: inline-block;
       margin-right: 10px;
     }
-    .btn-wrapper{
-      position: absolute;
-    }
   
     .btn{
-      margin-top: -17px;
       position: absolute;
       cursor: pointer;
       opacity: 0.5;
@@ -58,11 +54,11 @@
       }
     }
     .btn-left{
-      left: 19%;
+      left: 70px;
       
     }
     .btn-right{
-      right: 19%;
+      right: 80px;
   
     }
   }

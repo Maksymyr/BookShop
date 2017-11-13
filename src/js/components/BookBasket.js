@@ -37,6 +37,7 @@ export default class BookBasket extends React.Component {
         this.setState({cost: this.state.cost*a})
     }
     updownbtn = () => {
+        console.log(this.props)
         if(this.state.updown!=0){
             if(this.state.updown>this.refs.number.value){
                 this.props.allcost(this.state.cost/this.state.updown*this.refs.number.value, this.state.updown, this.refs.number.value);

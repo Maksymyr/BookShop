@@ -78,7 +78,7 @@ export default  class BookPage extends React.Component{
                     <h1 className="page_title">{this.props.item.name}</h1>
                     <p className="page_info"><span>Автор:</span> {this.props.item.author}</p>
                     <p className="page_info"><span>Жанр:</span> {this.props.item.type}</p>
-                    {this.props.item.seria? <p className="page_info"><span>Серия:</span> {this.props.item.seria}</p> : null}
+                    {this.props.item.seria ? <p className="page_info"><span>Серия:</span> {this.props.item.seria}</p> : null}
                     <div className="star_container">
 
                     {this.star(this.props.item.rating)}
