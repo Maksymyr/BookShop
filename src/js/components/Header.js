@@ -56,7 +56,7 @@ export default class Header extends React.Component {
     }
 
     scrolling = () => {
-        window.scrollTo(0,460);
+        window.scrollTo(0,0);
     }
     scrollingUp = () => {
         window.scrollTo(0,0);

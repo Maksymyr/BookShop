@@ -29,29 +29,30 @@ export default class Category extends React.Component{
         }
         this.handleTest = this.handleTest.bind(this);
     }
-    getCoord = (elem) => {
-        var box = elem.getBoundingClientRect();
+    // getCoord = (elem) => {
+    //     var box = elem.getBoundingClientRect();
         
-          return {
-            top: box.top + pageYOffset,
-            left: box.left + pageXOffset
-          };
-    }
+    //       return {
+    //         top: box.top + pageYOffset,
+    //         left: box.left + pageXOffset
+    //       };
+    // }
     windowHeightDetect =() =>{}
 
     scrolling = () => {
-        window.scrollTo(0,460);
+        window.scrollTo(0,0);
     }
     componentDidMount() {
-        this.handleTest()
+        this.handleTest();
+        window.addEventListener("resize", () => this.forceUpdate());
     }
     componentWillUnmount(){
-        window.onscroll = null;
+        window.onscroll = null; 
+        window.removeEventListener("resize", () => this.forceUpdate())
     }
-
     handleTest(e) {
         
-        var wrap = this.getCoord(this.refs.wrapp)
+        // var wrap = this.getCoord(this.refs.wrapp)
         window.onscroll = (e) =>{
             //console.log(this.refs.wrapp.clientHeight + ':::::::::' + this.refs.wrapp.offsetHeight + "::::::" + this.refs.wrapp.scrollHeight )
             //console.log(this.refs.wrapp.getBoundingClientRect().height)
@@ -72,11 +73,6 @@ export default class Category extends React.Component{
                 
 
             }
-
-
-
-
-          
         }  
     }
     
@@ -96,9 +92,9 @@ export default class Category extends React.Component{
     render(){
         return(
             <div ref="check_postion">
-                <div id={this.props.visible? "w20" : "w0"}  className={this.state.toggleId ? "category_wrap relative_cat" : "category_wrap fixed_cat"} ref="wrapp">
+                <div style={document.documentElement.clientWidth > 852 ? {width: "20%"} : {width: "95%", height: "70vh"}} id={this.props.visible? document.documentElement.clientWidth > 852 ? "w20" : "w100" : "w0"} 
+                className={this.state.toggleId ? document.documentElement.clientWidth > 852 ? "category_wrap relative_cat" : "category_wrap fixed_cat" : "category_wrap fixed_cat"} ref="wrapp"> 
                         <div className="category_hide" ref="hide_show" onClick={this.handleShow}>Category</div>
-                        {/* <div className="category_bookmark" style={{backgroundImage: 'url('+ require("../../icon/bookmark.png")+')'}}></div> */}
                         <div className="category_body" ref="category_body">
                         <h3 onClick={this.handleTest} ref="title">Категории:</h3>
                             {this.props.category.map((item, index) =>

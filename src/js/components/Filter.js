@@ -31,7 +31,6 @@ export default class Filter extends React.Component {
     filtring = () => {
         // console.log(this.refs.selected.value);
         this.props.filterBooks(this.refs.selected.value);
-        this.props.history.push("/");
     }
     render() {
         
