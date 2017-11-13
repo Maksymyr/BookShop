@@ -15,4 +15,5 @@ export const FETCH_DATA = "FETCH_DATA";
 export const API_DATA = "API_DATA";
 export const RATE = "RATE";
 export const BOUGHT_BOOK = "BOUGHT_BOOK";
+export const SET_STICK = "SET_STICK";
 
