@@ -14,6 +14,9 @@ const middleware = store => next => action => {
     if(action.type == types.DEL_ALL_BASKET){
         localStorage.setItem("Basket",null)
     }
+    if(action.type == types.RATE) {
+        
+    }
     return;
 }
 export default middleware;
