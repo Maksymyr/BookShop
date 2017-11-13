@@ -13,9 +13,28 @@ const mapStateToProps = (state) => {
 @connect(mapStateToProps, mapDispatchToProps)
 export default class Basket extends React.Component {
     constructor(props){
-        super(props)
+        super(props),
+        this.state = {
+            allcost:0
+        }
     }
       
+    allcost = (x, y, z) => {
+        if(y!=0){
+            if(y>z){
+                console.log('2')
+                this.setState({allcost: this.state.allcost-x})
+            }
+            else{
+                console.log('3')
+                this.setState({allcost: this.state.allcost+x})
+            }
+        }else{
+            console.log('1')
+            this.setState({allcost: this.state.allcost+x})
+        }    
+    }
+
     bought = () => {
         this.props.addNotify("Кросавчег! Твои книги уже в пути!")
         this.props.boughtBook(this.props.books);
@@ -41,11 +60,11 @@ export default class Basket extends React.Component {
                 </span> */}
                </div>
                 {this.addbooktobasket()}
-                
                 <div className="basket-add-contacts">
                     <br/>
                 {/* <p className='clearfix'> Очистить корзину</p> */}
                 <div className='del-all-wrapper'>
+                <div>{this.state.allcost}</div>
                 <button className='basket-button del-all' onClick={this.props.delallbasket}>Удалить всё</button>
                 </div>
                 <hr/>
@@ -85,7 +104,7 @@ export default class Basket extends React.Component {
           if(b[i]=='') continue
           else a.push(b[i])
         }
-        return a.map((item, index)=> {return <BookBasket books={item} index={index} key={index}/>})
+        return a.map((item, index)=> {return <BookBasket books={item} index={index} key={index} allcost={this.allcost}/>})
     }
 
     render(){

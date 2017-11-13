@@ -27,6 +27,7 @@ export default  class BookPage extends React.Component{
         like: false,
         disslike: false,
     }
+    
     componentDidMount() {
         this.props.addWatchedBooks(this.props.item)
     }
@@ -68,6 +69,7 @@ export default  class BookPage extends React.Component{
         return stars;
     }
     render(){
+        var counter = 0;
         return(
             <div className="book_page">
                 
@@ -91,11 +93,14 @@ export default  class BookPage extends React.Component{
                     <h3>Описание книги:</h3>
                     <div>
                     <p className="page_description">{this.props.item.description}</p>
-                    <h3>Книги автора: </h3>
+                    <h3>Другие книги автора: </h3>
                     <div className="similar">
 
                         {this.props.books.map((itm, index) => {
-                            if(this.props.item.author == itm.author){
+                            
+                            if(this.props.item.author == itm.author && counter <=1 ){
+                                counter++
+                                console.log(index)
                                 return  <Link to={`page${itm.code}`} key={index}><div  className="small_book">
                                         <img id="imeg" src={itm.img}/>
                                         <p>{itm.name}</p>

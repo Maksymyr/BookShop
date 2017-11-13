@@ -15,9 +15,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state, ownProps) => {
    
-    if(ownProps.match.url=='/buy'){
-        return { books: JSON.parse(localStorage.getItem('buybook'))}
-    }else
+
     if(ownProps.match.params.id) {
         if(ownProps.match.url.replace(/[^a-z]/g, '')=='pages'){
             if(state.books.length>20){
@@ -54,9 +52,10 @@ const mapStateToProps = (state, ownProps) => {
                 books: state.books.filter((item)=>item.author==ownProps.match.params.idauthor)
             }
         }
-    }
+    } 
     else {
         if (ownProps.match.url == '/buy') {
+            console.log(state.bought)
             return {books: state.bought}
         }
         else
@@ -87,13 +86,12 @@ export default class BookList extends React.Component {
         window.scrollTo(0,420);
     }
     componentDidMount(){
-        this.setState({ books: this.state.books.sort((item, nextItem) => (item.rating < nextItem.rating) ? 1 : (item.rating > nextItem.rating) ? -1 : 0), check: null });
+        if (this.props.match.url != '/buy') 
+            this.setState({ books: this.state.books.sort((item, nextItem) => (item.rating < nextItem.rating) ? 1 : (item.rating > nextItem.rating) ? -1 : 0), check: null });
         
     }
     componentDidUpdate(){
-        // if(this.props.match.url.replace(/[^a-z]/g, '')==''){
-        //     window.scrollTo(0,0);
-        // }
+
         if(this.state.check == this.props.filter) {
             switch(this.state.check) {
                 case("name_a"):
