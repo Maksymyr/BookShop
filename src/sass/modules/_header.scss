@@ -1,6 +1,12 @@
+.head-center:after{
+  clear: both;
+  display: table;
+  content: '';
+}
+
 header.header {
   width: 100%;
-  height: 400px;
+  
   background: white;
   position: static;
   z-index: 100;
@@ -9,7 +15,7 @@ header.header {
   .logo-wrapper{
     text-decoration: none;
     margin-top: 15px;
-    width: 200px;
+    width: 115px;
     display: block;
     display: inline-block;
   }
@@ -37,11 +43,12 @@ header.header {
   .header-nav{
     float: right;
     margin-top: 40px;
+    nav { 
+      float: right;
+    }
     form{
-      display: inline-block;
-      // .search-icon{
-      //   display: inline-block;
-      // }
+      float: right;
+   
       .search{
         width: 200px;
         height: 30px;
@@ -64,6 +71,11 @@ header.header {
       }
     }
   }
+  
+
+
+
+
   .menu-links{
     font-size: 22px;
     margin-left: 15px;
@@ -110,14 +122,14 @@ header.header {
   }
   .header-slider{
     position: absolute;
-    width: 200%;
+    width: 100%;
 
 
     .header-img{
       height: 100%;
       float: left;
-      width: 1100px;
-      height: 250px;
+      width: 100%;
+      height: 300px;
       background-size: 100% 100%;
     }
   }

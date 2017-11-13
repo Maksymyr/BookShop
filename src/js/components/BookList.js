@@ -3,14 +3,14 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import Category from '../components/Category'
 
-import {searchBook} from '../actions';
+import {searchBook, setStick} from '../actions';
 import {bindActionCreators} from 'redux';
 
 import Book from './Book';
 import Filter from './Filter';
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({searchBook}, dispatch)
+    return bindActionCreators({searchBook, setStick}, dispatch)
 }
 
 const mapStateToProps = (state, ownProps) => {
@@ -18,8 +18,8 @@ const mapStateToProps = (state, ownProps) => {
 
     if(ownProps.match.params.id) {
         if(ownProps.match.url.replace(/[^a-z]/g, '')=='pages'){
-            if(state.books.length>20){
-                let newBooks=state.books.slice((ownProps.match.params.id-1)*20, (ownProps.match.params.id-1)*20+20);
+            if(state.books.length>21){
+                let newBooks=state.books.slice((ownProps.match.params.id-1)*21, (ownProps.match.params.id-1)*21+21);
                 return {books: newBooks, l:state.books.length, pages: ownProps.match.params.id, 
                     sidebar: state.sidebar, filter: state.filter};
             }
@@ -55,7 +55,7 @@ const mapStateToProps = (state, ownProps) => {
     } 
     else {
         if (ownProps.match.url == '/buy') {
-            console.log(state.bought)
+            // console.log(state.bought)
             return {books: state.bought}
         }
         else
@@ -86,6 +86,7 @@ export default class BookList extends React.Component {
         window.scrollTo(0,420);
     }
     componentDidMount(){
+        // console.log(this.refs.book_list.offsetTop+ this.refs.book_list.clientHeight)
         if (this.props.match.url != '/buy') 
             this.setState({ books: this.state.books.sort((item, nextItem) => (item.rating < nextItem.rating) ? 1 : (item.rating > nextItem.rating) ? -1 : 0), check: null });
         
@@ -122,10 +123,10 @@ export default class BookList extends React.Component {
     }
 
     page = () =>{
-        if (this.state.books.length > 20 || this.props.l > 20) {
+        if (this.state.books.length > 21 || this.props.l > 21) {
             let a=[];
-            if(this.state.books.length>20){
-            for(var i=1; i<Math.floor(this.state.books.length/20)+1; i++){
+            if(this.state.books.length>21){
+            for(var i=1; i<Math.floor(this.state.books.length/21)+1; i++){
                 if(a[i]=='undefined'){
                     a[i]=<Link to={`/pages${i+1}`} onClick={this.scrolling} key={i}><p className='pageP'>{i+1} </p></Link>
                 }else{
@@ -133,7 +134,7 @@ export default class BookList extends React.Component {
                 }
             }
         }else{
-            for(var i=1; i<Math.floor(this.props.l/20)+2; i++){
+            for(var i=1; i<Math.floor(this.props.l/21)+2; i++){
                 if(+this.props.pages!=i){
                     if(i==1){
                         a[i]=<Link to="/" onClick={this.scrolling} key={i}><p className='pageP'>1</p></Link>
@@ -161,7 +162,7 @@ export default class BookList extends React.Component {
                     <div className="book-list-main">
                         <div id="w77"   className="book-list"  ref="book_list">
                          {/*console.log(this.state.books)*/} 
-                            {this.state.books?this.state.books.slice(0,20).map((item, index) => <Book item={item} key={index} index={index}/>):null}
+                            {this.state.books?this.state.books.slice(0,21).map((item, index) => <Book item={item} key={index} index={index}/>):null}
                             {this.state.books?this.page():null}
                         </div>
                     </div>

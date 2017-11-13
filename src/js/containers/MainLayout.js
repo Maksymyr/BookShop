@@ -6,23 +6,26 @@ import Basket from '../components/Basket'
 import BookPage from '../components/BookPage'
 import { Route, Switch, Link } from 'react-router-dom';
 import BookList from '../components/BookList';
+import HeaderSlider from '../components/HeaderSlider';
 import AdminPanel from '../components/AdminPanel';
 import Notify from '../components/Notify';
 
 export default class MainLayout extends React.Component {
     constructor(props){
         super(props);
-        this.state = {types: []
+        this.state = {types: [],
         }
         this.arrayTypes = this.arrayTypes.bind(this);
     }
     arrayTypes(type) {
         this.setState({types: type});
     }
+    
     render() {
         return (
             <div className="wrapper">
                 <Header />
+                <HeaderSlider />
                 <Switch>
                     <Route exact path="/" component={BookList}/>
                     <Route path="/category:id" component= {BookList}/>

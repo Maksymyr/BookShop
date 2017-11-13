@@ -11,7 +11,7 @@
 //   }
 // }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 852px) {
     footer .footer-wrapper {
         flex-direction: column;
         flex-flow: column;
@@ -25,7 +25,14 @@
             width: 60px;
         }
     }
-
+    .header-nav{
+        nav { 
+            float: left;
+        }
+        form{
+            float: left;
+        }
+    }
 
     .book_page{
         width: 100%;
@@ -36,6 +43,21 @@
             font-size: 1.4rem;
         }
     }
+    nav{
+        margin-top: 10px;
+    }
+
+    .header.header .header-nav {
+        float: none;
+        a{
+            display: block;
+        }
+    }
+    header.header .menu {
+        // margin-top: 10px;
+        margin-left: 0px;
+    }
+    
 }
 
 @media only screen and (max-width: 620px) {

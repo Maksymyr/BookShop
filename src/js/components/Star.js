@@ -17,9 +17,9 @@ export default class Book extends React.Component {
         //console.log(this.props.data)
         let rate_obj = {
             book_code: this.props.code,
-            rate: this.props.data
+            rate: this.props.data +1
         }
-        console.log(rate_obj)
+        // console.log(rate_obj)
         this.props.rateBook(rate_obj)
     }
 

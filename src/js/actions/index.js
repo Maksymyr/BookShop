@@ -17,4 +17,6 @@ export const apiData = (payload) => ({type: types.API_DATA, payload});
 export const rateBook = (payload) => ({type: types.RATE, payload});
 export const boughtBook = (payload) => ({type: types.BOUGHT_BOOK, payload});
 export const addWatchedBooks = (payload) => ({type: types.ADD_WATCHED_BOOKS, payload})
+export const setStick = (payload) => ({type: types.SET_STICK, payload})
+
 
