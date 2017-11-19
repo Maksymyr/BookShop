@@ -12,6 +12,16 @@
 // }
 
 @media only screen and (max-width: 852px) {
+    .category_wrap{
+        display: none;
+    }
+    #w77{
+        width: 100%;
+    }
+    .book{
+        margin-left: auto;
+        margin-bottom: 20px
+    }
     footer .footer-wrapper {
         flex-direction: column;
         flex-flow: column;

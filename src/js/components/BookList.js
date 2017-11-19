@@ -208,7 +208,7 @@ export default class BookList extends React.Component {
                             {document.documentElement.clientWidth > 852 ? this.state.books.slice(0,21).map((item, index) => <Book item={item} key={index} index={index}/>): this.state.books.slice(0,7).map((item, index) => <Book item={item} key={index} index={index}/>)} 
                             {/* {this.state.books?this.state.books.slice(0,21).map((item, index) => <Book item={item} key={index} index={index}/>):null} */}
                         
-                             {this.state.books?this.page():null}
+                             {this.state.books ?this.page():null}
                         </div>
                     </div>
                  </div>

@@ -19,12 +19,18 @@ export default class Header extends React.Component {
     }
 
     search=(event)=>{
+       
         if (event.key === "Enter") {
             let t= this.refs.search.value
             this.refs.search.value='';
             this.props.searchBook(t);
-            return (this.props.history.push(`/search/${t}`))
+            console.log(this.props.history)
+            console.log(t);
+            
+            this.props.history.push(`/search/${t}`)
+            event.preventDefault();
         }
+        
     }
 
 
