@@ -51,6 +51,7 @@ export default class Filter extends React.Component {
                         </select>
                     </div>
                 </form>
+                <Link className="but" to={'/catp'}>Категориии</Link>
                 <p>В наличии {this.state.count} книг</p>
                 
             </div>

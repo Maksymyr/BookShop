@@ -1,4 +1,10 @@
 @media only screen and (max-width: 1060px) {
+// Category page
+$wid: 100%/3;
+.category-variant{
+    width: $wid;
+}
+
 // bookPage----------------
 .book_page{
     width: 100%;
@@ -9,7 +15,7 @@
         font-size: 1.4rem;
         width: 100%;
         float: none;
-
+            
     }
     .similar{
         width: 100%;

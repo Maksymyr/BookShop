@@ -71,7 +71,11 @@
 }
 
 @media only screen and (max-width: 620px) {
-
+    // Category page
+    .category-variant{
+        width: 50%;
+    }
+    // Book Page
     .book_page #imeg2{
         margin: 0 auto;
         margin-bottom: 20px;
